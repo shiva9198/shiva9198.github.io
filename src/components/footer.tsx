@@ -101,9 +101,7 @@ export function Footer() {
 
             <div className="flex items-center space-x-4">
               <span className="text-sm text-muted-foreground">
-                              <p className="text-sm text-muted-foreground">
-                © 2025  Shiva Santosh Reddy Aenugu. All rights reserved.
-              </p>
+                © 2025 Shiva Santosh Reddy Aenugu. All rights reserved.
               </span>
               
               <Button

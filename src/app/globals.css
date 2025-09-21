@@ -405,6 +405,20 @@ body {
   100% { background-position: 0% 50%; }
 }
 
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes bounce-stagger {
+  0%, 60%, 100% { 
+    transform: translateY(0); 
+  }
+  30% { 
+    transform: translateY(-10px); 
+  }
+}
+
 /* Dark Theme Enhanced Classes */
 .dark .animate-pulse-glow {
   animation: pulse-glow 3s ease-in-out infinite;
@@ -422,6 +436,15 @@ body {
     rgba(42, 26, 74, 0.1));
   background-size: 400% 400%;
   animation: gradient-shift 8s ease infinite;
+}
+
+/* Animation utility classes */
+.animate-spin-slow {
+  animation: spin-slow 3s linear infinite;
+}
+
+.animate-bounce-stagger {
+  animation: bounce-stagger 1.5s ease-in-out infinite;
 }
 
 /* Enhanced Text Effects for Dark Theme */
