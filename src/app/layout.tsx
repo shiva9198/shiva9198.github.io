@@ -39,20 +39,16 @@ export default function RootLayout({
                     const isDark = parsed.state?.isDark || parsed.isDark;
                     if (isDark) {
                       document.documentElement.classList.add('dark');
-                      document.body.style.backgroundColor = '#0F0F1A';
                     } else {
                       document.documentElement.classList.remove('dark');
-                      document.body.style.backgroundColor = '#9381FF';
                     }
                   } else {
                     // Default to dark mode
                     document.documentElement.classList.add('dark');
-                    document.body.style.backgroundColor = '#0F0F1A';
                   }
                 } catch (e) {
                   // Default to dark mode if error
                   document.documentElement.classList.add('dark');
-                  document.body.style.backgroundColor = '#0F0F1A';
                 }
               })();
             `,
