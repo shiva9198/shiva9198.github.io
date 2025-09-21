@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import { HeroSection } from '@/components/sections/hero-section';
 import { AboutSection } from '@/components/sections/about-section';
 import { SkillsSection } from '@/components/sections/skills-section';
+import { CurrentWorkSection } from '@/components/sections/current-work-section';
 import { EducationSection } from '@/components/sections/education-section';
 import { CertificatesSection } from '@/components/sections/certificates-section';
 import { InternshipSection } from '@/components/sections/internship-section';
@@ -43,6 +44,11 @@ export default function HomePage() {
         {/* Skills Section */}
         <section id="skills" className="py-20 bg-background">
           <SkillsSection />
+        </section>
+
+        {/* Current Work Section */}
+        <section id="current-work" className="py-20 bg-background">
+          <CurrentWorkSection />
         </section>
 
         {/* Education Section */}

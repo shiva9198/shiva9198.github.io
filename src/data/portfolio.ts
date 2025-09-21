@@ -137,7 +137,86 @@ export const portfolioData = {
       featured: true,
       playgroundDemo: "sudoku-solver"
     }
-  ]
+  ],
+
+  currentWork: {
+    status: "actively-building",
+    lastUpdated: "2025-01-21",
+    projects: [
+      {
+        title: "AI-Powered Portfolio Assistant",
+        description: "Building an intelligent chatbot that can answer questions about my skills, projects, and experience using OpenAI API and LangChain.",
+        progress: 75,
+        tech: ["Next.js", "OpenAI API", "LangChain", "TypeScript"],
+        startDate: "2025-01-01",
+        estimatedCompletion: "2025-02-15",
+        category: "AI/ML",
+        status: "in-progress",
+        highlights: [
+          "Implemented RAG (Retrieval Augmented Generation)",
+          "Custom knowledge base from portfolio data",
+          "Real-time chat interface with streaming responses"
+        ]
+      },
+      {
+        title: "Full-Stack E-commerce Platform",
+        description: "Developing a modern e-commerce solution with React, Node.js, and MongoDB featuring advanced search, payment integration, and admin dashboard.",
+        progress: 60,
+        tech: ["React", "Node.js", "MongoDB", "Stripe API", "Docker"],
+        startDate: "2024-12-10",
+        estimatedCompletion: "2025-03-01",
+        category: "Full-Stack",
+        status: "in-progress",
+        highlights: [
+          "Microservices architecture with Docker",
+          "Real-time inventory management",
+          "Advanced search with Elasticsearch"
+        ]
+      },
+      {
+        title: "Machine Learning Model Deployment",
+        description: "Creating a scalable ML pipeline for image classification using TensorFlow and deploying with FastAPI and AWS.",
+        progress: 40,
+        tech: ["Python", "TensorFlow", "FastAPI", "AWS", "Docker"],
+        startDate: "2025-01-15",
+        estimatedCompletion: "2025-04-01",
+        category: "AI/ML",
+        status: "planning",
+        highlights: [
+          "Custom CNN architecture",
+          "Automated model retraining pipeline",
+          "Cloud deployment with auto-scaling"
+        ]
+      }
+    ],
+    learning: [
+      {
+        topic: "Advanced React Patterns",
+        platform: "Online Courses & Documentation",
+        progress: 85,
+        focus: "Custom hooks, Context optimization, Performance patterns"
+      },
+      {
+        topic: "System Design",
+        platform: "Books & Practice",
+        progress: 60,
+        focus: "Scalable architectures, Database design, Microservices"
+      },
+      {
+        topic: "AWS Cloud Services",
+        platform: "AWS Documentation & Labs",
+        progress: 45,
+        focus: "Lambda, EC2, RDS, S3, CloudFormation"
+      }
+    ],
+    goals: [
+      "Complete AI Portfolio Assistant by February 2025",
+      "Deploy e-commerce platform with 99.9% uptime",
+      "Obtain AWS Solutions Architect certification",
+      "Contribute to 3 open-source ML projects",
+      "Build and deploy 5 production-ready applications"
+    ]
+  }
 };
 
 export type PortfolioData = typeof portfolioData;
