@@ -9,12 +9,12 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "SS - AI/ML Developer & Full-Stack Engineer",
-  description: "Portfolio of SS (Shiva Santosh Reddy Aenugu) - Aspiring Computer Science Engineer specializing in AI/ML and Full-Stack Development",
+  title: "AS - Portfolio",
+  description: "Portfolio of AS - Aspiring Computer Science Engineer specializing in AI/ML and Full-Stack Development",
   keywords: ["AI", "ML", "Full-Stack", "React", "Python", "TypeScript", "Computer Science"],
-  authors: [{ name: "SS (Shiva Santosh Reddy Aenugu)" }],
+  authors: [{ name: "AS" }],
   openGraph: {
-    title: "SS - AI/ML Developer",
+    title: "AS - Portfolio",
     description: "Innovative AI/ML solutions and full-stack development",
     type: "website",
   },
