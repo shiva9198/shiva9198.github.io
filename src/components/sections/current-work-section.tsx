@@ -33,10 +33,10 @@ export function CurrentWorkSection() {
 
   const getStatusColor = (status: string) => {
     switch (status) {
-      case 'in-progress': return 'bg-blue-500';
-      case 'planning': return 'bg-yellow-500';
-      case 'completed': return 'bg-green-500';
-      default: return 'bg-primary';
+      case 'in-progress': return 'bg-emerald-600 hover:bg-emerald-700';
+      case 'planning': return 'bg-amber-600 hover:bg-amber-700';
+      case 'completed': return 'bg-green-600 hover:bg-green-700';
+      default: return 'bg-slate-600 hover:bg-slate-700';
     }
   };
 
@@ -60,10 +60,10 @@ export function CurrentWorkSection() {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gradient">
-            What I'm Working On
+            What I&apos;m Working On
           </h2>
           <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-            Currently building innovative projects and expanding my skillset. Here's what's keeping me busy and excited about the future.
+            Currently building innovative projects and expanding my skillset. Here&apos;s what&apos;s keeping me busy and excited about the future.
           </p>
           <div className="flex items-center justify-center mt-4 text-sm text-muted-foreground">
             <Calendar className="w-4 h-4 mr-2" />
@@ -222,15 +222,15 @@ export function CurrentWorkSection() {
 
           {/* Status Banner */}
           <motion.div variants={itemVariants}>
-            <Card className="glass border-primary/50 bg-primary/5">
+            <Card className="glass border-emerald-500/50 bg-emerald-500/10">
               <CardContent className="pt-6">
                 <div className="flex items-center justify-center text-center">
                   <div className="flex items-center space-x-3">
-                    <div className="w-3 h-3 bg-green-500 rounded-full animate-pulse" />
+                    <div className="w-3 h-3 bg-emerald-500 rounded-full animate-pulse" />
                     <span className="text-lg font-semibold text-gradient">
                       Currently Available for New Opportunities
                     </span>
-                    <div className="w-3 h-3 bg-green-500 rounded-full animate-pulse" />
+                    <div className="w-3 h-3 bg-emerald-500 rounded-full animate-pulse" />
                   </div>
                 </div>
                 <p className="text-center text-muted-foreground mt-2">

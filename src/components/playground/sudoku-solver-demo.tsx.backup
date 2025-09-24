@@ -1,15 +1,13 @@
 'use client';
 
-import { useState, useRef } from 'react';
+import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { RotateCcw, Zap, CheckCircle, Upload, Loader2, AlertCircle } from 'lucide-react';
-import { API_ENDPOINTS } from '@/lib/config';
+import { RotateCcw, Zap, CheckCircle } from 'lucide-react';
 
 type CellValue = number | null;
-
 type SudokuGrid = CellValue[][];
 
 const initialGrid: SudokuGrid = [
@@ -44,9 +42,6 @@ export function SudokuSolverDemo() {
   const [isSolving, setIsSolving] = useState(false);
   const [isValid, setIsValid] = useState(true);
   const [showSolution, setShowSolution] = useState(false);
-  const [isUploading, setIsUploading] = useState(false);
-  const [uploadMessage, setUploadMessage] = useState<string>('');
-  const fileInputRef = useRef<HTMLInputElement>(null);
 
   const validateGrid = (currentGrid: SudokuGrid): boolean => {
     // Check rows
@@ -100,134 +95,23 @@ export function SudokuSolverDemo() {
   const solveSudoku = async () => {
     setIsSolving(true);
     
-    try {
-      // Call the backend API
-      const response = await fetch(API_ENDPOINTS.SUDOKU_SOLVER, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          puzzle: grid.map(row => row.map(cell => cell || 0))
-        }),
-      });
-
-      if (!response.ok) {
-        throw new Error('Failed to solve Sudoku');
-      }
-
-      const result = await response.json();
-      
-      if (result.is_valid) {
-        // Animate the solution
-        for (let row = 0; row < 9; row++) {
-          for (let col = 0; col < 9; col++) {
-            if (!isOriginal[row][col]) {
-              await new Promise(resolve => setTimeout(resolve, 30));
-              setGrid(prevGrid => {
-                const newGrid = prevGrid.map(r => [...r]);
-                newGrid[row][col] = result.solution[row][col];
-                return newGrid;
-              });
-            }
-          }
-        }
-        setShowSolution(true);
-        setIsValid(true);
-      } else {
-        setUploadMessage('No valid solution found for this puzzle');
-      }
-    } catch (error) {
-      console.error('Error solving Sudoku:', error);
-      setUploadMessage('Failed to solve puzzle. Using fallback solution.');
-      
-      // Fallback to local solving animation
-      for (let row = 0; row < 9; row++) {
-        for (let col = 0; col < 9; col++) {
-          if (!isOriginal[row][col]) {
-            await new Promise(resolve => setTimeout(resolve, 50));
-            setGrid(prevGrid => {
-              const newGrid = prevGrid.map(r => [...r]);
-              newGrid[row][col] = solvedGrid[row][col];
-              return newGrid;
-            });
-          }
+    // Simulate solving animation
+    for (let row = 0; row < 9; row++) {
+      for (let col = 0; col < 9; col++) {
+        if (!isOriginal[row][col]) {
+          await new Promise(resolve => setTimeout(resolve, 50));
+          setGrid(prevGrid => {
+            const newGrid = prevGrid.map(r => [...r]);
+            newGrid[row][col] = solvedGrid[row][col];
+            return newGrid;
+          });
         }
       }
-      setShowSolution(true);
-      setIsValid(true);
-    } finally {
-      setIsSolving(false);
     }
-  };
 
-  const handleImageUpload = async (event: React.ChangeEvent<HTMLInputElement>) => {
-    const file = event.target.files?.[0];
-    if (!file) return;
-
-    setIsUploading(true);
-    setUploadMessage('');
-
-    try {
-      const formData = new FormData();
-      formData.append('file', file);
-
-      // Call the backend two-pass solve endpoint
-      const response = await fetch(API_ENDPOINTS.SUDOKU_SOLVE_IMAGE, {
-        method: 'POST',
-        body: formData,
-      });
-
-      if (!response.ok) {
-        throw new Error('Failed to process image');
-      }
-
-      const result = await response.json();
-
-      // Two-pass endpoint returns chosen_threshold, extracted_grid, solution, attempts
-      const extractedGrid = result.extracted_grid.map((row: number[]) => 
-        row.map((cell: number) => cell === 0 ? null : cell)
-      );
-
-      setGrid(extractedGrid);
-      setIsOriginal(result.extracted_grid.map((row: number[]) => 
-        row.map((cell: number) => cell !== 0)
-      ));
-
-      setShowSolution(false);
-      setIsValid(validateGrid(extractedGrid));
-
-      // build upload message with chosen threshold info
-      let msg = result.solved ? 'Solved by backend' : 'Extraction complete';
-      if (result.chosen_threshold) {
-        msg += ` — chosen threshold: ${result.chosen_threshold}`;
-      }
-      setUploadMessage(msg);
-
-      // If a solution was provided, prompt to show it
-      if (result.solution) {
-        setTimeout(() => {
-          const confirmed = window.confirm('OCR extraction complete! Would you like to see the solution?');
-          if (confirmed) {
-            const solutionGrid = result.solution.map((row: number[]) => 
-              row.map((cell: number) => cell === 0 ? null : cell)
-            );
-            setGrid(solutionGrid);
-            setShowSolution(true);
-          }
-        }, 500);
-      }
-
-    } catch (error) {
-      console.error('Error uploading image:', error);
-      setUploadMessage('Failed to process image. Please try again with a clearer Sudoku puzzle image.');
-    } finally {
-      setIsUploading(false);
-    }
-  };
-
-  const triggerFileUpload = () => {
-    fileInputRef.current?.click();
+    setIsSolving(false);
+    setShowSolution(true);
+    setIsValid(true);
   };
 
   const resetGrid = () => {
@@ -235,7 +119,6 @@ export function SudokuSolverDemo() {
     setIsOriginal(initialGrid.map(row => row.map(cell => cell !== null)));
     setShowSolution(false);
     setIsValid(true);
-    setUploadMessage('');
   };
 
   const clearUserInput = () => {
@@ -245,7 +128,6 @@ export function SudokuSolverDemo() {
     setGrid(newGrid);
     setShowSolution(false);
     setIsValid(validateGrid(newGrid));
-    setUploadMessage('');
   };
 
   return (
@@ -269,27 +151,6 @@ export function SudokuSolverDemo() {
         </div>
         
         <div className="flex gap-2">
-          <input
-            type="file"
-            ref={fileInputRef}
-            onChange={handleImageUpload}
-            accept="image/*"
-            className="hidden"
-          />
-          <Button
-            size="sm"
-            variant="outline"
-            onClick={triggerFileUpload}
-            disabled={isUploading}
-            className="glass hover:animate-glow transition-all duration-300"
-          >
-            {isUploading ? (
-              <Loader2 className="w-4 h-4 mr-2 animate-spin" />
-            ) : (
-              <Upload className="w-4 h-4 mr-2" />
-            )}
-            {isUploading ? 'Processing...' : 'Upload Image'}
-          </Button>
           <Button
             size="sm"
             variant="outline"
@@ -309,7 +170,7 @@ export function SudokuSolverDemo() {
           </Button>
           <Button
             onClick={solveSudoku}
-            disabled={isSolving || !isValid || isUploading}
+            disabled={isSolving || !isValid}
             className="glass hover:animate-glow transition-all duration-300"
           >
             <Zap className="w-4 h-4 mr-2" />
@@ -317,22 +178,6 @@ export function SudokuSolverDemo() {
           </Button>
         </div>
       </div>
-
-      {/* Upload Message */}
-      {uploadMessage && (
-        <Card className="glass border-0 backdrop-blur-lg">
-          <CardContent className="p-4">
-            <div className="flex items-center gap-2">
-              {uploadMessage.includes('Failed') || uploadMessage.includes('error') ? (
-                <AlertCircle className="w-4 h-4 text-orange-500" />
-              ) : (
-                <CheckCircle className="w-4 h-4 text-green-500" />
-              )}
-              <span className="text-sm">{uploadMessage}</span>
-            </div>
-          </CardContent>
-        </Card>
-      )}
 
       {/* Sudoku Grid */}
       <Card className="glass border-0 backdrop-blur-lg">
@@ -401,14 +246,8 @@ export function SudokuSolverDemo() {
           </div>
           
           <div className="mt-4 text-center text-xs text-muted-foreground">
-            💡 <strong>How it works:</strong> Upload a Sudoku image for OCR extraction, or manually input numbers. 
-            The recursive backtracking algorithm tries each number 1-9 in empty cells, validates the Sudoku rules, 
-            and backtracks when it hits a dead end.
-          </div>
-          
-          <div className="mt-2 text-center text-xs text-muted-foreground">
-            📷 <strong>OCR Feature:</strong> Upload a clear photo of a Sudoku puzzle and the AI will extract 
-            the numbers automatically using computer vision.
+            💡 <strong>How it works:</strong> The recursive backtracking algorithm tries each number 1-9 
+            in empty cells, validates the Sudoku rules, and backtracks when it hits a dead end.
           </div>
         </CardContent>
       </Card>

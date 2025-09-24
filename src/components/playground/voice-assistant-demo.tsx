@@ -6,13 +6,15 @@ import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Card, CardContent } from '@/components/ui/card';
 import { Textarea } from '@/components/ui/textarea';
-import { Send, Bot, User, Loader2 } from 'lucide-react';
+import { Send, Bot, User, Loader2, ExternalLink } from 'lucide-react';
+import { API_ENDPOINTS } from '@/lib/config';
 
 interface Message {
   id: string;
   type: 'user' | 'bot';
   content: string;
   timestamp: Date;
+  sourceUrl?: string;
 }
 
 export function VoiceAssistantDemo() {
@@ -51,32 +53,65 @@ export function VoiceAssistantDemo() {
     return `I found some information about "${query}". This is a simulated response for demo purposes. In the actual implementation, I would scrape relevant web content using BeautifulSoup, process it with NLTK for summarization, and provide you with the most relevant and concise information.`;
   };
 
-  const handleSend = async () => {
+    const handleSend = async () => {
     if (!input.trim() || isLoading) return;
 
     const userMessage: Message = {
       id: generateId(),
       type: 'user',
-      content: input,
+      content: input.trim(),
       timestamp: new Date(),
     };
 
     setMessages(prev => [...prev, userMessage]);
+    const currentInput = input.trim();
     setInput('');
     setIsLoading(true);
 
-    // Simulate API delay
-    setTimeout(() => {
+    try {
+      // Call the backend API
+      const response = await fetch(API_ENDPOINTS.VOICE_ASSISTANT, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          query: currentInput,
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to get response from assistant');
+      }
+
+      const result = await response.json();
+
       const botMessage: Message = {
         id: generateId(),
         type: 'bot',
-        content: simulateResponse(input),
+        content: result.response,
+        timestamp: new Date(),
+        sourceUrl: result.source_url,
+      };
+
+      setMessages(prev => [...prev, botMessage]);
+
+    } catch (error) {
+      console.error('Error calling voice assistant:', error);
+      
+      // Fallback to simulated response
+      const fallbackResponse = simulateResponse(currentInput);
+      const botMessage: Message = {
+        id: generateId(),
+        type: 'bot',
+        content: `${fallbackResponse}\n\n*Note: This is a fallback response. The AI assistant backend may be unavailable.*`,
         timestamp: new Date(),
       };
 
       setMessages(prev => [...prev, botMessage]);
+    } finally {
       setIsLoading(false);
-    }, 1500);
+    }
   };
 
   const handleKeyPress = (e: React.KeyboardEvent) => {
@@ -94,7 +129,7 @@ export function VoiceAssistantDemo() {
           <span className="text-sm text-muted-foreground">AI Assistant Online</span>
         </div>
         <Badge variant="secondary" className="glass">
-          Demo Mode
+          AI Assistant Ready
         </Badge>
       </div>
 
@@ -131,6 +166,19 @@ export function VoiceAssistantDemo() {
                       : 'bg-muted'
                   }`}>
                     <p className="text-sm leading-relaxed">{message.content}</p>
+                    {message.sourceUrl && (
+                      <div className="mt-2 pt-2 border-t border-muted-foreground/20">
+                        <a
+                          href={message.sourceUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center text-xs text-blue-400 hover:text-blue-300 transition-colors"
+                        >
+                          <ExternalLink className="w-3 h-3 mr-1" />
+                          View Source
+                        </a>
+                      </div>
+                    )}
                     <p className="text-xs opacity-70 mt-1">
                       {message.timestamp.toLocaleTimeString()}
                     </p>

@@ -5,10 +5,16 @@
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build --turbopack",
+    "build:production": "NODE_ENV=production next build --turbopack",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint --fix",
+    "lint:check": "eslint",
+    "type-check": "tsc --noEmit",
+    "analyze": "ANALYZE=true npm run build",
+    "clean": "rm -rf .next && rm -rf out"
   },
   "dependencies": {
+    "@emailjs/browser": "^4.4.1",
     "@radix-ui/react-avatar": "^1.1.10",
     "@radix-ui/react-icons": "^1.3.2",
     "@radix-ui/react-progress": "^1.1.7",

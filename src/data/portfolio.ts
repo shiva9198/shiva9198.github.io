@@ -141,80 +141,67 @@ export const portfolioData = {
 
   currentWork: {
     status: "actively-building",
-    lastUpdated: "2025-01-21",
+    lastUpdated: "2025-09-24",
     projects: [
       {
         title: "AI-Powered Portfolio Assistant",
-        description: "Building an intelligent chatbot that can answer questions about my skills, projects, and experience using OpenAI API and LangChain.",
-        progress: 75,
-        tech: ["Next.js", "OpenAI API", "LangChain", "TypeScript"],
-        startDate: "2025-01-01",
-        estimatedCompletion: "2025-02-15",
+        description: "Interactive AI assistant that helps visitors navigate and understand my portfolio, projects, and expertise using advanced natural language processing.",
+        progress: 90,
+        tech: ["Python", "FastAPI", "Natural Language Processing", "AI/ML"],
+        startDate: "2025-08-01",
+        estimatedCompletion: "2025-10-01",
         category: "AI/ML",
         status: "in-progress",
         highlights: [
-          "Implemented RAG (Retrieval Augmented Generation)",
-          "Custom knowledge base from portfolio data",
-          "Real-time chat interface with streaming responses"
+          "Real-time portfolio navigation assistance",
+          "Intelligent query understanding and response generation",
+          "Integration with backend API endpoints",
+          "Production-ready deployment"
         ]
       },
       {
-        title: "Full-Stack E-commerce Platform",
-        description: "Developing a modern e-commerce solution with React, Node.js, and MongoDB featuring advanced search, payment integration, and admin dashboard.",
-        progress: 60,
-        tech: ["React", "Node.js", "MongoDB", "Stripe API", "Docker"],
-        startDate: "2024-12-10",
-        estimatedCompletion: "2025-03-01",
-        category: "Full-Stack",
+        title: "Fine Tuning of LLM for Agentic AI",
+        description: "Advanced LLM fine-tuning service for creating intelligent agentic AI solutions tailored to specific tasks and domains.",
+        progress: 85,
+        tech: ["Large Language Models", "Fine-tuning", "Agentic AI", "Machine Learning"],
+        startDate: "2025-07-15",
+        estimatedCompletion: "2025-11-01",
+        category: "AI/ML",
         status: "in-progress",
         highlights: [
-          "Microservices architecture with Docker",
-          "Real-time inventory management",
-          "Advanced search with Elasticsearch"
-        ]
-      },
-      {
-        title: "Machine Learning Model Deployment",
-        description: "Creating a scalable ML pipeline for image classification using TensorFlow and deploying with FastAPI and AWS.",
-        progress: 40,
-        tech: ["Python", "TensorFlow", "FastAPI", "AWS", "Docker"],
-        startDate: "2025-01-15",
-        estimatedCompletion: "2025-04-01",
-        category: "AI/ML",
-        status: "planning",
-        highlights: [
-          "Custom CNN architecture",
-          "Automated model retraining pipeline",
-          "Cloud deployment with auto-scaling"
+          "Multi-agent architecture design and implementation",
+          "Custom fine-tuning pipelines for specialized tasks",
+          "Tool integration and API connections",
+          "Context management and decision-making frameworks"
         ]
       }
     ],
     learning: [
       {
-        topic: "Advanced React Patterns",
-        platform: "Online Courses & Documentation",
-        progress: 85,
-        focus: "Custom hooks, Context optimization, Performance patterns"
+        topic: "Advanced LLM Fine-tuning Techniques",
+        platform: "Research Papers & Implementation",
+        progress: 80,
+        focus: "RLHF, LoRA, QLoRA, Multi-task learning"
       },
       {
-        topic: "System Design",
-        platform: "Books & Practice",
-        progress: 60,
-        focus: "Scalable architectures, Database design, Microservices"
+        topic: "Agentic AI Systems",
+        platform: "Academic Research & Frameworks",
+        progress: 75,
+        focus: "Multi-agent coordination, Tool usage, Reasoning frameworks"
       },
       {
-        topic: "AWS Cloud Services",
-        platform: "AWS Documentation & Labs",
-        progress: 45,
-        focus: "Lambda, EC2, RDS, S3, CloudFormation"
+        topic: "Production ML Systems",
+        platform: "Industry Best Practices",
+        progress: 70,
+        focus: "Model deployment, Monitoring, Scaling, MLOps"
       }
     ],
     goals: [
-      "Complete AI Portfolio Assistant by February 2025",
-      "Deploy e-commerce platform with 99.9% uptime",
-      "Obtain AWS Solutions Architect certification",
-      "Contribute to 3 open-source ML projects",
-      "Build and deploy 5 production-ready applications"
+      "Launch AI-Powered Portfolio Assistant with full functionality",
+      "Complete comprehensive LLM fine-tuning framework",
+      "Deploy both projects to production with high availability",
+      "Open-source key components for community benefit",
+      "Establish portfolio as a showcase of cutting-edge AI capabilities"
     ]
   }
 };

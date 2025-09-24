@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from '@/components/theme-provider';
+import { ErrorBoundary } from '@/components/error-boundary';
 
 const inter = Inter({
   subsets: ["latin"],
@@ -59,9 +60,11 @@ export default function RootLayout({
         className={`${inter.className} antialiased min-h-screen bg-background text-foreground`}
         suppressHydrationWarning
       >
-        <ThemeProvider>
-          {children}
-        </ThemeProvider>
+        <ErrorBoundary>
+          <ThemeProvider>
+            {children}
+          </ThemeProvider>
+        </ErrorBoundary>
       </body>
     </html>
   );

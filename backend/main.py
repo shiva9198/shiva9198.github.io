@@ -4,10 +4,8 @@ from pydantic import BaseModel
 from typing import List, Optional
 import requests
 from bs4 import BeautifulSoup
-import openai
 import os
 from datetime import datetime
-import json
 
 app = FastAPI(title="Shiva's AI Portfolio Backend", version="1.0.0")
 
@@ -21,196 +19,136 @@ app.add_middleware(
 )
 
 # Pydantic models
-class VoiceAssistantRequest(BaseModel):
+class PortfolioAssistantRequest(BaseModel):
     query: str
-    url: Optional[str] = None
+    context: Optional[str] = None
 
-class VoiceAssistantResponse(BaseModel):
+class PortfolioAssistantResponse(BaseModel):
     response: str
-    source_url: Optional[str] = None
     timestamp: str
 
-class SudokuRequest(BaseModel):
-    puzzle: List[List[int]]
+class LLMTuningRequest(BaseModel):
+    task_description: str
+    data_type: str
+    expected_output: str
 
-class SudokuResponse(BaseModel):
-    solution: List[List[int]]
-    is_valid: bool
-    steps: int
-
-class DiaryEntry(BaseModel):
-    content: str
-    mood: Optional[str] = None
-    tags: Optional[List[str]] = None
-
-class DiaryResponse(BaseModel):
-    entry_id: str
-    content: str
-    mood: Optional[str]
-    tags: Optional[List[str]]
+class LLMTuningResponse(BaseModel):
+    tuning_plan: str
+    estimated_time: str
+    resources_needed: List[str]
     timestamp: str
-    analysis: str
 
-# Voice Assistant Endpoints
-@app.post("/api/voice-assistant", response_model=VoiceAssistantResponse)
-async def voice_assistant(request: VoiceAssistantRequest):
+# AI-Powered Portfolio Assistant
+@app.post("/api/portfolio-assistant", response_model=PortfolioAssistantResponse)
+async def portfolio_assistant(request: PortfolioAssistantRequest):
     """
-    AI Voice Assistant that can scrape web content and provide intelligent responses
+    AI-Powered Portfolio Assistant that helps users navigate and understand my portfolio
     """
     try:
-        if request.url:
-            # Web scraping functionality
-            response = requests.get(request.url, timeout=10)
-            soup = BeautifulSoup(response.content, 'html.parser')
-            
-            # Extract main content
-            text_content = soup.get_text()[:2000]  # Limit to first 2000 chars
-            
-            # Simulate AI response (replace with actual OpenAI/Hugging Face API)
-            ai_response = f"Based on the content from {request.url}, here's a summary: {text_content[:200]}..."
-            
-            return VoiceAssistantResponse(
-                response=ai_response,
-                source_url=request.url,
-                timestamp=datetime.now().isoformat()
-            )
-        else:
-            # General AI assistant response
-            # This would integrate with OpenAI/Hugging Face
-            mock_responses = {
-                "artificial intelligence": "AI is transforming industries through machine learning, natural language processing, and computer vision. Key areas include deep learning, neural networks, and automated decision-making systems.",
-                "machine learning": "Machine Learning enables computers to learn and improve from experience without explicit programming. Key techniques include supervised, unsupervised, and reinforcement learning.",
-                "python programming": "Python is a versatile programming language excellent for AI/ML, web development, and data science. Key libraries include NumPy, Pandas, TensorFlow, and PyTorch.",
-                "tech news": "Latest in tech: AI breakthroughs in LLMs, quantum computing advances, sustainable tech innovations, and the rise of edge computing for IoT applications.",
-                "web development": "Modern web development uses frameworks like React, Next.js, and Vue.js with backend technologies like Node.js, FastAPI, and cloud deployment platforms."
-            }
-            
-            # Simple keyword matching for demo
-            response_text = "I'm Shiva's AI assistant! I can help with AI/ML topics, programming questions, and web development. Try asking about specific technologies or providing a URL to analyze."
-            
-            for keyword, response in mock_responses.items():
-                if keyword.lower() in request.query.lower():
-                    response_text = response
-                    break
-            
-            return VoiceAssistantResponse(
-                response=response_text,
-                source_url=None,
-                timestamp=datetime.now().isoformat()
-            )
-            
+        # Portfolio-specific responses
+        portfolio_responses = {
+            "projects": "I've worked on various AI/ML projects including computer vision, NLP, and web development. My key projects include Sudoku OCR solver, voice assistants, and virtual diary systems.",
+            "skills": "My technical skills include Python, JavaScript/TypeScript, React, FastAPI, OpenCV, TensorFlow, PyTorch, and cloud technologies. I specialize in full-stack development with AI/ML integration.",
+            "experience": "I have experience in building end-to-end AI applications, from data processing to model deployment. I've worked with computer vision, natural language processing, and web scraping.",
+            "contact": "You can reach out to me through the contact form on this portfolio or connect with me on LinkedIn. I'm always open to discussing new opportunities and collaborations.",
+            "education": "I have a strong background in computer science and artificial intelligence, with continuous learning in emerging technologies and frameworks.",
+            "background": "I'm a passionate AI/ML engineer and full-stack developer who loves creating intelligent solutions that solve real-world problems.",
+            "portfolio": "This portfolio showcases my AI/ML projects, full-stack development skills, and passion for creating intelligent applications that solve real-world problems.",
+            "about": "I'm Shiva, an AI/ML engineer passionate about building intelligent systems. I specialize in computer vision, NLP, and full-stack development with modern frameworks."
+        }
+        
+        # Simple keyword matching for demo
+        response_text = "Hello! I'm Shiva's AI Portfolio Assistant. I can help you navigate my portfolio, learn about my projects, skills, and experience. What would you like to know?"
+        
+        query_lower = request.query.lower()
+        for keyword, response in portfolio_responses.items():
+            if keyword in query_lower:
+                response_text = response
+                break
+        
+        # Add context if provided
+        if request.context:
+            response_text += f"\n\nContext: {request.context}"
+        
+        return PortfolioAssistantResponse(
+            response=response_text,
+            timestamp=datetime.now().isoformat()
+        )
+        
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Assistant error: {str(e)}")
 
-# Sudoku Solver Endpoints
-@app.post("/api/sudoku-solver", response_model=SudokuResponse)
-async def solve_sudoku(request: SudokuRequest):
+# Fine Tuning of LLM for Agentic AI
+@app.post("/api/llm-tuning", response_model=LLMTuningResponse)
+async def llm_fine_tuning(request: LLMTuningRequest):
     """
-    Advanced Sudoku Solver using recursive backtracking algorithm
-    """
-    try:
-        puzzle = [row[:] for row in request.puzzle]  # Deep copy
-        steps = [0]  # Use list to allow modification in nested function
-        
-        def is_valid(board, row, col, num):
-            # Check row
-            for j in range(9):
-                if board[row][j] == num:
-                    return False
-            
-            # Check column
-            for i in range(9):
-                if board[i][col] == num:
-                    return False
-            
-            # Check 3x3 box
-            start_row, start_col = 3 * (row // 3), 3 * (col // 3)
-            for i in range(start_row, start_row + 3):
-                for j in range(start_col, start_col + 3):
-                    if board[i][j] == num:
-                        return False
-            
-            return True
-        
-        def solve(board):
-            steps[0] += 1
-            for i in range(9):
-                for j in range(9):
-                    if board[i][j] == 0:
-                        for num in range(1, 10):
-                            if is_valid(board, i, j, num):
-                                board[i][j] = num
-                                if solve(board):
-                                    return True
-                                board[i][j] = 0
-                        return False
-            return True
-        
-        is_solved = solve(puzzle)
-        
-        return SudokuResponse(
-            solution=puzzle,
-            is_valid=is_solved,
-            steps=steps[0]
-        )
-        
-    except Exception as e:
-        raise HTTPException(status_code=500, detail=f"Sudoku solver error: {str(e)}")
-
-# Virtual Diary Endpoints
-@app.post("/api/diary/entry", response_model=DiaryResponse)
-async def create_diary_entry(entry: DiaryEntry):
-    """
-    Virtual Diary with AI analysis and mood detection
+    LLM Fine Tuning service for creating agentic AI solutions
     """
     try:
-        # Generate unique entry ID
-        entry_id = f"entry_{datetime.now().strftime('%Y%m%d_%H%M%S')}"
-        
-        # Simple mood analysis (would use actual NLP in production)
-        mood_keywords = {
-            "happy": ["happy", "joy", "excited", "great", "awesome", "wonderful"],
-            "sad": ["sad", "down", "depressed", "unhappy", "terrible", "awful"],
-            "neutral": ["okay", "fine", "normal", "regular", "average"],
-            "excited": ["excited", "thrilled", "pumped", "energetic", "motivated"],
-            "stressed": ["stressed", "overwhelmed", "busy", "pressure", "anxiety"]
+        # Generate a tuning plan based on the request
+        tuning_plans = {
+            "text_classification": {
+                "plan": "1. Data preprocessing and tokenization\\n2. Model selection (BERT, RoBERTa, or GPT-based)\\n3. Fine-tuning with task-specific data\\n4. Evaluation and validation\\n5. Deployment optimization",
+                "time": "2-5 days",
+                "resources": ["GPU compute", "Labeled dataset", "Model checkpoints", "Evaluation metrics"]
+            },
+            "question_answering": {
+                "plan": "1. Dataset preparation and context-question pairing\\n2. Model architecture selection\\n3. Fine-tuning with QA-specific loss functions\\n4. Context understanding optimization\\n5. Answer generation refinement",
+                "time": "3-7 days", 
+                "resources": ["High-memory GPU", "QA datasets", "Context embeddings", "Answer validation"]
+            },
+            "text_generation": {
+                "plan": "1. Corpus preparation and cleaning\\n2. Tokenization and sequence modeling\\n3. Fine-tuning with generation objectives\\n4. Creativity vs accuracy balance\\n5. Output filtering and safety measures",
+                "time": "4-10 days",
+                "resources": ["Multi-GPU setup", "Large text corpus", "Generation metrics", "Safety filters"]
+            },
+            "conversational_ai": {
+                "plan": "1. Dialog data collection and formatting\\n2. Context-aware architecture design\\n3. Multi-turn conversation fine-tuning\\n4. Personality and tone adjustment\\n5. Response coherence optimization",
+                "time": "5-14 days",
+                "resources": ["Conversation datasets", "Context management", "Personality modeling", "Response evaluation"]
+            },
+            "agentic_ai": {
+                "plan": "1. Multi-agent architecture design\\n2. Tool integration and API connections\\n3. Decision-making framework implementation\\n4. Memory and context management\\n5. Safety and reliability measures",
+                "time": "7-21 days",
+                "resources": ["Multi-agent frameworks", "API integrations", "Context databases", "Safety protocols"]
+            }
         }
         
-        detected_mood = entry.mood or "neutral"
-        if not entry.mood:
-            content_lower = entry.content.lower()
-            for mood, keywords in mood_keywords.items():
-                if any(keyword in content_lower for keyword in keywords):
-                    detected_mood = mood
-                    break
+        # Determine the best matching tuning approach
+        task_lower = request.task_description.lower()
+        selected_plan = tuning_plans.get("conversational_ai")  # default
         
-        # AI analysis of the entry
-        analysis = f"This entry reflects a {detected_mood} mood. The content suggests themes of personal growth and reflection. Key insights: engaging with technology and learning."
+        for task_type, plan_info in tuning_plans.items():
+            if task_type.replace("_", " ") in task_lower or any(word in task_lower for word in task_type.split("_")):
+                selected_plan = plan_info
+                break
         
-        # In a real app, this would save to a database
-        return DiaryResponse(
-            entry_id=entry_id,
-            content=entry.content,
-            mood=detected_mood,
-            tags=entry.tags or ["personal", "reflection"],
-            timestamp=datetime.now().isoformat(),
-            analysis=analysis
+        return LLMTuningResponse(
+            tuning_plan=selected_plan["plan"],
+            estimated_time=selected_plan["time"],
+            resources_needed=selected_plan["resources"],
+            timestamp=datetime.now().isoformat()
         )
         
     except Exception as e:
-        raise HTTPException(status_code=500, detail=f"Diary error: {str(e)}")
+        raise HTTPException(status_code=500, detail=f"LLM tuning error: {str(e)}")
 
 @app.get("/")
 async def root():
     return {
         "message": "Shiva's AI Portfolio Backend",
         "version": "1.0.0",
-        "endpoints": {
-            "voice_assistant": "/api/voice-assistant",
-            "sudoku_solver": "/api/sudoku-solver", 
-            "diary": "/api/diary/entry"
-        }
+        "status": "Active",
+        "features": {
+            "portfolio_assistant": "/api/portfolio-assistant",
+            "llm_tuning": "/api/llm-tuning"
+        },
+        "description": "Backend service for AI-Powered Portfolio Assistant and Fine Tuning of LLM for Agentic AI"
     }
+
+@app.get("/health")
+async def health_check():
+    return {"status": "healthy", "timestamp": datetime.now().isoformat()}
 
 if __name__ == "__main__":
     import uvicorn

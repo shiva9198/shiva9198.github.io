@@ -6,13 +6,15 @@ import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Card, CardContent } from '@/components/ui/card';
 import { Textarea } from '@/components/ui/textarea';
-import { BookOpen, Calendar, Save, Trash2 } from 'lucide-react';
+import { BookOpen, Calendar, Save, Trash2, Loader2, AlertCircle } from 'lucide-react';
+import { API_ENDPOINTS } from '@/lib/config';
 
 interface DiaryEntry {
   id: string;
   content: string;
   timestamp: Date;
   mood?: string;
+  analysis?: string;
 }
 
 export function VirtualDiaryDemo() {
@@ -23,16 +25,20 @@ export function VirtualDiaryDemo() {
       content: 'Started working on my portfolio website today. Excited to showcase my AI/ML projects and create an interactive experience for visitors. The glassmorphism design is looking great!',
       timestamp: new Date('2025-01-01T12:00:00Z'),
       mood: '😊',
+      analysis: 'This entry reflects a positive and motivated mindset, showing enthusiasm for creative and technical work.',
     },
     {
       id: '2',
       content: 'Had a productive session implementing the Graph RAG architecture at Regality AI. The combination of LangChain, Neo4j, and OpenAI is proving to be very powerful for building intelligent QA systems.',
       timestamp: new Date('2024-12-31T12:00:00Z'),
       mood: '🚀',
+      analysis: 'Shows strong technical engagement and satisfaction with complex AI/ML implementation work.',
     },
   ]);
   const [currentEntry, setCurrentEntry] = useState('');
   const [selectedMood, setSelectedMood] = useState('😊');
+  const [isSaving, setIsSaving] = useState(false);
+  const [saveMessage, setSaveMessage] = useState('');
 
   const moods = ['😊', '😎', '🚀', '💭', '📚', '🎯', '⚡', '🌟'];
 
@@ -40,18 +46,64 @@ export function VirtualDiaryDemo() {
     return (entryIdRef.current++).toString();
   }, []);
 
-  const saveEntry = () => {
-    if (!currentEntry.trim()) return;
+  const saveEntry = async () => {
+    if (!currentEntry.trim() || isSaving) return;
 
-    const newEntry: DiaryEntry = {
-      id: generateId(),
-      content: currentEntry.trim(),
-      timestamp: new Date(),
-      mood: selectedMood,
-    };
+    setIsSaving(true);
+    setSaveMessage('');
 
-    setEntries(prev => [newEntry, ...prev]);
-    setCurrentEntry('');
+    try {
+      // Call the backend API
+      const response = await fetch(API_ENDPOINTS.DIARY_ENTRY, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          content: currentEntry.trim(),
+          mood: selectedMood,
+          tags: ['personal', 'portfolio']
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to save diary entry');
+      }
+
+      const result = await response.json();
+
+      const newEntry: DiaryEntry = {
+        id: result.entry_id,
+        content: result.content,
+        timestamp: new Date(result.timestamp),
+        mood: result.mood,
+        analysis: result.analysis,
+      };
+
+      setEntries(prev => [newEntry, ...prev]);
+      setCurrentEntry('');
+      setSaveMessage('Entry saved successfully with AI analysis!');
+
+    } catch (error) {
+      console.error('Error saving diary entry:', error);
+      
+      // Fallback to local saving
+      const newEntry: DiaryEntry = {
+        id: generateId(),
+        content: currentEntry.trim(),
+        timestamp: new Date(),
+        mood: selectedMood,
+        analysis: 'Local entry - AI analysis unavailable.',
+      };
+
+      setEntries(prev => [newEntry, ...prev]);
+      setCurrentEntry('');
+      setSaveMessage('Entry saved locally (AI analysis unavailable)');
+    } finally {
+      setIsSaving(false);
+      // Clear message after 3 seconds
+      setTimeout(() => setSaveMessage(''), 3000);
+    }
   };
 
   const deleteEntry = (id: string) => {
@@ -125,13 +177,25 @@ export function VirtualDiaryDemo() {
               </div>
               <Button
                 onClick={saveEntry}
-                disabled={!currentEntry.trim()}
+                disabled={!currentEntry.trim() || isSaving}
                 className="glass hover:animate-glow transition-all duration-300"
               >
-                <Save className="w-4 h-4 mr-2" />
-                Save Entry
+                {isSaving ? (
+                  <Loader2 className="w-4 h-4 mr-2 animate-spin" />
+                ) : (
+                  <Save className="w-4 h-4 mr-2" />
+                )}
+                {isSaving ? 'Saving...' : 'Save Entry'}
               </Button>
             </div>
+            
+            {/* Save Message */}
+            {saveMessage && (
+              <div className="flex items-center gap-2 text-sm text-green-600 bg-green-50 dark:bg-green-900/20 p-2 rounded-lg">
+                <AlertCircle className="w-4 h-4" />
+                {saveMessage}
+              </div>
+            )}
           </div>
         </CardContent>
       </Card>
@@ -188,6 +252,25 @@ export function VirtualDiaryDemo() {
                   <p className="text-muted-foreground leading-relaxed">
                     {entry.content}
                   </p>
+
+                  {/* AI Analysis */}
+                  {entry.analysis && (
+                    <div className="mt-4 p-3 bg-blue-50 dark:bg-blue-900/20 rounded-lg border-l-4 border-blue-500">
+                      <div className="flex items-start gap-2">
+                        <div className="w-5 h-5 bg-blue-500 rounded-full flex items-center justify-center mt-0.5">
+                          <span className="text-xs text-white font-bold">AI</span>
+                        </div>
+                        <div>
+                          <p className="text-sm font-medium text-blue-700 dark:text-blue-300 mb-1">
+                            AI Analysis
+                          </p>
+                          <p className="text-sm text-blue-600 dark:text-blue-400">
+                            {entry.analysis}
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  )}
 
                   {/* Entry metadata */}
                   <div className="mt-4 pt-4 border-t border-border/50">
