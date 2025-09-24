@@ -254,7 +254,7 @@ export function PlaygroundSection() {
                       <div className="bg-orange-500/10 p-4 rounded-lg border border-orange-500/20">
                         <p className="text-sm text-orange-300">
                           ⏳ <strong>Coming Soon:</strong> This exciting feature is under development and will be available soon. 
-                          I'm working hard to bring you amazing AI-powered experiences!
+                          I&apos;m working hard to bring you amazing AI-powered experiences!
                         </p>
                       </div>
                     )}

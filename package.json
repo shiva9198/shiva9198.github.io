@@ -6,6 +6,7 @@
     "dev": "next dev --turbopack",
     "build": "next build --turbopack",
     "build:production": "NODE_ENV=production next build --turbopack",
+    "build:github": "next build && next export",
     "start": "next start",
     "lint": "eslint --fix",
     "lint:check": "eslint",
