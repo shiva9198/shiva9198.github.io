@@ -21,9 +21,12 @@ export const portfolioData = {
       { name: "JavaScript", level: 85, icon: "⚡" },
       { name: "TypeScript", level: 85, icon: "📘" },
       { name: "ReactJs", level: 90, icon: "⚛️" },
+      { name: "React Native", level: 85, icon: "📱" },
       { name: "NodeJs", level: 85, icon: "🟢" },
+      { name: "FastAPI", level: 80, icon: "⚡" },
       { name: "Express", level: 80, icon: "🚀" },
       { name: "MySQL", level: 85, icon: "🗄️" },
+      { name: "PostgreSQL", level: 80, icon: "🐘" },
       { name: "MongoDB", level: 80, icon: "🍃" },
       { name: "Docker", level: 75, icon: "🐳" }
     ],
@@ -108,6 +111,16 @@ export const portfolioData = {
 
   projects: [
     {
+      title: "Campus Eats",
+      subtitle: "Production-Grade Campus Food Ordering System",
+      description: "Full-stack mobile application designed for high-density campus environments with 'reliability-first' architecture. Features React Native frontend with optimized APK size, FastAPI backend, and resilient offline-aware architecture that handles spotty campus Wi-Fi. Implements strict order state machine and database-driven consistency for production reliability.",
+      technologies: ["React Native", "TypeScript", "FastAPI", "PostgreSQL", "JWT", "Cloudinary", "SQLAlchemy", "Hermes"],
+      githubUrl: "https://github.com/shiva9198",
+      liveUrl: null,
+      featured: true,
+      playgroundDemo: null
+    },
+    {
       title: "Voice-Activated AI Assistant",
       subtitle: "Web Scraping & Summarization",
       description: "Built an AI voice assistant that uses speech recognition, Google CSE API, and BeautifulSoup to fetch and summarize web content based on user commands. Integrated text-to-speech and NLTK-based summarization for clear, concise responses, with robust handling of recognition and scraping errors.",
@@ -141,15 +154,31 @@ export const portfolioData = {
 
   currentWork: {
     status: "actively-building",
-    lastUpdated: "2025-09-24",
+    lastUpdated: "2026-01-04",
     projects: [
+      {
+        title: "Campus Eats - Production System",
+        description: "Production-grade campus food ordering system with React Native frontend and FastAPI backend. Features offline-aware architecture, strict state machine, and database-driven consistency.",
+        progress: 95,
+        tech: ["React Native", "TypeScript", "FastAPI", "PostgreSQL", "JWT"],
+        startDate: "2025-10-01",
+        estimatedCompletion: "2026-01-20",
+        category: "Mobile App",
+        status: "production-ready",
+        highlights: [
+          "Offline-aware mobile architecture",
+          "Strict order state machine implementation",
+          "Database-driven consistency and validation",
+          "Production-optimized APK size under 15MB"
+        ]
+      },
       {
         title: "AI-Powered Portfolio Assistant",
         description: "Interactive AI assistant that helps visitors navigate and understand my portfolio, projects, and expertise using advanced natural language processing.",
         progress: 90,
         tech: ["Python", "FastAPI", "Natural Language Processing", "AI/ML"],
         startDate: "2025-08-01",
-        estimatedCompletion: "2025-10-01",
+        estimatedCompletion: "2026-02-15",
         category: "AI/ML",
         status: "in-progress",
         highlights: [
@@ -165,9 +194,9 @@ export const portfolioData = {
         progress: 85,
         tech: ["Large Language Models", "Fine-tuning", "Agentic AI", "Machine Learning"],
         startDate: "2025-07-15",
-        estimatedCompletion: "2025-11-01",
+        estimatedCompletion: "--/--/---",
         category: "AI/ML",
-        status: "in-progress",
+        status: "paused",
         highlights: [
           "Multi-agent architecture design and implementation",
           "Custom fine-tuning pipelines for specialized tasks",
@@ -178,30 +207,30 @@ export const portfolioData = {
     ],
     learning: [
       {
+        topic: "Production Mobile Development",
+        platform: "React Native & Industry Best Practices",
+        progress: 90,
+        focus: "Offline-aware architecture, State machines, Performance optimization"
+      },
+      {
         topic: "Advanced LLM Fine-tuning Techniques",
         platform: "Research Papers & Implementation",
         progress: 80,
         focus: "RLHF, LoRA, QLoRA, Multi-task learning"
       },
       {
-        topic: "Agentic AI Systems",
-        platform: "Academic Research & Frameworks",
-        progress: 75,
-        focus: "Multi-agent coordination, Tool usage, Reasoning frameworks"
-      },
-      {
-        topic: "Production ML Systems",
-        platform: "Industry Best Practices",
-        progress: 70,
-        focus: "Model deployment, Monitoring, Scaling, MLOps"
+        topic: "Database-Driven System Design",
+        platform: "PostgreSQL & Production Systems",
+        progress: 85,
+        focus: "Consistency constraints, State validation, Transaction management"
       }
     ],
     goals: [
+      "Complete Campus Eats production deployment and user testing",
       "Launch AI-Powered Portfolio Assistant with full functionality",
-      "Complete comprehensive LLM fine-tuning framework",
-      "Deploy both projects to production with high availability",
-      "Open-source key components for community benefit",
-      "Establish portfolio as a showcase of cutting-edge AI capabilities"
+      "Develop enterprise-grade mobile solutions for startups",
+      "Resume and complete LLM fine-tuning framework when prioritized",
+      "Build reputation as a production-ready mobile + AI developer"
     ]
   }
 };

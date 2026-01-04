@@ -225,13 +225,13 @@ export function ProjectsSection() {
                   <div className="w-16 h-16 bg-primary/20 rounded-full flex items-center justify-center mx-auto mb-4">
                     <span className="text-2xl">📱</span>
                   </div>
-                  <h4 className="font-semibold mb-2 text-primary">Mobile AI App</h4>
+                  <h4 className="font-semibold mb-2 text-primary">Enterprise Mobile Solutions</h4>
                   <p className="text-xs text-muted-foreground mb-3">
-                    React Native app with ML capabilities
+                    Production-ready React Native applications
                   </p>
                   <div className="flex items-center justify-center text-xs text-muted-foreground">
                     <div className="w-2 h-2 bg-green-500 rounded-full mr-2 animate-pulse" />
-                    Research
+                    Active Development
                   </div>
                 </div>
               </div>

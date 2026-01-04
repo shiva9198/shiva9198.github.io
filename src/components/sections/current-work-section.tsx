@@ -128,7 +128,7 @@ export function CurrentWorkSection() {
                       {/* Timeline */}
                       <div className="flex items-center justify-between text-sm text-muted-foreground">
                         <span>Started: {new Date(project.startDate).toLocaleDateString()}</span>
-                        <span>ETA: {new Date(project.estimatedCompletion).toLocaleDateString()}</span>
+                        <span>ETA: {project.estimatedCompletion === "--/--/---" ? "--/--/---" : new Date(project.estimatedCompletion).toLocaleDateString()}</span>
                       </div>
 
                       {/* Technologies */}
