@@ -5,7 +5,23 @@ import { portfolioData } from '@/data/portfolio';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { ExternalLink, Github, Play, Star } from 'lucide-react';
+import { ReadmeModal } from '@/components/ui/readme-modal';
+import { ExternalLink, Github, Play, Star, FileDown } from 'lucide-react';
+
+// Extend project type to include readmeUrl
+interface ProjectWithReadme {
+  title: string;
+  subtitle: string;
+  description: string;
+  technologies: string[];
+  githubUrl: string;
+  liveUrl: string | null;
+  featured: boolean;
+  playgroundDemo: string | null;
+  readmeUrl?: string;
+  caseStudyUrl?: string;
+  caseStudyPdfUrl?: string;
+}
 
 export function ProjectsSection() {
   const { projects } = portfolioData;
@@ -43,8 +59,8 @@ export function ProjectsSection() {
           </p>
         </motion.div>
 
-        <div className="grid lg:grid-cols-2 xl:grid-cols-3 gap-8 max-w-7xl mx-auto">
-          {projects.map((project, index) => (
+        <div className="bento-grid max-w-7xl mx-auto">
+          {projects.map((project: ProjectWithReadme, index) => (
             <motion.div
               key={project.title}
               initial={{ opacity: 0, y: 50 }}
@@ -55,7 +71,7 @@ export function ProjectsSection() {
                 y: -10,
                 transition: { duration: 0.3 }
               }}
-              className="h-full"
+              className={`h-full ${project.featured ? 'bento-item-large' : ''}`}
             >
               <Card className="glass border-0 backdrop-blur-lg h-full group hover:animate-glow transition-all duration-300">
                 <CardContent className="p-6 flex flex-col h-full">
@@ -130,6 +146,25 @@ export function ProjectsSection() {
                       <Github className="w-4 h-4 mr-2 group-hover:animate-bounce" />
                       Code
                     </Button>
+                    
+                    {project.readmeUrl && (
+                      <ReadmeModal
+                        readmeUrl={project.readmeUrl}
+                        projectTitle={project.title}
+                      />
+                    )}
+                    
+                    {project.caseStudyPdfUrl && (
+                      <Button
+                        size="sm"
+                        variant="outline"
+                        className="glass hover:animate-glow transition-all duration-300 flex-1 group"
+                        onClick={() => window.open(project.caseStudyPdfUrl!, '_blank')}
+                      >
+                        <FileDown className="w-4 h-4 mr-2 group-hover:animate-bounce" />
+                        Case Study
+                      </Button>
+                    )}
                     
                     {project.liveUrl ? (
                       <Button
