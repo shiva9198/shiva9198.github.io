@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import mermaid from 'mermaid';
+import type { Components } from 'react-markdown';
 import {
   Dialog,
   DialogContent,
@@ -72,29 +73,32 @@ export function ReadmeModal({ readmeUrl, projectTitle, trigger }: ReadmeModalPro
   }, [content, isOpen]);
 
   // Custom component for code blocks to handle mermaid
-  const CodeBlock = ({ node, inline, className, children, ...props }: any) => {
-    const match = /language-(\w+)/.exec(className || '');
-    const language = match ? match[1] : '';
-    
-    if (language === 'mermaid') {
-      return (
-        <div className="mermaid bg-white p-4 rounded border my-4">
-          {String(children).replace(/\n$/, '')}
-        </div>
-      );
-    }
-    
-    return !inline ? (
-      <pre className="bg-muted p-4 rounded overflow-x-auto my-4">
-        <code className={className} {...props}>
+  const components: Components = {
+    code: ({ className, children, ...props }) => {
+      const match = /language-(\w+)/.exec(className || '');
+      const language = match ? match[1] : '';
+      const isInline = !className; // inline code typically doesn't have className
+      
+      if (language === 'mermaid') {
+        return (
+          <div className="mermaid bg-white p-4 rounded border my-4">
+            {String(children).replace(/\n$/, '')}
+          </div>
+        );
+      }
+      
+      return isInline ? (
+        <code className="bg-muted px-1 py-0.5 rounded text-sm">
           {children}
         </code>
-      </pre>
-    ) : (
-      <code className="bg-muted px-1 py-0.5 rounded text-sm" {...props}>
-        {children}
-      </code>
-    );
+      ) : (
+        <pre className="bg-muted p-4 rounded overflow-x-auto my-4">
+          <code className={className}>
+            {children}
+          </code>
+        </pre>
+      );
+    }
   };
 
   return (
@@ -148,9 +152,7 @@ export function ReadmeModal({ readmeUrl, projectTitle, trigger }: ReadmeModalPro
             ">
               <ReactMarkdown 
                 remarkPlugins={[remarkGfm]}
-                components={{
-                  code: CodeBlock
-                }}
+                components={components}
               >
                 {content}
               </ReactMarkdown>
