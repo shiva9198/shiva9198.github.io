@@ -3,6 +3,10 @@ import type { NextConfig } from "next";
 const nextConfig: NextConfig = {
   output: 'export',
   trailingSlash: true,
+  // Ensure Turbopack uses this repo folder as the workspace root
+  turbopack: {
+    root: './',
+  },
   // Image optimization
   images: {
     unoptimized: true,

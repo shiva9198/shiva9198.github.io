@@ -118,7 +118,10 @@ export const portfolioData = {
       githubUrl: "https://github.com/shiva9198",
       liveUrl: null,
       featured: true,
-      playgroundDemo: null
+      playgroundDemo: null,
+      readmeUrl: "/readmes/Campus_Eats_README.md",
+      caseStudyUrl: "/case-studies/campus-eats/Campus_Eats_CASE_STUDY.md",
+      caseStudyPdfUrl: "/case-studies/campus-eats/Campis_Eats_CASE_STUDY.pdf"
     },
     {
       title: "Voice-Activated AI Assistant",

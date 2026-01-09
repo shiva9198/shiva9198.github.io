@@ -2,7 +2,7 @@ name: Deploy Next.js Portfolio to GitHub Pages
 
 on:
   push:
-    branches: [ main ]
+    branches: [ main, enhancements ]
   pull_request:
     branches: [ main ]
   workflow_dispatch:

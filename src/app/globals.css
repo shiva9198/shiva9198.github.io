@@ -399,6 +399,34 @@ body {
   }
 }
 
+/* Bento Grid layout for projects (Bento Box) */
+.bento-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  align-items: stretch;
+}
+
+.bento-item-large {
+  grid-column: span 2;
+}
+
+@media (max-width: 768px) {
+  .bento-item-large {
+    grid-column: span 1;
+  }
+}
+
+/* Slight visual tweaks for Bento items */
+.bento-grid > * {
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.bento-grid > *.bento-item-large .glass {
+  height: 100%;
+}
+
+
 @keyframes gradient-shift {
   0% { background-position: 0% 50%; }
   50% { background-position: 100% 50%; }
