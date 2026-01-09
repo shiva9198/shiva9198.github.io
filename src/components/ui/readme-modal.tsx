@@ -74,7 +74,7 @@ export function ReadmeModal({ readmeUrl, projectTitle, trigger }: ReadmeModalPro
 
   // Custom component for code blocks to handle mermaid
   const components: Components = {
-    code: ({ className, children, ...props }) => {
+    code: ({ className, children }) => {
       const match = /language-(\w+)/.exec(className || '');
       const language = match ? match[1] : '';
       const isInline = !className; // inline code typically doesn't have className
