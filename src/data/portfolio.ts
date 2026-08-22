@@ -2,13 +2,13 @@ export const portfolioData = {
   personal: {
     name: "Shiva Santosh Reddy Aenugu",
     shortName: "Shiva",
-    tagline: "FDE at BuildWithRV | AI & Full-Stack Engineer",
+    tagline: "FDE at BuildWithRV · Building PlaceMe · AI & Full-Stack Engineer",
     employment: "Full-time since July 2026",
     availability: "Available for select freelance work",
     email: "shiva24.santosh@gmail.com",
     linkedin: "https://www.linkedin.com/in/shiva-santosh-reddy-aenugu/",
     github: "https://github.com/shiva9198",
-    profile: "I build production-oriented web, mobile, and AI systems. My recent work spans React and React Native interfaces, Python/FastAPI services, retrieval pipelines, realtime product workflows, and the infrastructure needed to ship them reliably."
+    profile: "I work full-time as an FDE at BuildWithRV and am currently building PlaceMe, an AI-powered group discussion preparation platform. I focus on reliable web, mobile, backend, and applied-AI systems—from product interfaces and APIs to retrieval and realtime workflows."
   },
 
   skills: [
@@ -92,8 +92,8 @@ export const portfolioData = {
       period: "July 2026 - Present",
       type: "Full-time",
       description: [
-        "Working full-time in an FDE role focused on shipping production software.",
-        "Contributing across web, mobile, backend, and applied-AI engineering workflows."
+        "Build and ship production software in a full-time FDE role.",
+        "Work across web, mobile, backend, and applied-AI product development."
       ],
       technologies: ["Product Engineering", "Full-Stack Development", "Applied AI"]
     },
@@ -103,8 +103,8 @@ export const portfolioData = {
       period: "Present",
       type: "Freelance",
       description: [
-        "Available for selected web, mobile, backend, and applied-AI engagements.",
-        "Client and private-project details remain confidential by design."
+        "Take on selected web, mobile, backend, and applied-AI engagements.",
+        "Keep client identities and private project details confidential."
       ],
       technologies: ["Web", "Mobile", "Backend", "AI Systems"]
     },
@@ -114,9 +114,9 @@ export const portfolioData = {
       period: "May 2025 - July 2025",
       type: "Internship",
       description: [
-        "Contributed to GraphRAG architecture for an LLM-powered question-answering system.",
-        "Built retrieval workflows using LangChain, Neo4j, vector embeddings, and graph-based context expansion.",
-        "Worked with prompt engineering, hybrid retrieval, and Dockerized AI services."
+        "Contributed to a GraphRAG architecture for an LLM question-answering system.",
+        "Built retrieval workflows with LangChain, Neo4j, vector embeddings, and graph-based context expansion.",
+        "Worked on prompt design, hybrid retrieval, and Dockerized AI services."
       ],
       technologies: ["LangChain", "Neo4j", "Python", "Docker", "GraphRAG"]
     }
@@ -126,7 +126,7 @@ export const portfolioData = {
     {
       title: "Voice Business Onboarding System",
       subtitle: "Voice-to-Structured Business Data",
-      description: "Voice-first workflow that transcribes business and product details, extracts structured fields, and presents them for review through a responsive interface.",
+      description: "Turns spoken business and product details into structured, reviewable data through transcription, field extraction, and a responsive interface.",
       technologies: ["Whisper", "Groq", "Llama", "Flask", "React", "TypeScript"],
       githubUrl: "https://github.com/shiva9198/voce-to-description-v1",
       liveUrl: null,
@@ -136,7 +136,7 @@ export const portfolioData = {
     {
       title: "Campus Eats",
       subtitle: "Realtime Campus Ordering Platform",
-      description: "Public full-stack ordering system with student and admin workflows, realtime order state, authentication, QR-based pickup, and menu-management tooling.",
+      description: "Full-stack campus ordering system with student and admin workflows, realtime order tracking, authentication, QR-based pickup, and menu management.",
       technologies: ["React", "Node.js", "Express", "MongoDB", "Convex", "JWT"],
       githubUrl: "https://github.com/shiva9198/campus-eats",
       liveUrl: null,
@@ -146,7 +146,7 @@ export const portfolioData = {
     {
       title: "SHL Assessment Recommendation System",
       subtitle: "Evaluated Vector-Search Recommender",
-      description: "Recommendation API that matches natural-language hiring requirements to assessment products using embeddings, vector similarity, and a reproducible Recall@10 evaluation workflow.",
+      description: "Matches natural-language hiring requirements to assessment products using embeddings and vector similarity, with a reproducible Recall@10 evaluation workflow.",
       technologies: ["FastAPI", "ChromaDB", "LangChain", "OpenRouter", "Python"],
       githubUrl: "https://github.com/shiva9198/shl-assessment-recommendation",
       liveUrl: null,
@@ -156,7 +156,7 @@ export const portfolioData = {
     {
       title: "Multilingual Speech-to-Text Engine",
       subtitle: "Offline Multilingual Transcription",
-      description: "Privacy-focused speech engine that detects more than 100 languages, performs local transcription, and can translate detected speech into English.",
+      description: "Runs multilingual transcription locally, detects more than 100 languages, and can translate detected speech into English.",
       technologies: ["Python", "Faster-Whisper", "Whisper large-v3", "VAD"],
       githubUrl: "https://github.com/shiva9198/multilingual-speech-to-text-engine",
       liveUrl: null,
@@ -218,21 +218,24 @@ export const portfolioData = {
     focus: [
       {
         title: "Full-time product engineering",
-        description: "Shipping production software as an FDE at BuildWithRV.",
+        description: "Building and shipping production software as an FDE at BuildWithRV.",
         status: "Current",
-        tech: ["Web", "Mobile", "Backend", "Applied AI"]
+        tech: ["Web", "Mobile", "Backend", "Applied AI"],
+        url: null
       },
       {
-        title: "Selected freelance engagements",
-        description: "Taking on scoped web, mobile, backend, and applied-AI work while protecting client confidentiality.",
+        title: "Building PlaceMe",
+        description: "Developing an AI-powered group discussion preparation platform with live-session and feedback workflows.",
+        status: "Building",
+        tech: ["React", "TypeScript", "Realtime", "Testing"],
+        url: "https://placeme.study"
+      },
+      {
+        title: "Selected freelance work",
+        description: "Available for clearly scoped web, mobile, backend, and applied-AI engagements.",
         status: "Available",
-        tech: ["React", "React Native", "FastAPI", "TypeScript"]
-      },
-      {
-        title: "Public collaboration",
-        description: "Contributing to public repositories through authored commits and focused pull requests.",
-        status: "Active",
-        tech: ["React", "TypeScript", "Python", "Testing"]
+        tech: ["React", "React Native", "FastAPI", "TypeScript"],
+        url: null
       }
     ],
     learning: [
@@ -241,10 +244,10 @@ export const portfolioData = {
       { topic: "Full-stack quality", focus: "Typed contracts, browser testing, API correctness, and maintainable delivery" }
     ],
     goals: [
-      "Ship reliable production software in the full-time FDE role",
+      "Build PlaceMe into a reliable group discussion preparation platform",
+      "Ship dependable production software in the full-time FDE role",
       "Deliver a small number of high-quality freelance engagements",
-      "Continue making verifiable public contributions",
-      "Keep public portfolio claims synchronized with GitHub evidence"
+      "Continue making verifiable public contributions"
     ]
   }
 };

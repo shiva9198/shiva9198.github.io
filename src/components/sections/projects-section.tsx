@@ -50,7 +50,7 @@ export function ProjectsSection() {
           </h2>
           <div className="w-24 h-1 bg-primary mx-auto rounded-full" />
           <p className="text-muted-foreground mt-6 max-w-2xl mx-auto">
-            Innovative projects showcasing AI/ML expertise and full-stack development skills
+            Public projects selected for engineering depth, clear documentation, and relevance to my current work.
           </p>
         </motion.div>
 
@@ -98,7 +98,7 @@ export function ProjectsSection() {
                   {/* Technologies */}
                   <div className="mb-6">
                     <h4 className="text-sm font-semibold mb-3 text-gradient-alt">
-                      Technologies Used
+                      Core Technologies
                     </h4>
                     <div className="flex flex-wrap gap-2">
                       {project.technologies.slice(0, 4).map((tech, techIndex) => (
@@ -139,7 +139,7 @@ export function ProjectsSection() {
                       onClick={() => window.open(project.githubUrl, '_blank')}
                     >
                       <Github className="w-4 h-4 mr-2 group-hover:animate-bounce" />
-                      Code
+                      View Code
                     </Button>
                     
                     {project.liveUrl ? (
@@ -158,7 +158,7 @@ export function ProjectsSection() {
                         onClick={() => scrollToPlayground(project.playgroundDemo!)}
                       >
                         <Play className="w-4 h-4 mr-2 group-hover:animate-bounce" />
-                        Try It
+                        View Prototype
                       </Button>
                     )}
                   </div>
