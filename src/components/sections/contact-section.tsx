@@ -8,7 +8,18 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Badge } from '@/components/ui/badge';
-import { Mail, MapPin, Send, Github, Linkedin, ExternalLink } from 'lucide-react';
+import {
+  BrainCircuit,
+  ExternalLink,
+  GitPullRequest,
+  Github,
+  Linkedin,
+  Mail,
+  MapPin,
+  MonitorSmartphone,
+  Send,
+  ServerCog,
+} from 'lucide-react';
 
 export function ContactSection() {
   const { personal } = portfolioData;
@@ -261,19 +272,19 @@ export function ContactSection() {
               </p>
               <div className="flex flex-wrap justify-center gap-4">
                 <Badge variant="outline" className="glass">
-                  <span className="mr-1">🤖</span>
+                  <BrainCircuit className="w-3 h-3 mr-2" aria-hidden="true" />
                   Applied AI Systems
                 </Badge>
                 <Badge variant="outline" className="glass">
-                  <span className="mr-1">🌐</span>
+                  <MonitorSmartphone className="w-3 h-3 mr-2" aria-hidden="true" />
                   Web &amp; Mobile Products
                 </Badge>
                 <Badge variant="outline" className="glass">
-                  <span className="mr-1">🚀</span>
+                  <ServerCog className="w-3 h-3 mr-2" aria-hidden="true" />
                   Backend &amp; Integrations
                 </Badge>
                 <Badge variant="outline" className="glass">
-                  <span className="mr-1">💡</span>
+                  <GitPullRequest className="w-3 h-3 mr-2" aria-hidden="true" />
                   Open-Source Collaboration
                 </Badge>
               </div>

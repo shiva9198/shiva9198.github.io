@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { RotateCcw, Zap, CheckCircle, Upload, Loader2, AlertCircle } from 'lucide-react';
+import { AlertCircle, Camera, CheckCircle, Lightbulb, Loader2, RotateCcw, Upload, Zap } from 'lucide-react';
 import { API_ENDPOINTS } from '@/lib/config';
 
 type CellValue = number | null;
@@ -400,15 +400,17 @@ export function SudokuSolverDemo() {
             </div>
           </div>
           
-          <div className="mt-4 text-center text-xs text-muted-foreground">
-            💡 <strong>How it works:</strong> Upload a Sudoku image for OCR extraction, or manually input numbers. 
+          <div className="mt-4 flex items-start justify-center gap-2 text-center text-xs text-muted-foreground">
+            <Lightbulb className="w-4 h-4 shrink-0" aria-hidden="true" />
+            <span><strong>How it works:</strong> Upload a Sudoku image for OCR extraction, or manually input numbers.
             The recursive backtracking algorithm tries each number 1-9 in empty cells, validates the Sudoku rules, 
-            and backtracks when it hits a dead end.
+            and backtracks when it hits a dead end.</span>
           </div>
           
-          <div className="mt-2 text-center text-xs text-muted-foreground">
-            📷 <strong>OCR Feature:</strong> Upload a clear photo of a Sudoku puzzle and the AI will extract 
-            the numbers automatically using computer vision.
+          <div className="mt-2 flex items-start justify-center gap-2 text-center text-xs text-muted-foreground">
+            <Camera className="w-4 h-4 shrink-0" aria-hidden="true" />
+            <span><strong>OCR feature:</strong> Upload a clear photo of a Sudoku puzzle and the system will extract
+            the numbers using computer vision.</span>
           </div>
         </CardContent>
       </Card>

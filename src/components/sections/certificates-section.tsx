@@ -4,7 +4,14 @@ import { motion } from 'framer-motion';
 import { portfolioData } from '@/data/portfolio';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { Award, Calendar, ExternalLink } from 'lucide-react';
+import { Award, BrainCircuit, Calendar, Code2, Database, ExternalLink, RefreshCw } from 'lucide-react';
+
+const certificateIcons = {
+  brain: BrainCircuit,
+  code: Code2,
+  database: Database,
+  refresh: RefreshCw,
+};
 
 export function CertificatesSection() {
   const { certificates } = portfolioData;
@@ -29,25 +36,28 @@ export function CertificatesSection() {
         </motion.div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-6 max-w-4xl mx-auto">
-          {certificates.map((cert, index) => (
-            <motion.div
-              key={cert.name}
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: index * 0.1 }}
-              viewport={{ once: true }}
-              whileHover={{ 
-                y: -5,
-                transition: { duration: 0.2 }
-              }}
-            >
+          {certificates.map((cert, index) => {
+            const CertificateIcon = certificateIcons[cert.icon as keyof typeof certificateIcons] ?? Award;
+
+            return (
+              <motion.div
+                key={cert.name}
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: index * 0.1 }}
+                viewport={{ once: true }}
+                whileHover={{
+                  y: -5,
+                  transition: { duration: 0.2 }
+                }}
+              >
               <Card className="glass border-0 backdrop-blur-lg h-full group hover:animate-glow transition-all duration-300 cursor-pointer">
                 <CardContent className="p-6">
                   <div className="flex items-start justify-between mb-4">
                     <div className="flex-1">
                       <div className="flex items-center mb-3">
                         <div className="w-12 h-12 bg-primary/20 rounded-full flex items-center justify-center mr-4 group-hover:animate-bounce">
-                          <span className="text-2xl">{cert.icon}</span>
+                          <CertificateIcon className="w-6 h-6 text-primary" aria-hidden="true" />
                         </div>
                         <div>
                           <h3 className="text-xl font-bold text-gradient-alt mb-1">
@@ -95,8 +105,9 @@ export function CertificatesSection() {
                   </div>
                 </CardContent>
               </Card>
-            </motion.div>
-          ))}
+              </motion.div>
+            );
+          })}
         </div>
 
         {/* Stats section */}
@@ -129,7 +140,7 @@ export function CertificatesSection() {
                 
                 <div className="text-center">
                   <div className="w-16 h-16 bg-blue-500/20 rounded-full flex items-center justify-center mx-auto mb-3">
-                    <span className="text-2xl">🐍</span>
+                    <Code2 className="w-7 h-7 text-blue-500" aria-hidden="true" />
                   </div>
                   <div className="text-2xl font-bold text-blue-500 mb-1">2</div>
                   <div className="text-sm text-muted-foreground">Kaggle Certs</div>
@@ -137,7 +148,7 @@ export function CertificatesSection() {
                 
                 <div className="text-center">
                   <div className="w-16 h-16 bg-green-500/20 rounded-full flex items-center justify-center mx-auto mb-3">
-                    <span className="text-2xl">📊</span>
+                    <Database className="w-7 h-7 text-green-500" aria-hidden="true" />
                   </div>
                   <div className="text-2xl font-bold text-green-500 mb-1">1</div>
                   <div className="text-sm text-muted-foreground">HackerRank</div>
@@ -145,7 +156,7 @@ export function CertificatesSection() {
                 
                 <div className="text-center">
                   <div className="w-16 h-16 bg-orange-500/20 rounded-full flex items-center justify-center mx-auto mb-3">
-                    <span className="text-2xl">🔄</span>
+                    <RefreshCw className="w-7 h-7 text-orange-500" aria-hidden="true" />
                   </div>
                   <div className="text-2xl font-bold text-orange-500 mb-1">1</div>
                   <div className="text-sm text-muted-foreground">Agile/Scrum</div>

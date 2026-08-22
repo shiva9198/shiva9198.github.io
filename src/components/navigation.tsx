@@ -4,19 +4,28 @@ import { useState, useEffect, useCallback, memo } from 'react';
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { ThemeToggle } from '@/components/theme-toggle';
-import { Menu, X, Home, User, Code, Award, Briefcase, FolderOpen, Gamepad2, Mail, Zap, GitPullRequest } from 'lucide-react';
+import { Menu, X, User, Briefcase, FolderOpen, Mail, Zap, GitPullRequest } from 'lucide-react';
 
 const navItems = [
-  { id: 'hero', label: 'Home', icon: Home },
   { id: 'about', label: 'About', icon: User },
-  { id: 'skills', label: 'Skills', icon: Code },
-  { id: 'current-work', label: 'Current Work', icon: Zap },
-  { id: 'education', label: 'Education', icon: Award },
+  { id: 'current-work', label: 'Now', icon: Zap },
   { id: 'experience', label: 'Experience', icon: Briefcase },
   { id: 'projects', label: 'Projects', icon: FolderOpen },
   { id: 'contributions', label: 'Contributions', icon: GitPullRequest },
-  { id: 'playground', label: 'Playground', icon: Gamepad2 },
   { id: 'contact', label: 'Contact', icon: Mail },
+];
+
+const trackedSections = [
+  { id: 'hero', navId: 'hero' },
+  { id: 'about', navId: 'about' },
+  { id: 'skills', navId: 'about' },
+  { id: 'current-work', navId: 'current-work' },
+  { id: 'education', navId: 'experience' },
+  { id: 'experience', navId: 'experience' },
+  { id: 'projects', navId: 'projects' },
+  { id: 'contributions', navId: 'contributions' },
+  { id: 'playground', navId: 'projects' },
+  { id: 'contact', navId: 'contact' },
 ];
 
 export const Navigation = memo(function Navigation() {
@@ -30,9 +39,8 @@ export const Navigation = memo(function Navigation() {
       setScrolled(window.scrollY > 50);
 
       // Update active section based on scroll position
-      const sections = navItems.map(item => item.id);
-      const currentSection = sections.find(section => {
-        const element = document.getElementById(section);
+      const currentSection = trackedSections.find(section => {
+        const element = document.getElementById(section.id);
         if (element) {
           const rect = element.getBoundingClientRect();
           return rect.top <= 100 && rect.bottom >= 100;
@@ -41,7 +49,7 @@ export const Navigation = memo(function Navigation() {
       });
 
       if (currentSection) {
-        setActiveSection(currentSection);
+        setActiveSection(currentSection.navId);
       }
     };
 
@@ -110,16 +118,18 @@ export const Navigation = memo(function Navigation() {
         <div className="container mx-auto px-6">
           <div className="flex items-center justify-between h-16">
             {/* Logo */}
-            <motion.div
+            <motion.button
+              type="button"
+              aria-label="Back to top"
               whileHover={{ scale: 1.05 }}
               className="font-bold text-xl text-gradient cursor-pointer"
               onClick={() => scrollToSection('hero')}
             >
               SS
-            </motion.div>
+            </motion.button>
 
             {/* Desktop Menu */}
-            <div className="hidden lg:flex items-center space-x-4">
+            <div className="hidden lg:flex items-center gap-1">
               {navItems.map((item) => (
                 <Button
                   key={item.id}
@@ -153,6 +163,9 @@ export const Navigation = memo(function Navigation() {
                 size="icon"
                 onClick={() => setIsOpen(!isOpen)}
                 className="lg:hidden glass rounded-full"
+                aria-label={isOpen ? 'Close navigation' : 'Open navigation'}
+                aria-expanded={isOpen}
+                aria-controls="mobile-navigation"
               >
                 {isOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
               </Button>
@@ -173,6 +186,7 @@ export const Navigation = memo(function Navigation() {
           <div className="fixed inset-0 bg-background/80 backdrop-blur-lg" onClick={() => setIsOpen(false)} />
           
           <motion.div
+            id="mobile-navigation"
             initial={{ x: '100%' }}
             animate={{ x: 0 }}
             exit={{ x: '100%' }}
