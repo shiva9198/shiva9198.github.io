@@ -1,56 +1,68 @@
 export const portfolioData = {
   personal: {
     name: "Shiva Santosh Reddy Aenugu",
-    tagline: "Aspiring Computer Science Engineer | AI & ML Specialist",
-    phone: "+91 6304652466",
+    shortName: "Shiva",
+    tagline: "FDE at BuildWithRV | AI & Full-Stack Engineer",
+    employment: "Full-time since July 2026",
+    availability: "Available for select freelance work",
     email: "shiva24.santosh@gmail.com",
     linkedin: "https://www.linkedin.com/in/shiva-santosh-reddy-aenugu/",
     github: "https://github.com/shiva9198",
-    profile: "Aspiring Computer Science Engineer specializing in Artificial Intelligence and Machine Learning with a strong passion for technology and programming. Dedicated to leveraging cutting-edge AI/ML techniques to develop innovative software solutions. Eager to contribute to dynamic startup environments, bringing a blend of technical expertise, problem-solving skills, and a growth-driven mindset."
+    profile: "I build production-oriented web, mobile, and AI systems. My recent work spans React and React Native interfaces, Python/FastAPI services, retrieval pipelines, realtime product workflows, and the infrastructure needed to ship them reliably."
   },
-  
-  skills: {
-    programming: [
-      { name: "C", level: 85, icon: "🔧" },
-      { name: "Python", level: 90, icon: "🐍" },
-      { name: "Java", level: 80, icon: "☕" }
-    ],
-    web: [
-      { name: "HTML", level: 95, icon: "🌐" },
-      { name: "CSS", level: 90, icon: "🎨" },
-      { name: "JavaScript", level: 85, icon: "⚡" },
-      { name: "TypeScript", level: 85, icon: "📘" },
-      { name: "ReactJs", level: 90, icon: "⚛️" },
-      { name: "React Native", level: 85, icon: "📱" },
-      { name: "NodeJs", level: 85, icon: "🟢" },
-      { name: "FastAPI", level: 80, icon: "⚡" },
-      { name: "Express", level: 80, icon: "🚀" },
-      { name: "MySQL", level: 85, icon: "🗄️" },
-      { name: "PostgreSQL", level: 80, icon: "🐘" },
-      { name: "MongoDB", level: 80, icon: "🍃" },
-      { name: "Docker", level: 75, icon: "🐳" }
-    ],
-    ml: [
-      { name: "Machine Learning", level: 85, icon: "🤖" },
-      { name: "SQL", level: 90, icon: "📊" },
-      { name: "LangChain", level: 80, icon: "🔗" },
-      { name: "OpenAI API", level: 75, icon: "🧠" }
-    ],
-    soft: [
-      { name: "Problem Solving", level: 95, icon: "🧩" },
-      { name: "Team Collaboration", level: 90, icon: "🤝" },
-      { name: "Analytical Skills", level: 90, icon: "📈" },
-      { name: "Attention to Detail", level: 85, icon: "🔍" }
-    ]
-  },
+
+  skills: [
+    {
+      title: "AI Systems",
+      color: "bg-purple-500",
+      items: [
+        { name: "RAG & GraphRAG", icon: "🧠", evidence: "Production experience" },
+        { name: "LangChain & LangGraph", icon: "🔗", evidence: "Production experience" },
+        { name: "FAISS & Neo4j", icon: "🕸️", evidence: "Production experience" },
+        { name: "Whisper & Voice AI", icon: "🎙️", evidence: "Public projects" },
+        { name: "LLM Integrations", icon: "🤖", evidence: "Current work" }
+      ]
+    },
+    {
+      title: "Frontend & Mobile",
+      color: "bg-blue-500",
+      items: [
+        { name: "React & Next.js", icon: "⚛️", evidence: "Current work" },
+        { name: "React Native & Expo", icon: "📱", evidence: "Current work" },
+        { name: "TypeScript & JavaScript", icon: "📘", evidence: "Current work" },
+        { name: "Vite & Tailwind CSS", icon: "⚡", evidence: "Public contributions" }
+      ]
+    },
+    {
+      title: "Backend & APIs",
+      color: "bg-green-500",
+      items: [
+        { name: "Python & FastAPI", icon: "🐍", evidence: "Current work" },
+        { name: "Node.js & Express", icon: "🟢", evidence: "Public projects" },
+        { name: "REST APIs & Pydantic", icon: "🔌", evidence: "Current work" },
+        { name: "JWT & Realtime Systems", icon: "🔐", evidence: "Current work" }
+      ]
+    },
+    {
+      title: "Data, Delivery & Quality",
+      color: "bg-orange-500",
+      items: [
+        { name: "PostgreSQL & Supabase", icon: "🐘", evidence: "Current work" },
+        { name: "Redis & SQLAlchemy", icon: "🗄️", evidence: "Current work" },
+        { name: "Appwrite & Firebase", icon: "☁️", evidence: "Public contributions" },
+        { name: "Docker & GitHub Workflows", icon: "🐳", evidence: "Production experience" },
+        { name: "Vitest, Playwright & OpenAPI", icon: "✅", evidence: "Public contributions" }
+      ]
+    }
+  ],
 
   education: [
     {
       degree: "Bachelor of Technology in Computer Science",
       major: "Artificial Intelligence and Machine Learning",
       institution: "Sreyas Institute of Engineering and Technology",
-      period: "2022 - 2026",
-      type: "current"
+      period: "2022 - April 2026",
+      type: "completed"
     },
     {
       degree: "Intermediate",
@@ -67,173 +79,172 @@ export const portfolioData = {
   ],
 
   certificates: [
-    {
-      name: "Python",
-      issuer: "Kaggle",
-      date: "2024",
-      icon: "🐍"
-    },
-    {
-      name: "SQL",
-      issuer: "HackerRank",
-      date: "2024", 
-      icon: "📊"
-    },
-    {
-      name: "Machine Learning",
-      issuer: "Kaggle",
-      date: "2024",
-      icon: "🤖"
-    },
-    {
-      name: "Agile Scrum",
-      issuer: "Scrum Learning Society",
-      date: "2024",
-      icon: "🔄"
-    }
+    { name: "Python", issuer: "Kaggle", date: "2024", icon: "🐍" },
+    { name: "SQL", issuer: "HackerRank", date: "2024", icon: "📊" },
+    { name: "Machine Learning", issuer: "Kaggle", date: "2024", icon: "🤖" },
+    { name: "Agile Scrum", issuer: "Scrum Learning Society", date: "2024", icon: "🔄" }
   ],
 
-  internships: [
+  experience: [
+    {
+      company: "BuildWithRV",
+      position: "FDE",
+      period: "July 2026 - Present",
+      type: "Full-time",
+      description: [
+        "Working full-time in an FDE role focused on shipping production software.",
+        "Contributing across web, mobile, backend, and applied-AI engineering workflows."
+      ],
+      technologies: ["Product Engineering", "Full-Stack Development", "Applied AI"]
+    },
+    {
+      company: "Independent",
+      position: "Freelance Software Developer",
+      period: "Present",
+      type: "Freelance",
+      description: [
+        "Available for selected web, mobile, backend, and applied-AI engagements.",
+        "Client and private-project details remain confidential by design."
+      ],
+      technologies: ["Web", "Mobile", "Backend", "AI Systems"]
+    },
     {
       company: "Regality AI",
       position: "AI/ML Intern",
       period: "May 2025 - July 2025",
+      type: "Internship",
       description: [
-        "Contributed to the development of Graph RAG (Retrieval-Augmented Generation) architecture for an LLM-powered QA system.",
-        "Built a prototype of Cognee, an intelligent assistant leveraging LangChain, OpenAI LLMs, Neo4j (for entity graph reasoning), and Dockerized microservices for scalable deployment.",
-        "Integrated agentic behavior through LangChain's tools and memory components, enabling context-aware multi-hop question answering.",
-        "Designed and optimized retrieval workflows using vector embeddings and graph-based context expansion, enhancing relevance and factual consistency.",
-        "Gained hands-on experience with LLM fine-tuning, prompt engineering, and hybrid retrieval methods combining semantic and symbolic reasoning."
+        "Contributed to GraphRAG architecture for an LLM-powered question-answering system.",
+        "Built retrieval workflows using LangChain, Neo4j, vector embeddings, and graph-based context expansion.",
+        "Worked with prompt engineering, hybrid retrieval, and Dockerized AI services."
       ],
-      technologies: ["LangChain", "OpenAI LLMs", "Neo4j", "Docker", "Python", "Graph RAG"]
+      technologies: ["LangChain", "Neo4j", "Python", "Docker", "GraphRAG"]
     }
   ],
 
   projects: [
     {
-      title: "Campus Eats",
-      subtitle: "Production-Grade Campus Food Ordering System",
-      description: "Full-stack mobile application designed for high-density campus environments with 'reliability-first' architecture. Features React Native frontend with optimized APK size, FastAPI backend, and resilient offline-aware architecture that handles spotty campus Wi-Fi. Implements strict order state machine and database-driven consistency for production reliability.",
-      technologies: ["React Native", "TypeScript", "FastAPI", "PostgreSQL", "JWT", "Cloudinary", "SQLAlchemy", "Hermes"],
-      githubUrl: "https://github.com/shiva9198",
-      liveUrl: null,
-      featured: true,
-      playgroundDemo: null,
-      readmeUrl: "/readmes/Campus_Eats_README.md",
-      caseStudyUrl: "/case-studies/campus-eats/Campus_Eats_CASE_STUDY.md",
-      caseStudyPdfUrl: "/case-studies/campus-eats/Campis_Eats_CASE_STUDY.pdf"
-    },
-    {
-      title: "Voice-Activated AI Assistant",
-      subtitle: "Web Scraping & Summarization",
-      description: "Built an AI voice assistant that uses speech recognition, Google CSE API, and BeautifulSoup to fetch and summarize web content based on user commands. Integrated text-to-speech and NLTK-based summarization for clear, concise responses, with robust handling of recognition and scraping errors.",
-      technologies: ["Python", "Speech Recognition", "Google CSE API", "BeautifulSoup", "NLTK", "Text-to-Speech"],
-      githubUrl: "https://github.com/shiva9198",
+      title: "Voice Business Onboarding System",
+      subtitle: "Voice-to-Structured Business Data",
+      description: "Voice-first workflow that transcribes business and product details, extracts structured fields, and presents them for review through a responsive interface.",
+      technologies: ["Whisper", "Groq", "Llama", "Flask", "React", "TypeScript"],
+      githubUrl: "https://github.com/shiva9198/voce-to-description-v1",
       liveUrl: null,
       featured: true,
       playgroundDemo: "voice-assistant"
     },
     {
-      title: "Virtual Diary",
-      subtitle: "Google Sheets Integration",
-      description: "Built a virtual diary web app with Streamlit, integrating Google Sheets API and OAuth2 for secure storage, automatic sheet creation, and structured time-stamped entries. Enabled seamless daily logging with dynamic updates and error handling for missing sheets, ensuring reliable performance and easy entry tracking over time.",
-      technologies: ["Python", "Streamlit", "Google Sheets API", "OAuth2", "Web Development"],
-      githubUrl: "https://github.com/shiva9198",
+      title: "Campus Eats",
+      subtitle: "Realtime Campus Ordering Platform",
+      description: "Public full-stack ordering system with student and admin workflows, realtime order state, authentication, QR-based pickup, and menu-management tooling.",
+      technologies: ["React", "Node.js", "Express", "MongoDB", "Convex", "JWT"],
+      githubUrl: "https://github.com/shiva9198/campus-eats",
       liveUrl: null,
       featured: true,
-      playgroundDemo: "virtual-diary"
+      playgroundDemo: null
     },
     {
-      title: "Sudoku Solver",
-      subtitle: "Recursive Backtracking",
-      description: "Developed a Sudoku solver using a recursive backtracking algorithm to efficiently fill empty cells while enforcing all game constraints. Enhanced output readability by formatting the solution grid with clear visual separation of 3x3 subgrids.",
-      technologies: ["Python", "Algorithms", "Recursive Backtracking", "Data Structures"],
-      githubUrl: "https://github.com/shiva9198",
+      title: "SHL Assessment Recommendation System",
+      subtitle: "Evaluated Vector-Search Recommender",
+      description: "Recommendation API that matches natural-language hiring requirements to assessment products using embeddings, vector similarity, and a reproducible Recall@10 evaluation workflow.",
+      technologies: ["FastAPI", "ChromaDB", "LangChain", "OpenRouter", "Python"],
+      githubUrl: "https://github.com/shiva9198/shl-assessment-recommendation",
       liveUrl: null,
-      featured: true,
-      playgroundDemo: "sudoku-solver"
+      featured: false,
+      playgroundDemo: null
+    },
+    {
+      title: "Multilingual Speech-to-Text Engine",
+      subtitle: "Offline Multilingual Transcription",
+      description: "Privacy-focused speech engine that detects more than 100 languages, performs local transcription, and can translate detected speech into English.",
+      technologies: ["Python", "Faster-Whisper", "Whisper large-v3", "VAD"],
+      githubUrl: "https://github.com/shiva9198/multilingual-speech-to-text-engine",
+      liveUrl: null,
+      featured: false,
+      playgroundDemo: null
+    }
+  ],
+
+  contributions: [
+    {
+      repository: "aden-hive/hive",
+      title: "Frontend routing fallback",
+      summary: "Added a safe 404 fallback for unknown frontend routes.",
+      status: "Merged",
+      date: "March 2026",
+      url: "https://github.com/aden-hive/hive/pull/6373",
+      technologies: ["Frontend", "Routing"]
+    },
+    {
+      repository: "sidhartha522/ehes-26",
+      title: "Five merged product contributions",
+      summary: "Delivered responsive layout, deployment configuration, interface redesign, navigation fixes, and a stall-booking flow.",
+      status: "Merged",
+      date: "March - April 2026",
+      url: "https://github.com/sidhartha522/ehes-26/pulls?q=is%3Apr+author%3Ashiva9198",
+      technologies: ["HTML", "Tailwind CSS", "Responsive UI", "Render"]
+    },
+    {
+      repository: "placemestudy1/placeme-UI",
+      title: "Live session and feedback workflows",
+      summary: "Contributing raise-hand signalling, live feedback polling, session help, routing, configuration, and related UI integration.",
+      status: "Open",
+      date: "August 2026",
+      url: "https://github.com/placemestudy1/placeme-UI/pull/3",
+      technologies: ["React", "TypeScript", "TanStack", "Vitest", "Playwright"]
+    },
+    {
+      repository: "MadhavDGS/ebc-app-backend",
+      title: "Backend API collaboration",
+      summary: "Authored public commits covering API routes, Appwrite schema compatibility, and Pydantic updates.",
+      status: "Collaborator",
+      date: "June 2026",
+      url: "https://github.com/MadhavDGS/ebc-app-backend",
+      technologies: ["FastAPI", "Appwrite", "Pydantic", "Python"]
+    },
+    {
+      repository: "sanjanahh-1901/perenti",
+      title: "Cloud data and authentication migration",
+      summary: "Authored the migration to Firebase/Firestore storage and integrated authentication and environment-based secrets.",
+      status: "Collaborator",
+      date: "June 2026",
+      url: "https://github.com/sanjanahh-1901/perenti/commit/9f493d67bee7154e67b1886a8fb222a5320d01f0",
+      technologies: ["Firebase", "Firestore", "Authentication"]
     }
   ],
 
   currentWork: {
-    status: "actively-building",
-    lastUpdated: "2026-01-04",
-    projects: [
+    lastUpdated: "2026-08-22",
+    focus: [
       {
-        title: "Campus Eats - Production System",
-        description: "Production-grade campus food ordering system with React Native frontend and FastAPI backend. Features offline-aware architecture, strict state machine, and database-driven consistency.",
-        progress: 95,
-        tech: ["React Native", "TypeScript", "FastAPI", "PostgreSQL", "JWT"],
-        startDate: "2025-10-01",
-        estimatedCompletion: "2026-01-20",
-        category: "Mobile App",
-        status: "production-ready",
-        highlights: [
-          "Offline-aware mobile architecture",
-          "Strict order state machine implementation",
-          "Database-driven consistency and validation",
-          "Production-optimized APK size under 15MB"
-        ]
+        title: "Full-time product engineering",
+        description: "Shipping production software as an FDE at BuildWithRV.",
+        status: "Current",
+        tech: ["Web", "Mobile", "Backend", "Applied AI"]
       },
       {
-        title: "AI-Powered Portfolio Assistant",
-        description: "Interactive AI assistant that helps visitors navigate and understand my portfolio, projects, and expertise using advanced natural language processing.",
-        progress: 90,
-        tech: ["Python", "FastAPI", "Natural Language Processing", "AI/ML"],
-        startDate: "2025-08-01",
-        estimatedCompletion: "2026-02-15",
-        category: "AI/ML",
-        status: "in-progress",
-        highlights: [
-          "Real-time portfolio navigation assistance",
-          "Intelligent query understanding and response generation",
-          "Integration with backend API endpoints",
-          "Production-ready deployment"
-        ]
+        title: "Selected freelance engagements",
+        description: "Taking on scoped web, mobile, backend, and applied-AI work while protecting client confidentiality.",
+        status: "Available",
+        tech: ["React", "React Native", "FastAPI", "TypeScript"]
       },
       {
-        title: "Fine Tuning of LLM for Agentic AI",
-        description: "Advanced LLM fine-tuning service for creating intelligent agentic AI solutions tailored to specific tasks and domains.",
-        progress: 85,
-        tech: ["Large Language Models", "Fine-tuning", "Agentic AI", "Machine Learning"],
-        startDate: "2025-07-15",
-        estimatedCompletion: "--/--/---",
-        category: "AI/ML",
-        status: "paused",
-        highlights: [
-          "Multi-agent architecture design and implementation",
-          "Custom fine-tuning pipelines for specialized tasks",
-          "Tool integration and API connections",
-          "Context management and decision-making frameworks"
-        ]
+        title: "Public collaboration",
+        description: "Contributing to public repositories through authored commits and focused pull requests.",
+        status: "Active",
+        tech: ["React", "TypeScript", "Python", "Testing"]
       }
     ],
     learning: [
-      {
-        topic: "Production Mobile Development",
-        platform: "React Native & Industry Best Practices",
-        progress: 90,
-        focus: "Offline-aware architecture, State machines, Performance optimization"
-      },
-      {
-        topic: "Advanced LLM Fine-tuning Techniques",
-        platform: "Research Papers & Implementation",
-        progress: 80,
-        focus: "RLHF, LoRA, QLoRA, Multi-task learning"
-      },
-      {
-        topic: "Database-Driven System Design",
-        platform: "PostgreSQL & Production Systems",
-        progress: 85,
-        focus: "Consistency constraints, State validation, Transaction management"
-      }
+      { topic: "Production AI systems", focus: "Retrieval quality, model routing, evaluation, and observability" },
+      { topic: "Reliable mobile systems", focus: "Offline behavior, realtime state, performance, and release quality" },
+      { topic: "Full-stack quality", focus: "Typed contracts, browser testing, API correctness, and maintainable delivery" }
     ],
     goals: [
-      "Complete Campus Eats production deployment and user testing",
-      "Launch AI-Powered Portfolio Assistant with full functionality",
-      "Develop enterprise-grade mobile solutions for startups",
-      "Resume and complete LLM fine-tuning framework when prioritized",
-      "Build reputation as a production-ready mobile + AI developer"
+      "Ship reliable production software in the full-time FDE role",
+      "Deliver a small number of high-quality freelance engagements",
+      "Continue making verifiable public contributions",
+      "Keep public portfolio claims synchronized with GitHub evidence"
     ]
   }
 };

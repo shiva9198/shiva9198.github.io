@@ -7,9 +7,9 @@ import { SkillsSection } from '@/components/sections/skills-section';
 import { CurrentWorkSection } from '@/components/sections/current-work-section';
 import { EducationSection } from '@/components/sections/education-section';
 import { CertificatesSection } from '@/components/sections/certificates-section';
-import { InternshipSection } from '@/components/sections/internship-section';
+import { ExperienceSection } from '@/components/sections/experience-section';
 import { ProjectsSection } from '@/components/sections/projects-section';
-import { WorkingProjectsSection } from '@/components/sections/working-projects-section';
+import { ContributionsSection } from '@/components/sections/contributions-section';
 import { PlaygroundSection } from '@/components/sections/playground-section';
 import { ContactSection } from '@/components/sections/contact-section';
 import { Navigation } from '@/components/navigation';
@@ -61,9 +61,9 @@ export default function HomePage() {
           <CertificatesSection />
         </section>
 
-        {/* Internship Section */}
-        <section id="internship" className="py-20 bg-background">
-          <InternshipSection />
+        {/* Experience Section */}
+        <section id="experience" className="py-20 bg-background">
+          <ExperienceSection />
         </section>
 
         {/* Projects Section */}
@@ -71,9 +71,9 @@ export default function HomePage() {
           <ProjectsSection />
         </section>
 
-        {/* Working Projects Section */}
-        <section id="working-projects" className="py-20 bg-background">
-          <WorkingProjectsSection />
+        {/* Public Contributions Section */}
+        <section id="contributions" className="py-20 bg-background">
+          <ContributionsSection />
         </section>
 
         {/* AI Playground Section */}

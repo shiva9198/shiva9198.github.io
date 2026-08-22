@@ -5,11 +5,9 @@ import { portfolioData } from '@/data/portfolio';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { ReadmeModal } from '@/components/ui/readme-modal';
-import { ExternalLink, Github, Play, Star, FileDown } from 'lucide-react';
+import { ExternalLink, Github, Play, Star } from 'lucide-react';
 
-// Extend project type to include readmeUrl
-interface ProjectWithReadme {
+interface PublicProject {
   title: string;
   subtitle: string;
   description: string;
@@ -18,9 +16,6 @@ interface ProjectWithReadme {
   liveUrl: string | null;
   featured: boolean;
   playgroundDemo: string | null;
-  readmeUrl?: string;
-  caseStudyUrl?: string;
-  caseStudyPdfUrl?: string;
 }
 
 export function ProjectsSection() {
@@ -60,7 +55,7 @@ export function ProjectsSection() {
         </motion.div>
 
         <div className="bento-grid max-w-7xl mx-auto">
-          {projects.map((project: ProjectWithReadme, index) => (
+          {projects.map((project: PublicProject, index) => (
             <motion.div
               key={project.title}
               initial={{ opacity: 0, y: 50 }}
@@ -147,25 +142,6 @@ export function ProjectsSection() {
                       Code
                     </Button>
                     
-                    {project.readmeUrl && (
-                      <ReadmeModal
-                        readmeUrl={project.readmeUrl}
-                        projectTitle={project.title}
-                      />
-                    )}
-                    
-                    {project.caseStudyPdfUrl && (
-                      <Button
-                        size="sm"
-                        variant="outline"
-                        className="glass hover:animate-glow transition-all duration-300 flex-1 group"
-                        onClick={() => window.open(project.caseStudyPdfUrl!, '_blank')}
-                      >
-                        <FileDown className="w-4 h-4 mr-2 group-hover:animate-bounce" />
-                        Case Study
-                      </Button>
-                    )}
-                    
                     {project.liveUrl ? (
                       <Button
                         size="sm"
@@ -208,71 +184,6 @@ export function ProjectsSection() {
           ))}
         </div>
 
-        {/* Working projects section */}
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.4 }}
-          viewport={{ once: true }}
-          className="mt-20"
-        >
-          <Card className="glass border-0 backdrop-blur-lg max-w-4xl mx-auto">
-            <CardContent className="p-8">
-              <div className="text-center mb-8">
-                <h3 className="text-2xl font-bold mb-4 text-gradient-alt">
-                  Working Projects
-                </h3>
-                <p className="text-muted-foreground">
-                  Ongoing projects and future developments
-                </p>
-              </div>
-
-              <div className="grid md:grid-cols-3 gap-6">
-                <div className="text-center p-4 rounded-lg bg-primary/5 border border-primary/20">
-                  <div className="w-16 h-16 bg-primary/20 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <span className="text-2xl">🚀</span>
-                  </div>
-                  <h4 className="font-semibold mb-2 text-primary">AI Portfolio Assistant</h4>
-                  <p className="text-xs text-muted-foreground mb-3">
-                    Personal AI assistant for portfolio interaction
-                  </p>
-                  <div className="flex items-center justify-center text-xs text-muted-foreground">
-                    <div className="w-2 h-2 bg-yellow-500 rounded-full mr-2 animate-pulse" />
-                    In Development
-                  </div>
-                </div>
-
-                <div className="text-center p-4 rounded-lg bg-primary/5 border border-primary/20">
-                  <div className="w-16 h-16 bg-primary/20 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <span className="text-2xl">🤖</span>
-                  </div>
-                  <h4 className="font-semibold mb-2 text-primary">Advanced RAG System</h4>
-                  <p className="text-xs text-muted-foreground mb-3">
-                    Multi-modal retrieval augmented generation
-                  </p>
-                  <div className="flex items-center justify-center text-xs text-muted-foreground">
-                    <div className="w-2 h-2 bg-blue-500 rounded-full mr-2 animate-pulse" />
-                    Planning
-                  </div>
-                </div>
-
-                <div className="text-center p-4 rounded-lg bg-primary/5 border border-primary/20">
-                  <div className="w-16 h-16 bg-primary/20 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <span className="text-2xl">📱</span>
-                  </div>
-                  <h4 className="font-semibold mb-2 text-primary">Enterprise Mobile Solutions</h4>
-                  <p className="text-xs text-muted-foreground mb-3">
-                    Production-ready React Native applications
-                  </p>
-                  <div className="flex items-center justify-center text-xs text-muted-foreground">
-                    <div className="w-2 h-2 bg-green-500 rounded-full mr-2 animate-pulse" />
-                    Active Development
-                  </div>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
-        </motion.div>
       </div>
     </section>
   );

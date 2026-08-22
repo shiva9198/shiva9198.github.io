@@ -33,20 +33,20 @@ export function AboutSection() {
 
                   <div className="grid grid-cols-2 gap-4">
                     <div className="text-center p-4 rounded-lg bg-primary/10">
-                      <div className="text-2xl font-bold text-primary mb-1">4+</div>
-                      <div className="text-sm text-muted-foreground">Years Experience</div>
-                    </div>
-                    <div className="text-center p-4 rounded-lg bg-primary/10">
-                      <div className="text-2xl font-bold text-primary mb-1">3+</div>
-                      <div className="text-sm text-muted-foreground">Major Projects</div>
+                      <div className="text-2xl font-bold text-primary mb-1">FDE</div>
+                      <div className="text-sm text-muted-foreground">BuildWithRV</div>
                     </div>
                     <div className="text-center p-4 rounded-lg bg-primary/10">
                       <div className="text-2xl font-bold text-primary mb-1">4</div>
-                      <div className="text-sm text-muted-foreground">Certificates</div>
+                      <div className="text-sm text-muted-foreground">Featured Public Projects</div>
                     </div>
                     <div className="text-center p-4 rounded-lg bg-primary/10">
-                      <div className="text-2xl font-bold text-primary mb-1">1</div>
-                      <div className="text-sm text-muted-foreground">Internship</div>
+                      <div className="text-2xl font-bold text-primary mb-1">8</div>
+                      <div className="text-sm text-muted-foreground">Merged External PRs</div>
+                    </div>
+                    <div className="text-center p-4 rounded-lg bg-primary/10">
+                      <div className="text-2xl font-bold text-primary mb-1">Apr 2026</div>
+                      <div className="text-sm text-muted-foreground">B.Tech Completed</div>
                     </div>
                   </div>
 
@@ -57,19 +57,19 @@ export function AboutSection() {
                     <ul className="space-y-2 text-muted-foreground">
                       <li className="flex items-center">
                         <div className="w-2 h-2 bg-primary rounded-full mr-3" />
-                        AI/ML Research & Development
+                        Production web, mobile, and backend delivery
                       </li>
                       <li className="flex items-center">
                         <div className="w-2 h-2 bg-primary rounded-full mr-3" />
-                        Full-Stack Web Development
+                        Applied AI, RAG, and voice systems
                       </li>
                       <li className="flex items-center">
                         <div className="w-2 h-2 bg-primary rounded-full mr-3" />
-                        Graph RAG & LLM Integration
+                        Public collaboration and open-source work
                       </li>
                       <li className="flex items-center">
                         <div className="w-2 h-2 bg-primary rounded-full mr-3" />
-                        Startup Innovation
+                        Selected freelance engagements
                       </li>
                     </ul>
                   </div>
@@ -85,7 +85,7 @@ export function AboutSection() {
               <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 rounded-full">
                 <Avatar className="w-48 h-48 border-4 border-white shadow-2xl">
                   <AvatarFallback className="text-5xl font-bold bg-gradient-to-br from-blue-500 via-purple-500 to-cyan-400 text-white">
-                    AS
+                    SS
                   </AvatarFallback>
                 </Avatar>
               </div>
