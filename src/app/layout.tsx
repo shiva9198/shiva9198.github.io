@@ -9,16 +9,14 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://shiva9198.github.io"),
-  title: "Shiva Santosh Reddy Aenugu | FDE & AI/Full-Stack Engineer",
-  description: "Portfolio of Shiva Santosh Reddy Aenugu, an FDE at BuildWithRV working across production web, mobile, backend, and applied-AI systems.",
-  keywords: ["FDE", "AI Engineer", "Full-Stack Engineer", "React", "React Native", "FastAPI", "Python", "TypeScript", "RAG"],
-  authors: [{ name: "Shiva Santosh Reddy Aenugu" }],
+  title: "AS - Portfolio",
+  description: "Portfolio of AS - Aspiring Computer Science Engineer specializing in AI/ML and Full-Stack Development",
+  keywords: ["AI", "ML", "Full-Stack", "React", "Python", "TypeScript", "Computer Science"],
+  authors: [{ name: "AS" }],
   openGraph: {
-    title: "Shiva Santosh Reddy Aenugu | Engineering Portfolio",
-    description: "Production web, mobile, backend, and applied-AI engineering with verified public projects and contributions.",
+    title: "AS - Portfolio",
+    description: "Innovative AI/ML solutions and full-stack development",
     type: "website",
-    url: "https://shiva9198.github.io",
   },
 };
 

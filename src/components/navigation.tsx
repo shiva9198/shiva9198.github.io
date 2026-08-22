@@ -4,7 +4,7 @@ import { useState, useEffect, useCallback, memo } from 'react';
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { ThemeToggle } from '@/components/theme-toggle';
-import { Menu, X, Home, User, Code, Award, Briefcase, FolderOpen, Gamepad2, Mail, Zap, GitPullRequest } from 'lucide-react';
+import { Menu, X, Home, User, Code, Award, Briefcase, FolderOpen, Gamepad2, Mail, Zap } from 'lucide-react';
 
 const navItems = [
   { id: 'hero', label: 'Home', icon: Home },
@@ -12,9 +12,8 @@ const navItems = [
   { id: 'skills', label: 'Skills', icon: Code },
   { id: 'current-work', label: 'Current Work', icon: Zap },
   { id: 'education', label: 'Education', icon: Award },
-  { id: 'experience', label: 'Experience', icon: Briefcase },
+  { id: 'internship', label: 'Experience', icon: Briefcase },
   { id: 'projects', label: 'Projects', icon: FolderOpen },
-  { id: 'contributions', label: 'Contributions', icon: GitPullRequest },
   { id: 'playground', label: 'Playground', icon: Gamepad2 },
   { id: 'contact', label: 'Contact', icon: Mail },
 ];
@@ -115,11 +114,11 @@ export const Navigation = memo(function Navigation() {
               className="font-bold text-xl text-gradient cursor-pointer"
               onClick={() => scrollToSection('hero')}
             >
-              SS
+              AS
             </motion.div>
 
             {/* Desktop Menu */}
-            <div className="hidden lg:flex items-center space-x-4">
+            <div className="hidden lg:flex items-center space-x-8">
               {navItems.map((item) => (
                 <Button
                   key={item.id}

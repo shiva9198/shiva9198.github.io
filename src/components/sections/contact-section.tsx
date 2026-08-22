@@ -8,7 +8,7 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Badge } from '@/components/ui/badge';
-import { Mail, MapPin, Send, Github, Linkedin, ExternalLink } from 'lucide-react';
+import { Mail, Phone, MapPin, Send, Github, Linkedin, ExternalLink, Loader2 } from 'lucide-react';
 
 export function ContactSection() {
   const { personal } = portfolioData;
@@ -18,22 +18,39 @@ export function ContactSection() {
     subject: '',
     message: '',
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(false);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setFormData(prev => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!formData.name || !formData.email || !formData.message) return;
 
-    const subject = encodeURIComponent(formData.subject || `Portfolio inquiry from ${formData.name}`);
-    const body = encodeURIComponent(`${formData.message}\n\nFrom: ${formData.name}\nEmail: ${formData.email}`);
-    window.location.href = `mailto:${personal.email}?subject=${subject}&body=${body}`;
+    setIsSubmitting(true);
+    
+    // Simulate form submission
+    await new Promise(resolve => setTimeout(resolve, 2000));
+    
+    setIsSubmitting(false);
+    setIsSubmitted(true);
+    setFormData({ name: '', email: '', subject: '', message: '' });
+
+    // Reset success message after 3 seconds
+    setTimeout(() => setIsSubmitted(false), 3000);
   };
 
   const contactMethods = [
+    {
+      icon: Phone,
+      label: 'Phone',
+      value: personal.phone,
+      href: `tel:${personal.phone}`,
+      color: 'text-green-500',
+    },
     {
       icon: Mail,
       label: 'Email',
@@ -72,7 +89,8 @@ export function ContactSection() {
           </h2>
           <div className="w-24 h-1 bg-primary mx-auto rounded-full" />
           <p className="text-muted-foreground mt-6 max-w-2xl mx-auto">
-            I work full-time at BuildWithRV and remain available for selected freelance and public collaboration opportunities.
+            Ready to collaborate on exciting AI/ML projects or discuss opportunities? 
+            I&apos;d love to hear from you!
           </p>
         </motion.div>
 
@@ -90,7 +108,10 @@ export function ContactSection() {
                 Let&apos;s Connect
               </h3>
               <p className="text-muted-foreground leading-relaxed mb-8">
-                Reach out for a scoped freelance engagement, an open-source collaboration, or a conversation about production web, mobile, and AI systems.
+                I&apos;m always excited to discuss new opportunities, collaborate on innovative projects, 
+                or simply connect with fellow developers and AI enthusiasts. Whether you&apos;re looking 
+                for a passionate developer, want to discuss a project idea, or just want to say hello, 
+                I&apos;d love to hear from you.
               </p>
             </div>
 
@@ -147,7 +168,7 @@ export function ContactSection() {
                     Hyderabad, Telangana, India
                   </p>
                   <p className="text-sm text-muted-foreground mt-2">
-                    Available for select remote freelance work
+                    Open to remote opportunities worldwide
                   </p>
                 </CardContent>
               </Card>
@@ -167,7 +188,24 @@ export function ContactSection() {
                   Send a Message
                 </h3>
 
-                <form onSubmit={handleSubmit} className="space-y-6">
+                {isSubmitted ? (
+                  <motion.div
+                    initial={{ opacity: 0, scale: 0.9 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    className="text-center py-8"
+                  >
+                    <div className="w-16 h-16 bg-green-500/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                      <Mail className="w-8 h-8 text-green-500" />
+                    </div>
+                    <h4 className="text-lg font-semibold text-green-500 mb-2">
+                      Message Sent!
+                    </h4>
+                    <p className="text-muted-foreground">
+                      Thank you for reaching out. I&apos;ll get back to you soon!
+                    </p>
+                  </motion.div>
+                ) : (
+                  <form onSubmit={handleSubmit} className="space-y-6">
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                       <div>
                         <label className="block text-sm font-medium mb-2 text-gradient-alt">
@@ -227,17 +265,28 @@ export function ContactSection() {
 
                     <Button
                       type="submit"
-                      disabled={!formData.name || !formData.email || !formData.message}
+                      disabled={isSubmitting || !formData.name || !formData.email || !formData.message}
                       className="w-full glass hover:animate-glow transition-all duration-300"
                     >
-                      <Send className="w-4 h-4 mr-2" />
-                      Open Email Draft
+                      {isSubmitting ? (
+                        <>
+                          <Loader2 className="w-4 h-4 mr-2 animate-spin" />
+                          Sending...
+                        </>
+                      ) : (
+                        <>
+                          <Send className="w-4 h-4 mr-2" />
+                          Send Message
+                        </>
+                      )}
                     </Button>
 
                     <p className="text-xs text-muted-foreground text-center">
-                      This opens your email client with the message prefilled; nothing is sent automatically.
+                      💡 This is a demo form. In production, it would integrate with 
+                      email services or serverless functions for actual message delivery.
                     </p>
-                </form>
+                  </form>
+                )}
               </CardContent>
             </Card>
           </motion.div>
