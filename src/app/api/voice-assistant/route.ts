@@ -14,17 +14,19 @@ export async function POST(request: NextRequest) {
       
       'langchain': `LangChain is a powerful framework for building LLM applications with chains, agents, and memory systems. I've used it extensively for creating conversational AI systems and implementing RAG architectures. It provides tools for document loading, text splitting, embedding generation, vector stores, and retrieval chains. Perfect for building production-ready AI applications.`,
       
-      'python programming': `Python is my primary programming language for AI/ML development and web applications. I've used it with libraries like TensorFlow, PyTorch, Pandas, NumPy, FastAPI, and Django. Python's versatility makes it excellent for data science, machine learning, web development, automation, and API development. It's the backbone of most AI/ML projects.`,
+      'python programming': `Python is one of my primary languages for AI systems and backend APIs. My recent work includes FastAPI services, Pydantic contracts, retrieval pipelines, speech processing, and automation.`,
       
       'regality ai': `At Regality AI (May-July 2025), I worked on Graph RAG for LLM QA systems, building a Cognee prototype with LangChain, Neo4j, and Docker. I optimized retrieval workflows and gained hands-on experience with LLM fine-tuning and hybrid retrieval systems. This internship deepened my expertise in enterprise AI solutions and graph-based knowledge systems.`,
       
-      'web development': `Modern web development involves frontend frameworks like React, Next.js, and Vue.js, paired with backend technologies like Node.js, FastAPI, and databases like PostgreSQL and MongoDB. I've built full-stack applications using TypeScript, implemented responsive designs with TailwindCSS, and deployed applications using Docker and cloud platforms like Vercel.`,
+      'web development': `My recent web work spans React, Next.js, Vite, TypeScript, Tailwind CSS, Node.js, Express, FastAPI, PostgreSQL, Supabase, Appwrite, and Firebase. I focus on typed contracts, responsive interfaces, API correctness, testing, and maintainable delivery.`,
       
-      'projects': `I've developed several innovative projects including a Voice-Activated AI Assistant for web scraping and summarization, a Virtual Diary with Google Sheets integration, and a Sudoku Solver using recursive backtracking. Each project demonstrates different aspects of AI/ML, data processing, and algorithm implementation. You can explore these interactively in the AI Playground section!`,
+      'projects': `My featured public projects are a Voice Business Onboarding System, Campus Eats, an SHL Assessment Recommendation System, and a Multilingual Speech-to-Text Engine. Each project links directly to public code and documentation.`,
       
-      'portfolio': `This portfolio showcases my expertise in AI/ML, full-stack development, and innovative problem-solving. Built with Next.js 14, TailwindCSS, and Framer Motion, it features interactive AI demos, glassmorphism design, and real-time project demonstrations. The AI Playground allows visitors to experience my projects firsthand, making it more than just a static showcase.`,
+      'portfolio': `This portfolio is built with Next.js 15.5, React 19, TypeScript 5, Tailwind CSS 4, Framer Motion 12, and Zustand 5. Its content is derived from a GitHub truth document and separates merged contributions, open work, public projects, and confidential private work.`,
       
-      'skills': `My technical skills span multiple domains: Programming (Python, Java, C, TypeScript, JavaScript), Web Development (React, Node.js, Next.js, Express, HTML, CSS), Databases (MySQL, MongoDB, PostgreSQL), AI/ML (Machine Learning, LangChain, TensorFlow, PyTorch), and Tools (Docker, Git, Linux). I also excel in problem-solving, team collaboration, and analytical thinking.`
+      'skills': `My current stack includes React, React Native, Expo, Next.js, TypeScript, Python, FastAPI, Node.js, PostgreSQL, Supabase, Redis, Appwrite, Firebase, Docker, RAG, GraphRAG, LangChain, LangGraph, FAISS, Neo4j, and Whisper.`,
+
+      'employment': `I work full-time as an FDE at BuildWithRV, starting in July 2026. I am also available for selected freelance work. I completed my B.Tech in Computer Science with an AI and ML specialization in April 2026.`
     };
 
     // Simulate URL analysis if provided
@@ -39,7 +41,7 @@ export async function POST(request: NextRequest) {
     }
 
     // Find matching response
-    let response = `I'm Shiva's AI Assistant! I can help you learn about artificial intelligence, machine learning, Graph RAG, my internship experience at Regality AI, programming topics, and my projects. I can also analyze web content when you provide URLs. What would you like to know?`;
+    let response = `I'm Shiva's portfolio assistant. I can explain his current role at BuildWithRV, freelance availability, technology stack, public projects, verified contributions, education, and Regality AI internship. What would you like to know?`;
     
     const lowerQuery = query.toLowerCase();
     for (const [keyword, resp] of Object.entries(demoResponses)) {

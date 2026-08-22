@@ -9,10 +9,10 @@ html {
 /* Base styles */
 html, body {
   min-height: 100vh;
+  overflow-x: hidden;
 }
 
 body {
-  overflow-x: hidden;
   transition: background-color 0.15s ease, color 0.15s ease;
 }
 

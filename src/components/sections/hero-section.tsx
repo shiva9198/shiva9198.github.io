@@ -3,19 +3,10 @@
 import { motion } from 'framer-motion';
 import { portfolioData } from '@/data/portfolio';
 import { Button } from '@/components/ui/button';
-import { Download, Rocket, Zap } from 'lucide-react';
+import { GitPullRequest, Rocket, Zap } from 'lucide-react';
 
 export function HeroSection() {
   const { personal } = portfolioData;
-
-  const handleDownloadResume = () => {
-    const link = document.createElement('a');
-    link.href = '/resume/Shiva_santosh_Resume.pdf';
-    link.download = 'Shiva_Santosh_Resume.pdf';
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-  };
 
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
@@ -92,12 +83,12 @@ export function HeroSection() {
             className="flex flex-col sm:flex-row gap-4 justify-center items-center"
           >
             <Button
-              onClick={handleDownloadResume}
+              onClick={() => scrollToSection('contributions')}
               size="lg"
               className="glass hover:animate-glow transition-all duration-300 group"
             >
-              <Download className="mr-2 h-5 w-5 group-hover:animate-bounce" />
-              Download Resume
+              <GitPullRequest className="mr-2 h-5 w-5 group-hover:animate-bounce" />
+              View Contributions
             </Button>
             
             <Button

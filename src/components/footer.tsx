@@ -22,12 +22,11 @@ export function Footer() {
           {/* Brand */}
           <div>
                         <h3 className="text-xl font-bold text-gradient mb-2">
-              AS
+              SS
             </h3>
             <p className="text-muted-foreground text-sm leading-relaxed">
-              Aspiring Computer Science Engineer specializing in AI & ML.
-              Passionate about creating innovative solutions and building
-              the future with technology.
+              FDE at BuildWithRV building production-oriented web, mobile,
+              backend, and applied-AI systems.
             </p>
           </div>
 
@@ -35,7 +34,7 @@ export function Footer() {
           <div>
             <h4 className="font-semibold text-gradient-alt mb-4">Quick Links</h4>
             <div className="space-y-2">
-              {['About', 'Projects', 'Skills', 'Contact'].map((link) => (
+              {['About', 'Projects', 'Contributions', 'Contact'].map((link) => (
                 <div key={link}>
                   <Button
                     variant="ghost"
@@ -101,7 +100,7 @@ export function Footer() {
 
             <div className="flex items-center space-x-4">
               <span className="text-sm text-muted-foreground">
-                © 2025 Shiva Santosh Reddy Aenugu. All rights reserved.
+                © 2026 Shiva Santosh Reddy Aenugu. All rights reserved.
               </span>
               
               <Button
@@ -119,11 +118,11 @@ export function Footer() {
         {/* Additional Info */}
         <div className="mt-8 text-center">
           <div className="flex flex-wrap justify-center gap-4 text-xs text-muted-foreground">
-            <span>🚀 Open to opportunities</span>
+            <span>💼 Full-time at BuildWithRV</span>
             <span>•</span>
-            <span>🌍 Remote friendly</span>
+            <span>🌍 Select freelance availability</span>
             <span>•</span>
-            <span>🤖 AI/ML enthusiast</span>
+            <span>🤖 Applied AI engineer</span>
             <span>•</span>
             <span>💻 Full-stack developer</span>
           </div>

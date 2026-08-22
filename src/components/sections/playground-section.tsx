@@ -41,7 +41,7 @@ const activeFeatures = [
     description: 'Interactive AI assistant that helps navigate and understand my portfolio, projects, and expertise.',
     technologies: ['Python', 'FastAPI', 'Natural Language Processing', 'AI/ML'],
     icon: '🤖',
-    status: 'active',
+    status: 'prototype',
   },
   {
     id: 'llm-tuning',
@@ -49,7 +49,7 @@ const activeFeatures = [
     description: 'Advanced LLM fine-tuning service for creating intelligent agentic AI solutions tailored to specific tasks.',
     technologies: ['Large Language Models', 'Fine-tuning', 'Agentic AI', 'Machine Learning'],
     icon: '🧠',
-    status: 'active',
+    status: 'prototype',
   },
 ];
 
@@ -78,14 +78,14 @@ export function PlaygroundSection() {
           </h2>
           <div className="w-24 h-1 bg-primary mx-auto rounded-full" />
           <p className="text-muted-foreground mt-6 max-w-2xl mx-auto">
-            Experience my AI projects - active features available now, with more exciting demos coming soon!
+            Documented AI prototypes and concepts. Hosted availability is never implied unless a working public link is provided.
           </p>
         </motion.div>
 
         <div className="max-w-6xl mx-auto">
           {/* Feature selector */}
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
-            {/* Active Features */}
+            {/* Documented prototypes */}
             {activeFeatures.map((feature, index) => (
               <motion.div
                 key={feature.id}
@@ -102,7 +102,7 @@ export function PlaygroundSection() {
                     <div className="text-center mb-4">
                       <div className="w-16 h-16 bg-primary/20 rounded-full flex items-center justify-center mx-auto mb-4 relative">
                         <span className="text-3xl">{feature.icon}</span>
-                        <div className="absolute -top-1 -right-1 w-4 h-4 bg-green-500 rounded-full animate-pulse">
+                        <div className="absolute -top-1 -right-1 w-4 h-4 bg-sky-500 rounded-full">
                           <div className="w-2 h-2 bg-white rounded-full absolute top-1 left-1"></div>
                         </div>
                       </div>
@@ -112,9 +112,9 @@ export function PlaygroundSection() {
                       <p className="text-sm text-muted-foreground mb-4">
                         {feature.description}
                       </p>
-                      <Badge variant="secondary" className="glass bg-green-500/20 text-green-400 border-green-500/30 mb-4">
+                      <Badge variant="secondary" className="glass bg-sky-500/20 text-sky-400 border-sky-500/30 mb-4">
                         <Sparkles className="w-3 h-3 mr-1" />
-                        Active
+                        Local Prototype
                       </Badge>
                     </div>
 
@@ -125,7 +125,7 @@ export function PlaygroundSection() {
                       onClick={() => handleDemoSelect(feature.id)}
                     >
                       <Info className="w-4 h-4 mr-2 group-hover:animate-bounce" />
-                      Learn More
+                      View Details
                     </Button>
                   </CardContent>
                 </Card>
@@ -200,10 +200,10 @@ export function PlaygroundSection() {
                           {currentFeature?.title}
                         </h3>
                         <div className="flex gap-2 mt-2">
-                          {currentFeature?.status === 'active' ? (
-                            <Badge variant="secondary" className="glass bg-green-500/20 text-green-400 border-green-500/30">
+                          {currentFeature?.status === 'prototype' ? (
+                            <Badge variant="secondary" className="glass bg-sky-500/20 text-sky-400 border-sky-500/30">
                               <Sparkles className="w-3 h-3 mr-1" />
-                              Active Now
+                              Local Prototype
                             </Badge>
                           ) : (
                             <Badge variant="secondary" className="glass bg-orange-500/20 text-orange-400 border-orange-500/30">
@@ -243,11 +243,10 @@ export function PlaygroundSection() {
                       </div>
                     </div>
 
-                    {currentFeature?.status === 'active' ? (
-                      <div className="bg-green-500/10 p-4 rounded-lg border border-green-500/20">
-                        <p className="text-sm text-green-300">
-                          ✅ <strong>Live & Ready:</strong> This feature is currently active and available! 
-                          The backend API is running and ready to serve requests.
+                    {currentFeature?.status === 'prototype' ? (
+                      <div className="bg-sky-500/10 p-4 rounded-lg border border-sky-500/20">
+                        <p className="text-sm text-sky-300">
+                          <strong>Local prototype:</strong> This portfolio documents the concept and technology direction; it does not claim a continuously hosted backend.
                         </p>
                       </div>
                     ) : (
@@ -278,7 +277,7 @@ export function PlaygroundSection() {
                     Playground Features
                   </h3>
                   <p className="text-muted-foreground">
-                    Explore my AI projects and capabilities
+                    Clear status labels separate documented prototypes from future concepts.
                   </p>
                 </div>
 
@@ -287,8 +286,8 @@ export function PlaygroundSection() {
                     <div className="w-12 h-12 bg-green-500/20 rounded-full flex items-center justify-center mx-auto mb-3">
                       <span className="text-2xl">🟢</span>
                     </div>
-                    <div className="font-semibold text-green-400 mb-1">Live Features</div>
-                    <div className="text-sm text-muted-foreground">Currently active and available</div>
+                    <div className="font-semibold text-green-400 mb-1">Documented Prototypes</div>
+                    <div className="text-sm text-muted-foreground">Implementation direction shown without uptime claims</div>
                   </div>
                   
                   <div className="text-center p-4 rounded-lg bg-orange-500/10 border border-orange-500/20">
@@ -303,8 +302,8 @@ export function PlaygroundSection() {
                     <div className="w-12 h-12 bg-primary/20 rounded-full flex items-center justify-center mx-auto mb-3">
                       <span className="text-2xl">🚀</span>
                     </div>
-                    <div className="font-semibold text-primary mb-1">Production Ready</div>
-                    <div className="text-sm text-muted-foreground">Real backend APIs with AI/ML capabilities</div>
+                    <div className="font-semibold text-primary mb-1">Verification First</div>
+                    <div className="text-sm text-muted-foreground">Public project and contribution claims link to evidence</div>
                   </div>
                 </div>
               </CardContent>
