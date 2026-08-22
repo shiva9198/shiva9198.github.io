@@ -6,7 +6,7 @@ import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Card, CardContent } from '@/components/ui/card';
 import { Textarea } from '@/components/ui/textarea';
-import { Send, Bot, User, Loader2, ExternalLink } from 'lucide-react';
+import { Bot, ExternalLink, Lightbulb, Loader2, Send, User } from 'lucide-react';
 import { API_ENDPOINTS } from '@/lib/config';
 
 interface Message {
@@ -229,8 +229,9 @@ export function VoiceAssistantDemo() {
         </Button>
       </div>
 
-      <div className="text-xs text-muted-foreground text-center">
-        💡 Try asking about: &quot;artificial intelligence&quot;, &quot;machine learning&quot;, &quot;tech news&quot;, &quot;python programming&quot;, &quot;web development&quot;
+      <div className="flex items-center justify-center gap-2 text-xs text-muted-foreground text-center">
+        <Lightbulb className="w-4 h-4 shrink-0" aria-hidden="true" />
+        <span>Try asking about: &quot;artificial intelligence&quot;, &quot;machine learning&quot;, &quot;tech news&quot;, &quot;python programming&quot;, &quot;web development&quot;</span>
       </div>
     </div>
   );

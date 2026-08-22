@@ -3,7 +3,7 @@
 import { motion } from 'framer-motion';
 import { portfolioData } from '@/data/portfolio';
 import { Button } from '@/components/ui/button';
-import { ArrowUp, Heart, Github, Linkedin, Mail } from 'lucide-react';
+import { ArrowUp, BrainCircuit, BriefcaseBusiness, Github, Globe2, Heart, Linkedin, Mail, Rocket } from 'lucide-react';
 
 export function Footer() {
   const { personal } = portfolioData;
@@ -100,7 +100,7 @@ export function Footer() {
 
             <div className="flex items-center space-x-4">
               <span className="text-sm text-muted-foreground">
-                © 2026 Shiva Santosh Reddy Aenugu. All rights reserved.
+                &copy; 2026 Shiva Santosh Reddy Aenugu. All rights reserved.
               </span>
               
               <Button
@@ -118,13 +118,13 @@ export function Footer() {
         {/* Additional Info */}
         <div className="mt-8 text-center">
           <div className="flex flex-wrap justify-center gap-4 text-xs text-muted-foreground">
-            <span>💼 Full-time at BuildWithRV</span>
+            <span className="inline-flex items-center gap-1.5"><BriefcaseBusiness className="w-3 h-3" />Full-time at BuildWithRV</span>
             <span>•</span>
-            <span>🌍 Select freelance availability</span>
+            <span className="inline-flex items-center gap-1.5"><Globe2 className="w-3 h-3" />Select freelance availability</span>
             <span>•</span>
-            <span>🚀 Building PlaceMe</span>
+            <span className="inline-flex items-center gap-1.5"><Rocket className="w-3 h-3" />Building PlaceMe</span>
             <span>•</span>
-            <span>🤖 Applied AI &amp; full-stack engineer</span>
+            <span className="inline-flex items-center gap-1.5"><BrainCircuit className="w-3 h-3" />Applied AI &amp; full-stack engineer</span>
           </div>
         </div>
       </div>

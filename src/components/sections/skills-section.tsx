@@ -4,6 +4,47 @@ import { motion } from 'framer-motion';
 import { portfolioData } from '@/data/portfolio';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
+import {
+  Bot,
+  Boxes,
+  BrainCircuit,
+  Cable,
+  Cloud,
+  Code2,
+  Container,
+  Database,
+  DatabaseZap,
+  Mic2,
+  MonitorSmartphone,
+  Network,
+  Palette,
+  ServerCog,
+  ShieldCheck,
+  Smartphone,
+  TestTube2,
+  Workflow,
+} from 'lucide-react';
+
+const skillIcons = {
+  bot: Bot,
+  boxes: Boxes,
+  brain: BrainCircuit,
+  cable: Cable,
+  cloud: Cloud,
+  code: Code2,
+  container: Container,
+  database: Database,
+  'database-zap': DatabaseZap,
+  microphone: Mic2,
+  monitor: MonitorSmartphone,
+  network: Network,
+  palette: Palette,
+  server: ServerCog,
+  shield: ShieldCheck,
+  smartphone: Smartphone,
+  test: TestTube2,
+  workflow: Workflow,
+};
 
 export function SkillsSection() {
   const { skills } = portfolioData;
@@ -44,15 +85,19 @@ export function SkillsSection() {
                   </div>
 
                   <div className="grid sm:grid-cols-2 gap-3">
-                    {category.items.map((skill) => (
-                      <div key={skill.name} className="rounded-xl border border-border/50 bg-primary/5 p-4">
-                        <div className="flex items-center gap-3 mb-2">
-                          <span className="text-2xl" aria-hidden="true">{skill.icon}</span>
-                          <span className="font-medium">{skill.name}</span>
+                    {category.items.map((skill) => {
+                      const SkillIcon = skillIcons[skill.icon as keyof typeof skillIcons] ?? Code2;
+
+                      return (
+                        <div key={skill.name} className="rounded-xl border border-border/50 bg-primary/5 p-4">
+                          <div className="flex items-center gap-3 mb-2">
+                            <SkillIcon className="w-5 h-5 text-primary" aria-hidden="true" />
+                            <span className="font-medium">{skill.name}</span>
+                          </div>
+                          <Badge variant="outline" className="text-xs">{skill.evidence}</Badge>
                         </div>
-                        <Badge variant="outline" className="text-xs">{skill.evidence}</Badge>
-                      </div>
-                    ))}
+                      );
+                    })}
                   </div>
                 </CardContent>
               </Card>

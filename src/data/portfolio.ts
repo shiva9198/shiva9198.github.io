@@ -16,42 +16,42 @@ export const portfolioData = {
       title: "AI Systems",
       color: "bg-purple-500",
       items: [
-        { name: "RAG & GraphRAG", icon: "🧠", evidence: "Production experience" },
-        { name: "LangChain & LangGraph", icon: "🔗", evidence: "Production experience" },
-        { name: "FAISS & Neo4j", icon: "🕸️", evidence: "Production experience" },
-        { name: "Whisper & Voice AI", icon: "🎙️", evidence: "Public projects" },
-        { name: "LLM Integrations", icon: "🤖", evidence: "Current work" }
+        { name: "RAG & GraphRAG", icon: "brain", evidence: "Production experience" },
+        { name: "LangChain & LangGraph", icon: "workflow", evidence: "Production experience" },
+        { name: "FAISS & Neo4j", icon: "network", evidence: "Production experience" },
+        { name: "Whisper & Voice AI", icon: "microphone", evidence: "Public projects" },
+        { name: "LLM Integrations", icon: "bot", evidence: "Current work" }
       ]
     },
     {
       title: "Frontend & Mobile",
       color: "bg-blue-500",
       items: [
-        { name: "React & Next.js", icon: "⚛️", evidence: "Current work" },
-        { name: "React Native & Expo", icon: "📱", evidence: "Current work" },
-        { name: "TypeScript & JavaScript", icon: "📘", evidence: "Current work" },
-        { name: "Vite & Tailwind CSS", icon: "⚡", evidence: "Public contributions" }
+        { name: "React & Next.js", icon: "monitor", evidence: "Current work" },
+        { name: "React Native & Expo", icon: "smartphone", evidence: "Current work" },
+        { name: "TypeScript & JavaScript", icon: "code", evidence: "Current work" },
+        { name: "Vite & Tailwind CSS", icon: "palette", evidence: "Public contributions" }
       ]
     },
     {
       title: "Backend & APIs",
       color: "bg-green-500",
       items: [
-        { name: "Python & FastAPI", icon: "🐍", evidence: "Current work" },
-        { name: "Node.js & Express", icon: "🟢", evidence: "Public projects" },
-        { name: "REST APIs & Pydantic", icon: "🔌", evidence: "Current work" },
-        { name: "JWT & Realtime Systems", icon: "🔐", evidence: "Current work" }
+        { name: "Python & FastAPI", icon: "server", evidence: "Current work" },
+        { name: "Node.js & Express", icon: "boxes", evidence: "Public projects" },
+        { name: "REST APIs & Pydantic", icon: "cable", evidence: "Current work" },
+        { name: "JWT & Realtime Systems", icon: "shield", evidence: "Current work" }
       ]
     },
     {
       title: "Data, Delivery & Quality",
       color: "bg-orange-500",
       items: [
-        { name: "PostgreSQL & Supabase", icon: "🐘", evidence: "Current work" },
-        { name: "Redis & SQLAlchemy", icon: "🗄️", evidence: "Current work" },
-        { name: "Appwrite & Firebase", icon: "☁️", evidence: "Public contributions" },
-        { name: "Docker & GitHub Workflows", icon: "🐳", evidence: "Production experience" },
-        { name: "Vitest, Playwright & OpenAPI", icon: "✅", evidence: "Public contributions" }
+        { name: "PostgreSQL & Supabase", icon: "database", evidence: "Current work" },
+        { name: "Redis & SQLAlchemy", icon: "database-zap", evidence: "Current work" },
+        { name: "Appwrite & Firebase", icon: "cloud", evidence: "Public contributions" },
+        { name: "Docker & GitHub Workflows", icon: "container", evidence: "Production experience" },
+        { name: "Vitest, Playwright & OpenAPI", icon: "test", evidence: "Public contributions" }
       ]
     }
   ],
@@ -79,10 +79,10 @@ export const portfolioData = {
   ],
 
   certificates: [
-    { name: "Python", issuer: "Kaggle", date: "2024", icon: "🐍" },
-    { name: "SQL", issuer: "HackerRank", date: "2024", icon: "📊" },
-    { name: "Machine Learning", issuer: "Kaggle", date: "2024", icon: "🤖" },
-    { name: "Agile Scrum", issuer: "Scrum Learning Society", date: "2024", icon: "🔄" }
+    { name: "Python", issuer: "Kaggle", date: "2024", icon: "code" },
+    { name: "SQL", issuer: "HackerRank", date: "2024", icon: "database" },
+    { name: "Machine Learning", issuer: "Kaggle", date: "2024", icon: "brain" },
+    { name: "Agile Scrum", issuer: "Scrum Learning Society", date: "2024", icon: "refresh" }
   ],
 
   experience: [

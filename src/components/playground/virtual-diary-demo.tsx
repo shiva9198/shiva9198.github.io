@@ -6,7 +6,24 @@ import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Card, CardContent } from '@/components/ui/card';
 import { Textarea } from '@/components/ui/textarea';
-import { BookOpen, Calendar, Save, Trash2, Loader2, AlertCircle } from 'lucide-react';
+import {
+  AlertCircle,
+  BookOpen,
+  Calendar,
+  Cloud,
+  FileText,
+  Lightbulb,
+  Loader2,
+  LockKeyhole,
+  Rocket,
+  Save,
+  Smile,
+  Star,
+  Sun,
+  Target,
+  Trash2,
+  Zap,
+} from 'lucide-react';
 import { API_ENDPOINTS } from '@/lib/config';
 
 interface DiaryEntry {
@@ -17,6 +34,22 @@ interface DiaryEntry {
   analysis?: string;
 }
 
+const moodOptions = [
+  { value: 'positive', label: 'Positive', icon: Smile },
+  { value: 'confident', label: 'Confident', icon: Sun },
+  { value: 'motivated', label: 'Motivated', icon: Rocket },
+  { value: 'reflective', label: 'Reflective', icon: Cloud },
+  { value: 'learning', label: 'Learning', icon: BookOpen },
+  { value: 'focused', label: 'Focused', icon: Target },
+  { value: 'energized', label: 'Energized', icon: Zap },
+  { value: 'inspired', label: 'Inspired', icon: Star },
+];
+
+function MoodGlyph({ mood, className }: { mood: string; className?: string }) {
+  const MoodIcon = moodOptions.find((option) => option.value === mood)?.icon ?? Smile;
+  return <MoodIcon className={className} aria-hidden="true" />;
+}
+
 export function VirtualDiaryDemo() {
   const entryIdRef = useRef(3); // Start from 3 since we have 2 initial entries
   const [entries, setEntries] = useState<DiaryEntry[]>([
@@ -24,23 +57,21 @@ export function VirtualDiaryDemo() {
       id: '1',
       content: 'Started working on my portfolio website today. Excited to showcase my AI/ML projects and create an interactive experience for visitors. The glassmorphism design is looking great!',
       timestamp: new Date('2025-01-01T12:00:00Z'),
-      mood: '😊',
+      mood: 'positive',
       analysis: 'This entry reflects a positive and motivated mindset, showing enthusiasm for creative and technical work.',
     },
     {
       id: '2',
       content: 'Had a productive session implementing the Graph RAG architecture at Regality AI. The combination of LangChain, Neo4j, and OpenAI is proving to be very powerful for building intelligent QA systems.',
       timestamp: new Date('2024-12-31T12:00:00Z'),
-      mood: '🚀',
+      mood: 'motivated',
       analysis: 'Shows strong technical engagement and satisfaction with complex AI/ML implementation work.',
     },
   ]);
   const [currentEntry, setCurrentEntry] = useState('');
-  const [selectedMood, setSelectedMood] = useState('😊');
+  const [selectedMood, setSelectedMood] = useState('positive');
   const [isSaving, setIsSaving] = useState(false);
   const [saveMessage, setSaveMessage] = useState('');
-
-  const moods = ['😊', '😎', '🚀', '💭', '📚', '🎯', '⚡', '🌟'];
 
   const generateId = useCallback(() => {
     return (entryIdRef.current++).toString();
@@ -149,15 +180,18 @@ export function VirtualDiaryDemo() {
               <div className="flex items-center gap-2">
                 <span className="text-sm text-muted-foreground">Mood:</span>
                 <div className="flex gap-1">
-                  {moods.map((mood) => (
+                  {moodOptions.map(({ value, label, icon: MoodIcon }) => (
                     <button
-                      key={mood}
-                      onClick={() => setSelectedMood(mood)}
-                      className={`text-lg p-1 rounded hover:bg-primary/20 transition-colors ${
-                        selectedMood === mood ? 'bg-primary/20 ring-1 ring-primary' : ''
+                      key={value}
+                      type="button"
+                      aria-label={label}
+                      title={label}
+                      onClick={() => setSelectedMood(value)}
+                      className={`p-1.5 rounded hover:bg-primary/20 transition-colors ${
+                        selectedMood === value ? 'bg-primary/20 ring-1 ring-primary' : ''
                       }`}
                     >
-                      {mood}
+                      <MoodIcon className="w-4 h-4" aria-hidden="true" />
                     </button>
                   ))}
                 </div>
@@ -227,7 +261,7 @@ export function VirtualDiaryDemo() {
                 <CardContent className="p-6">
                   <div className="flex items-start justify-between mb-4">
                     <div className="flex items-center gap-3">
-                      <span className="text-2xl">{entry.mood}</span>
+                      <MoodGlyph mood={entry.mood ?? 'positive'} className="w-6 h-6 text-primary" />
                       <div>
                         <div className="flex items-center text-sm text-muted-foreground">
                           <Calendar className="w-4 h-4 mr-1" />
@@ -301,7 +335,7 @@ export function VirtualDiaryDemo() {
           <div className="grid md:grid-cols-3 gap-4">
             <div className="text-center p-3 rounded-lg bg-primary/10">
               <div className="w-10 h-10 bg-primary/20 rounded-full flex items-center justify-center mx-auto mb-2">
-                <span className="text-lg">📝</span>
+                <FileText className="w-5 h-5 text-primary" aria-hidden="true" />
               </div>
               <div className="text-sm font-medium text-primary mb-1">Auto-Save</div>
               <div className="text-xs text-muted-foreground">
@@ -311,17 +345,17 @@ export function VirtualDiaryDemo() {
             
             <div className="text-center p-3 rounded-lg bg-primary/10">
               <div className="w-10 h-10 bg-primary/20 rounded-full flex items-center justify-center mx-auto mb-2">
-                <span className="text-lg">😊</span>
+                <Smile className="w-5 h-5 text-primary" aria-hidden="true" />
               </div>
               <div className="text-sm font-medium text-primary mb-1">Mood Tracking</div>
               <div className="text-xs text-muted-foreground">
-                Express your feelings with emojis
+                Choose a simple mood label for each entry
               </div>
             </div>
             
             <div className="text-center p-3 rounded-lg bg-primary/10">
               <div className="w-10 h-10 bg-primary/20 rounded-full flex items-center justify-center mx-auto mb-2">
-                <span className="text-lg">🔒</span>
+                <LockKeyhole className="w-5 h-5 text-primary" aria-hidden="true" />
               </div>
               <div className="text-sm font-medium text-primary mb-1">Session Storage</div>
               <div className="text-xs text-muted-foreground">
@@ -330,9 +364,10 @@ export function VirtualDiaryDemo() {
             </div>
           </div>
 
-          <div className="mt-4 text-center text-xs text-muted-foreground">
-            💡 <strong>Real Implementation:</strong> Uses Google Sheets API with OAuth2 for secure cloud storage, 
-            automatic sheet creation, and persistent data across sessions.
+          <div className="mt-4 flex items-start justify-center gap-2 text-center text-xs text-muted-foreground">
+            <Lightbulb className="w-4 h-4 shrink-0" aria-hidden="true" />
+            <span><strong>Real implementation:</strong> Uses Google Sheets API with OAuth2 for secure cloud storage,
+            automatic sheet creation, and persistent data across sessions.</span>
           </div>
         </CardContent>
       </Card>

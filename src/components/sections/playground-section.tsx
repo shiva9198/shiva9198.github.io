@@ -5,7 +5,33 @@ import { motion } from 'framer-motion';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
-import { Info, Clock, Sparkles } from 'lucide-react';
+import {
+  BadgeCheck,
+  Bot,
+  BookOpenText,
+  BrainCircuit,
+  Clock,
+  FlaskConical,
+  Grid3X3,
+  Info,
+  MessageSquareText,
+  Sparkles,
+} from 'lucide-react';
+
+const featureIcons = {
+  assistant: Bot,
+  diary: BookOpenText,
+  grid: Grid3X3,
+  model: BrainCircuit,
+  summary: MessageSquareText,
+};
+
+type FeatureIconName = keyof typeof featureIcons;
+
+function FeatureGlyph({ name, className }: { name: FeatureIconName; className?: string }) {
+  const Icon = featureIcons[name];
+  return <Icon className={className} aria-hidden="true" />;
+}
 
 const demos = [
   {
@@ -13,7 +39,7 @@ const demos = [
     title: 'Voice-Activated AI Assistant',
     description: 'Concept for turning user prompts and public web content into concise summaries.',
     technologies: ['Python', 'Speech Recognition', 'BeautifulSoup', 'NLTK', 'OpenAI API'],
-    icon: '🧩',
+    icon: 'summary',
     status: 'coming_soon',
   },
   {
@@ -21,7 +47,7 @@ const demos = [
     title: 'Sudoku Solver with OCR',
     description: 'Planned OCR workflow for extracting a Sudoku grid from an image and solving it with backtracking.',
     technologies: ['Python', 'OpenCV', 'Tesseract OCR', 'Recursive Backtracking'],
-    icon: '🧩',
+    icon: 'grid',
     status: 'coming_soon',
   },
   {
@@ -29,7 +55,7 @@ const demos = [
     title: 'AI-Powered Virtual Diary',
     description: 'Planned private diary experience with mood classification and entry-level reflections.',
     technologies: ['Python', 'FastAPI', 'NLP', 'Sentiment Analysis'],
-    icon: '📝',
+    icon: 'diary',
     status: 'coming_soon',
   },
 ];
@@ -40,7 +66,7 @@ const activeFeatures = [
     title: 'AI-Powered Portfolio Assistant',
     description: 'Local prototype for answering questions about my public experience, projects, and technical work.',
     technologies: ['Python', 'FastAPI', 'Natural Language Processing', 'AI/ML'],
-    icon: '🤖',
+    icon: 'assistant',
     status: 'prototype',
   },
   {
@@ -48,7 +74,7 @@ const activeFeatures = [
     title: 'LLM Fine-Tuning for Agent Workflows',
     description: 'Local prototype exploring task-specific model adaptation for tool-using and multi-step AI workflows.',
     technologies: ['Large Language Models', 'Fine-tuning', 'Agentic AI', 'Machine Learning'],
-    icon: '🧠',
+    icon: 'model',
     status: 'prototype',
   },
 ];
@@ -101,7 +127,7 @@ export function PlaygroundSection() {
                   <CardContent className="p-6">
                     <div className="text-center mb-4">
                       <div className="w-16 h-16 bg-primary/20 rounded-full flex items-center justify-center mx-auto mb-4 relative">
-                        <span className="text-3xl">{feature.icon}</span>
+                        <FeatureGlyph name={feature.icon as FeatureIconName} className="w-8 h-8 text-primary" />
                         <div className="absolute -top-1 -right-1 w-4 h-4 bg-sky-500 rounded-full">
                           <div className="w-2 h-2 bg-white rounded-full absolute top-1 left-1"></div>
                         </div>
@@ -148,7 +174,7 @@ export function PlaygroundSection() {
                   <CardContent className="p-6">
                     <div className="text-center mb-4">
                       <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4 relative">
-                        <span className="text-3xl opacity-60">{demo.icon}</span>
+                        <FeatureGlyph name={demo.icon as FeatureIconName} className="w-8 h-8 text-primary/60" />
                         <div className="absolute -top-1 -right-1 w-4 h-4 bg-orange-500 rounded-full animate-pulse">
                           <Clock className="w-2 h-2 text-white absolute top-1 left-1" />
                         </div>
@@ -192,9 +218,12 @@ export function PlaygroundSection() {
                 <CardContent className="p-8">
                   <div className="flex items-center justify-between mb-6">
                     <div className="flex items-center">
-                      <span className="text-3xl mr-4">
-                        {currentFeature?.icon}
-                      </span>
+                      {currentFeature && (
+                        <FeatureGlyph
+                          name={currentFeature.icon as FeatureIconName}
+                          className="w-8 h-8 mr-4 text-primary"
+                        />
+                      )}
                       <div>
                         <h3 className="text-2xl font-bold text-gradient-alt">
                           {currentFeature?.title}
@@ -283,7 +312,7 @@ export function PlaygroundSection() {
                 <div className="grid md:grid-cols-3 gap-6">
                   <div className="text-center p-4 rounded-lg bg-green-500/10 border border-green-500/20">
                     <div className="w-12 h-12 bg-green-500/20 rounded-full flex items-center justify-center mx-auto mb-3">
-                      <span className="text-2xl">🟢</span>
+                      <FlaskConical className="w-6 h-6 text-green-400" aria-hidden="true" />
                     </div>
                     <div className="font-semibold text-green-400 mb-1">Local Prototypes</div>
                     <div className="text-sm text-muted-foreground">Implementation direction without uptime claims</div>
@@ -291,7 +320,7 @@ export function PlaygroundSection() {
                   
                   <div className="text-center p-4 rounded-lg bg-orange-500/10 border border-orange-500/20">
                     <div className="w-12 h-12 bg-orange-500/20 rounded-full flex items-center justify-center mx-auto mb-3">
-                      <span className="text-2xl">🔄</span>
+                      <Clock className="w-6 h-6 text-orange-400" aria-hidden="true" />
                     </div>
                     <div className="font-semibold text-orange-400 mb-1">Planned Concepts</div>
                     <div className="text-sm text-muted-foreground">Ideas that are not presented as public demos</div>
@@ -299,7 +328,7 @@ export function PlaygroundSection() {
                   
                   <div className="text-center p-4 rounded-lg bg-primary/10">
                     <div className="w-12 h-12 bg-primary/20 rounded-full flex items-center justify-center mx-auto mb-3">
-                      <span className="text-2xl">🚀</span>
+                      <BadgeCheck className="w-6 h-6 text-primary" aria-hidden="true" />
                     </div>
                     <div className="font-semibold text-primary mb-1">Evidence-Linked Work</div>
                     <div className="text-sm text-muted-foreground">Public project and contribution claims link to source evidence</div>
