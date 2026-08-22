@@ -25,8 +25,8 @@ export function Footer() {
               SS
             </h3>
             <p className="text-muted-foreground text-sm leading-relaxed">
-              FDE at BuildWithRV building production-oriented web, mobile,
-              backend, and applied-AI systems.
+              FDE at BuildWithRV, building PlaceMe and reliable web, mobile,
+              backend, and applied-AI products.
             </p>
           </div>
 
@@ -122,9 +122,9 @@ export function Footer() {
             <span>•</span>
             <span>🌍 Select freelance availability</span>
             <span>•</span>
-            <span>🤖 Applied AI engineer</span>
+            <span>🚀 Building PlaceMe</span>
             <span>•</span>
-            <span>💻 Full-stack developer</span>
+            <span>🤖 Applied AI &amp; full-stack engineer</span>
           </div>
         </div>
       </div>

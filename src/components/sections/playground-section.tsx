@@ -11,7 +11,7 @@ const demos = [
   {
     id: 'voice-assistant',
     title: 'Voice-Activated AI Assistant',
-    description: 'Interactive chatbox where users type commands, system fetches and summarizes web content using AI.',
+    description: 'Concept for turning user prompts and public web content into concise summaries.',
     technologies: ['Python', 'Speech Recognition', 'BeautifulSoup', 'NLTK', 'OpenAI API'],
     icon: '🧩',
     status: 'coming_soon',
@@ -19,7 +19,7 @@ const demos = [
   {
     id: 'sudoku-solver',
     title: 'Sudoku Solver with OCR',
-    description: 'Interactive 9x9 grid with image upload OCR support for extracting puzzles from photos.',
+    description: 'Planned OCR workflow for extracting a Sudoku grid from an image and solving it with backtracking.',
     technologies: ['Python', 'OpenCV', 'Tesseract OCR', 'Recursive Backtracking'],
     icon: '🧩',
     status: 'coming_soon',
@@ -27,7 +27,7 @@ const demos = [
   {
     id: 'virtual-diary',
     title: 'AI-Powered Virtual Diary',
-    description: 'Smart diary with AI mood analysis and personalized insights for your entries.',
+    description: 'Planned private diary experience with mood classification and entry-level reflections.',
     technologies: ['Python', 'FastAPI', 'NLP', 'Sentiment Analysis'],
     icon: '📝',
     status: 'coming_soon',
@@ -38,15 +38,15 @@ const activeFeatures = [
   {
     id: 'portfolio-assistant',
     title: 'AI-Powered Portfolio Assistant',
-    description: 'Interactive AI assistant that helps navigate and understand my portfolio, projects, and expertise.',
+    description: 'Local prototype for answering questions about my public experience, projects, and technical work.',
     technologies: ['Python', 'FastAPI', 'Natural Language Processing', 'AI/ML'],
     icon: '🤖',
     status: 'prototype',
   },
   {
     id: 'llm-tuning',
-    title: 'Fine Tuning of LLM for Agentic AI',
-    description: 'Advanced LLM fine-tuning service for creating intelligent agentic AI solutions tailored to specific tasks.',
+    title: 'LLM Fine-Tuning for Agent Workflows',
+    description: 'Local prototype exploring task-specific model adaptation for tool-using and multi-step AI workflows.',
     technologies: ['Large Language Models', 'Fine-tuning', 'Agentic AI', 'Machine Learning'],
     icon: '🧠',
     status: 'prototype',
@@ -78,7 +78,7 @@ export function PlaygroundSection() {
           </h2>
           <div className="w-24 h-1 bg-primary mx-auto rounded-full" />
           <p className="text-muted-foreground mt-6 max-w-2xl mx-auto">
-            Documented AI prototypes and concepts. Hosted availability is never implied unless a working public link is provided.
+            A transparent view of local prototypes and planned concepts. A live link appears only when a hosted demo is available.
           </p>
         </motion.div>
 
@@ -246,14 +246,13 @@ export function PlaygroundSection() {
                     {currentFeature?.status === 'prototype' ? (
                       <div className="bg-sky-500/10 p-4 rounded-lg border border-sky-500/20">
                         <p className="text-sm text-sky-300">
-                          <strong>Local prototype:</strong> This portfolio documents the concept and technology direction; it does not claim a continuously hosted backend.
+                          <strong>Local prototype:</strong> The implementation direction is documented here; no continuously hosted backend is claimed.
                         </p>
                       </div>
                     ) : (
                       <div className="bg-orange-500/10 p-4 rounded-lg border border-orange-500/20">
                         <p className="text-sm text-orange-300">
-                          ⏳ <strong>Coming Soon:</strong> This exciting feature is under development and will be available soon. 
-                          I&apos;m working hard to bring you amazing AI-powered experiences!
+                          <strong>Planned concept:</strong> This is not yet a public demo. Its status will be updated when a usable version is available.
                         </p>
                       </div>
                     )}
@@ -277,7 +276,7 @@ export function PlaygroundSection() {
                     Playground Features
                   </h3>
                   <p className="text-muted-foreground">
-                    Clear status labels separate documented prototypes from future concepts.
+                    Status labels separate local implementations from planned work and evidence-linked public projects.
                   </p>
                 </div>
 
@@ -286,24 +285,24 @@ export function PlaygroundSection() {
                     <div className="w-12 h-12 bg-green-500/20 rounded-full flex items-center justify-center mx-auto mb-3">
                       <span className="text-2xl">🟢</span>
                     </div>
-                    <div className="font-semibold text-green-400 mb-1">Documented Prototypes</div>
-                    <div className="text-sm text-muted-foreground">Implementation direction shown without uptime claims</div>
+                    <div className="font-semibold text-green-400 mb-1">Local Prototypes</div>
+                    <div className="text-sm text-muted-foreground">Implementation direction without uptime claims</div>
                   </div>
                   
                   <div className="text-center p-4 rounded-lg bg-orange-500/10 border border-orange-500/20">
                     <div className="w-12 h-12 bg-orange-500/20 rounded-full flex items-center justify-center mx-auto mb-3">
                       <span className="text-2xl">🔄</span>
                     </div>
-                    <div className="font-semibold text-orange-400 mb-1">In Development</div>
-                    <div className="text-sm text-muted-foreground">Coming soon with full functionality</div>
+                    <div className="font-semibold text-orange-400 mb-1">Planned Concepts</div>
+                    <div className="text-sm text-muted-foreground">Ideas that are not presented as public demos</div>
                   </div>
                   
                   <div className="text-center p-4 rounded-lg bg-primary/10">
                     <div className="w-12 h-12 bg-primary/20 rounded-full flex items-center justify-center mx-auto mb-3">
                       <span className="text-2xl">🚀</span>
                     </div>
-                    <div className="font-semibold text-primary mb-1">Verification First</div>
-                    <div className="text-sm text-muted-foreground">Public project and contribution claims link to evidence</div>
+                    <div className="font-semibold text-primary mb-1">Evidence-Linked Work</div>
+                    <div className="text-sm text-muted-foreground">Public project and contribution claims link to source evidence</div>
                   </div>
                 </div>
               </CardContent>

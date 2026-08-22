@@ -19,11 +19,11 @@ export function SkillsSection() {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gradient">
-            Current Technology Stack
+            Technology Stack
           </h2>
           <div className="w-24 h-1 bg-primary mx-auto rounded-full" />
           <p className="text-muted-foreground mt-6 max-w-3xl mx-auto">
-            Grouped by verifiable use in recent work, public projects, and public contributions—without arbitrary proficiency percentages.
+            Technologies evidenced by recent work, public projects, and authored contributions—not self-scored proficiency percentages.
           </p>
         </motion.div>
 

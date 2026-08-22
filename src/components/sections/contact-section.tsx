@@ -68,11 +68,11 @@ export function ContactSection() {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gradient">
-            Get In Touch
+            Let&apos;s Work Together
           </h2>
           <div className="w-24 h-1 bg-primary mx-auto rounded-full" />
           <p className="text-muted-foreground mt-6 max-w-2xl mx-auto">
-            I work full-time at BuildWithRV and remain available for selected freelance and public collaboration opportunities.
+            I&apos;m available for a small number of focused freelance engagements and public collaborations alongside my full-time role.
           </p>
         </motion.div>
 
@@ -87,10 +87,10 @@ export function ContactSection() {
           >
             <div>
               <h3 className="text-2xl font-bold mb-6 text-gradient-alt">
-                Let&apos;s Connect
+                Start a Conversation
               </h3>
               <p className="text-muted-foreground leading-relaxed mb-8">
-                Reach out for a scoped freelance engagement, an open-source collaboration, or a conversation about production web, mobile, and AI systems.
+                Have a well-scoped product challenge or open-source idea? Send the context, desired outcome, and timeline, and I&apos;ll respond by email.
               </p>
             </div>
 
@@ -164,7 +164,7 @@ export function ContactSection() {
             <Card className="glass border-0 backdrop-blur-lg">
               <CardContent className="p-8">
                 <h3 className="text-2xl font-bold mb-6 text-gradient-alt">
-                  Send a Message
+                  Draft an Email
                 </h3>
 
                 <form onSubmit={handleSubmit} className="space-y-6">
@@ -206,7 +206,7 @@ export function ContactSection() {
                         name="subject"
                         value={formData.subject}
                         onChange={handleInputChange}
-                        placeholder="What's this about?"
+                        placeholder="Project, role, or collaboration"
                         className="glass border-0 backdrop-blur-lg"
                       />
                     </div>
@@ -219,7 +219,7 @@ export function ContactSection() {
                         name="message"
                         value={formData.message}
                         onChange={handleInputChange}
-                        placeholder="Tell me about your project, opportunity, or just say hello..."
+                        placeholder="Share the problem, expected outcome, and timeline..."
                         className="glass border-0 backdrop-blur-lg min-h-[120px] resize-none"
                         required
                       />
@@ -254,28 +254,27 @@ export function ContactSection() {
           <Card className="glass border-0 backdrop-blur-lg max-w-3xl mx-auto">
             <CardContent className="p-8">
               <h3 className="text-xl font-bold mb-4 text-gradient-alt">
-                Ready to Build Something Amazing?
+                Have a Project in Mind?
               </h3>
               <p className="text-muted-foreground mb-6">
-                Whether it&apos;s AI/ML innovation, full-stack development, or startup collaboration, 
-                let&apos;s create something extraordinary together.
+                I can help scope and build applied-AI systems, web and mobile products, backend services, and focused integrations.
               </p>
               <div className="flex flex-wrap justify-center gap-4">
                 <Badge variant="outline" className="glass">
                   <span className="mr-1">🤖</span>
-                  AI/ML Development
+                  Applied AI Systems
                 </Badge>
                 <Badge variant="outline" className="glass">
                   <span className="mr-1">🌐</span>
-                  Full-Stack Projects
+                  Web &amp; Mobile Products
                 </Badge>
                 <Badge variant="outline" className="glass">
                   <span className="mr-1">🚀</span>
-                  Startup Collaboration
+                  Backend &amp; Integrations
                 </Badge>
                 <Badge variant="outline" className="glass">
                   <span className="mr-1">💡</span>
-                  Innovation & Research
+                  Open-Source Collaboration
                 </Badge>
               </div>
             </CardContent>

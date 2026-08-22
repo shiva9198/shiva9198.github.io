@@ -3,7 +3,7 @@
 import { motion } from 'framer-motion';
 import { portfolioData } from '@/data/portfolio';
 import { Button } from '@/components/ui/button';
-import { GitPullRequest, Rocket, Zap } from 'lucide-react';
+import { ExternalLink, GitPullRequest, Rocket } from 'lucide-react';
 
 export function HeroSection() {
   const { personal } = portfolioData;
@@ -83,32 +83,32 @@ export function HeroSection() {
             className="flex flex-col sm:flex-row gap-4 justify-center items-center"
           >
             <Button
-              onClick={() => scrollToSection('contributions')}
-              size="lg"
-              className="glass hover:animate-glow transition-all duration-300 group"
-            >
-              <GitPullRequest className="mr-2 h-5 w-5 group-hover:animate-bounce" />
-              View Contributions
-            </Button>
-            
-            <Button
               onClick={() => scrollToSection('projects')}
-              variant="outline"
               size="lg"
               className="glass hover:animate-glow transition-all duration-300 group"
             >
               <Rocket className="mr-2 h-5 w-5 group-hover:animate-bounce" />
-              Explore Projects
+              View Projects
             </Button>
             
             <Button
-              onClick={() => scrollToSection('playground')}
+              onClick={() => scrollToSection('contributions')}
               variant="outline"
               size="lg"
               className="glass hover:animate-glow transition-all duration-300 group"
             >
-              <Zap className="mr-2 h-5 w-5 group-hover:animate-bounce" />
-              Try Playground
+              <GitPullRequest className="mr-2 h-5 w-5 group-hover:animate-bounce" />
+              Public Contributions
+            </Button>
+            
+            <Button
+              onClick={() => window.open('https://placeme.study', '_blank', 'noopener,noreferrer')}
+              variant="outline"
+              size="lg"
+              className="glass hover:animate-glow transition-all duration-300 group"
+            >
+              <ExternalLink className="mr-2 h-5 w-5 group-hover:animate-bounce" />
+              Visit PlaceMe
             </Button>
           </motion.div>
 

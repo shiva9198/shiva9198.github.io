@@ -4,7 +4,8 @@ import { motion } from 'framer-motion';
 import { portfolioData } from '@/data/portfolio';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { BookOpen, Calendar, Target, Zap } from 'lucide-react';
+import { Button } from '@/components/ui/button';
+import { BookOpen, Calendar, ExternalLink, Target, Zap } from 'lucide-react';
 
 export function CurrentWorkSection() {
   const { currentWork } = portfolioData;
@@ -21,7 +22,7 @@ export function CurrentWorkSection() {
         >
           <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gradient">Current Focus</h2>
           <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-            A public-safe view of current engineering work. Private project identities and client details remain confidential.
+            What I&apos;m building, contributing to, and learning—limited to public, verifiable information.
           </p>
           <div className="flex items-center justify-center mt-4 text-sm text-muted-foreground">
             <Calendar className="w-4 h-4 mr-2" />
@@ -53,6 +54,14 @@ export function CurrentWorkSection() {
                       <Badge key={technology} variant="secondary">{technology}</Badge>
                     ))}
                   </div>
+                  {item.url && (
+                    <Button asChild size="sm" variant="outline" className="mt-5">
+                      <a href={item.url} target="_blank" rel="noopener noreferrer">
+                        Visit PlaceMe
+                        <ExternalLink className="w-3 h-3 ml-2" />
+                      </a>
+                    </Button>
+                  )}
                 </CardContent>
               </Card>
             </motion.div>
@@ -64,7 +73,7 @@ export function CurrentWorkSection() {
             <CardContent className="p-6">
               <h3 className="text-2xl font-bold text-gradient-alt mb-6 flex items-center">
                 <BookOpen className="w-6 h-6 mr-3" />
-                Areas I&apos;m Deepening
+                Areas I&apos;m Developing
               </h3>
               <div className="space-y-5">
                 {currentWork.learning.map((item) => (
@@ -99,7 +108,7 @@ export function CurrentWorkSection() {
           <CardContent className="p-6 text-center">
             <div className="flex items-center justify-center gap-3 text-lg font-semibold">
               <span className="w-3 h-3 bg-emerald-500 rounded-full animate-pulse" />
-              Full-time at BuildWithRV · Available for select freelance work
+              Building at BuildWithRV and PlaceMe · Available for select freelance work
               <span className="w-3 h-3 bg-emerald-500 rounded-full animate-pulse" />
             </div>
           </CardContent>

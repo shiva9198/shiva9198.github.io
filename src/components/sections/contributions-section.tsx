@@ -29,7 +29,7 @@ export function ContributionsSection() {
           <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gradient">Public Contributions</h2>
           <div className="w-24 h-1 bg-primary mx-auto rounded-full" />
           <p className="text-muted-foreground mt-6 max-w-3xl mx-auto">
-            Authored commits and pull requests with explicit status labels, so open work is never presented as merged.
+            Selected public work with direct evidence. Status labels distinguish merged changes, open work, and collaborator commits.
           </p>
         </motion.div>
 
@@ -69,7 +69,7 @@ export function ContributionsSection() {
                     <Button asChild size="sm" variant="outline">
                       <a href={contribution.url} target="_blank" rel="noopener noreferrer">
                         <GitPullRequest className="w-4 h-4 mr-2" />
-                        Evidence
+                        View Evidence
                         <ExternalLink className="w-3 h-3 ml-2" />
                       </a>
                     </Button>

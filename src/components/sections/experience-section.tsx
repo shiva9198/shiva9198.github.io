@@ -22,7 +22,7 @@ export function ExperienceSection() {
           <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gradient">Experience</h2>
           <div className="w-24 h-1 bg-primary mx-auto rounded-full" />
           <p className="text-muted-foreground mt-6 max-w-2xl mx-auto">
-            Full-time engineering, selected freelance work, and applied-AI experience.
+            Full-time product engineering, selected freelance work, and applied-AI experience.
           </p>
         </motion.div>
 

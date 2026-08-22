@@ -12,7 +12,7 @@ export function AboutSection() {
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gradient">
-            About Me
+            About
           </h2>
           <div className="w-24 h-1 bg-primary mx-auto rounded-full" />
         </div>
@@ -24,7 +24,7 @@ export function AboutSection() {
                 <div className="space-y-6">
                   <div>
                     <h3 className="text-2xl font-bold mb-4 text-gradient-alt">
-                      Professional Journey
+                      How I Work
                     </h3>
                     <p className="text-muted-foreground leading-relaxed">
                       {personal.profile}
@@ -57,15 +57,15 @@ export function AboutSection() {
                     <ul className="space-y-2 text-muted-foreground">
                       <li className="flex items-center">
                         <div className="w-2 h-2 bg-primary rounded-full mr-3" />
-                        Production web, mobile, and backend delivery
+                        Production web, mobile, and backend engineering
                       </li>
                       <li className="flex items-center">
                         <div className="w-2 h-2 bg-primary rounded-full mr-3" />
-                        Applied AI, RAG, and voice systems
+                        Applied AI, retrieval, and voice systems
                       </li>
                       <li className="flex items-center">
                         <div className="w-2 h-2 bg-primary rounded-full mr-3" />
-                        Public collaboration and open-source work
+                        Building PlaceMe at placeme.study
                       </li>
                       <li className="flex items-center">
                         <div className="w-2 h-2 bg-primary rounded-full mr-3" />
