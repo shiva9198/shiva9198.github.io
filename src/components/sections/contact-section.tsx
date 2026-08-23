@@ -50,21 +50,18 @@ export function ContactSection() {
       label: 'Email',
       value: personal.email,
       href: `mailto:${personal.email}`,
-      color: 'text-blue-500',
     },
     {
       icon: Github,
       label: 'GitHub',
       value: 'github.com/shiva9198',
       href: personal.github,
-      color: 'text-purple-500',
     },
     {
       icon: Linkedin,
       label: 'LinkedIn',
       value: 'Professional Profile',
       href: personal.linkedin,
-      color: 'text-blue-600',
     },
   ];
 
@@ -78,10 +75,9 @@ export function ContactSection() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gradient">
+          <h2 className="text-2xl md:text-headline-lg mb-4 text-foreground">
             Let&apos;s Work Together
           </h2>
-          <div className="w-24 h-1 bg-primary mx-auto rounded-full" />
           <p className="text-muted-foreground mt-6 max-w-2xl mx-auto">
             I&apos;m available for a small number of focused freelance engagements and public collaborations alongside my full-time role.
           </p>
@@ -119,13 +115,8 @@ export function ContactSection() {
                   whileHover={{ x: 10, transition: { duration: 0.2 } }}
                   className="flex items-center p-4 glass border-0 rounded-lg group hover:animate-glow transition-all duration-300 cursor-pointer"
                 >
-                  <div className={`w-12 h-12 rounded-full flex items-center justify-center mr-4 ${
-                    method.color.includes('green') ? 'bg-green-500/20' :
-                    method.color.includes('blue') && method.color.includes('600') ? 'bg-blue-600/20' :
-                    method.color.includes('blue') ? 'bg-blue-500/20' :
-                    'bg-purple-500/20'
-                  }`}>
-                    <method.icon className={`w-6 h-6 ${method.color}`} />
+                  <div className="w-12 h-12 rounded-full flex items-center justify-center mr-4 bg-secondary/15">
+                    <method.icon className="w-6 h-6 text-sky-700 dark:text-secondary" />
                   </div>
                   <div className="flex-1">
                     <div className="font-semibold text-gradient-alt mb-1">

@@ -7,10 +7,10 @@ import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 
-const statusClass: Record<string, string> = {
-  Merged: 'bg-emerald-500/15 text-emerald-500 border-emerald-500/30',
-  Open: 'bg-blue-500/15 text-blue-500 border-blue-500/30',
-  Collaborator: 'bg-purple-500/15 text-purple-500 border-purple-500/30',
+const statusClass: Record<string, { badge: string; dot: string }> = {
+  Merged: { badge: 'border-emerald-500/40 text-emerald-600 dark:text-emerald-400', dot: 'bg-emerald-500' },
+  Open: { badge: 'border-amber-500/40 text-amber-600 dark:text-amber-400', dot: 'bg-amber-500' },
+  Collaborator: { badge: 'border-border text-muted-foreground', dot: 'bg-muted-foreground' },
 };
 
 export function ContributionsSection() {
@@ -26,8 +26,7 @@ export function ContributionsSection() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gradient">Public Contributions</h2>
-          <div className="w-24 h-1 bg-primary mx-auto rounded-full" />
+          <h2 className="text-2xl md:text-headline-lg mb-4 text-foreground">Public Contributions</h2>
           <p className="text-muted-foreground mt-6 max-w-3xl mx-auto">
             Selected public work with direct evidence. Status labels distinguish merged changes, open work, and collaborator commits.
           </p>
@@ -46,10 +45,11 @@ export function ContributionsSection() {
                 <CardContent className="p-6 h-full flex flex-col">
                   <div className="flex items-start justify-between gap-4 mb-4">
                     <div>
-                      <p className="text-sm text-primary font-mono">{contribution.repository}</p>
+                      <p className="code-sm text-sky-700 dark:text-secondary">{contribution.repository}</p>
                       <h3 className="text-xl font-bold text-gradient-alt mt-1">{contribution.title}</h3>
                     </div>
-                    <Badge variant="outline" className={statusClass[contribution.status]}>
+                    <Badge variant="outline" className={statusClass[contribution.status].badge}>
+                      <span className={`h-1.5 w-1.5 rounded-full ${statusClass[contribution.status].dot}`} />
                       {contribution.status}
                     </Badge>
                   </div>

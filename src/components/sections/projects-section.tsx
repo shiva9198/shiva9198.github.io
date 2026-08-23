@@ -45,10 +45,9 @@ export function ProjectsSection() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gradient">
+          <h2 className="text-2xl md:text-headline-lg mb-4 text-foreground">
             Featured Projects
           </h2>
-          <div className="w-24 h-1 bg-primary mx-auto rounded-full" />
           <p className="text-muted-foreground mt-6 max-w-2xl mx-auto">
             Public projects selected for engineering depth, clear documentation, and relevance to my current work.
           </p>

@@ -26,10 +26,9 @@ export function CertificatesSection() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gradient">
+          <h2 className="text-2xl md:text-headline-lg mb-4 text-foreground">
             Certifications
           </h2>
-          <div className="w-24 h-1 bg-primary mx-auto rounded-full" />
           <p className="text-muted-foreground mt-6 max-w-2xl mx-auto">
             Professional certifications and achievements that validate my expertise
           </p>
@@ -51,7 +50,7 @@ export function CertificatesSection() {
                   transition: { duration: 0.2 }
                 }}
               >
-              <Card className="glass border-0 h-full transition-shadow duration-300 hover:shadow-lg cursor-pointer">
+              <Card className="glass border-0 h-full cursor-pointer">
                 <CardContent className="p-6">
                   <div className="flex items-start justify-between mb-4">
                     <div className="flex-1">
@@ -126,26 +125,26 @@ export function CertificatesSection() {
                 </div>
                 
                 <div className="text-center">
-                  <div className="w-16 h-16 bg-blue-500/20 rounded-full flex items-center justify-center mx-auto mb-3">
-                    <Code2 className="w-7 h-7 text-blue-500" aria-hidden="true" />
+                  <div className="w-16 h-16 bg-secondary/15 rounded-full flex items-center justify-center mx-auto mb-3">
+                    <Code2 className="w-7 h-7 text-secondary" aria-hidden="true" />
                   </div>
-                  <div className="text-2xl font-bold text-blue-500 mb-1">2</div>
+                  <div className="text-2xl font-bold text-secondary mb-1">2</div>
                   <div className="text-sm text-muted-foreground">Kaggle Certs</div>
                 </div>
-                
+
                 <div className="text-center">
-                  <div className="w-16 h-16 bg-green-500/20 rounded-full flex items-center justify-center mx-auto mb-3">
-                    <Database className="w-7 h-7 text-green-500" aria-hidden="true" />
+                  <div className="w-16 h-16 bg-emerald-500/15 rounded-full flex items-center justify-center mx-auto mb-3">
+                    <Database className="w-7 h-7 text-emerald-500" aria-hidden="true" />
                   </div>
-                  <div className="text-2xl font-bold text-green-500 mb-1">1</div>
+                  <div className="text-2xl font-bold text-emerald-500 mb-1">1</div>
                   <div className="text-sm text-muted-foreground">HackerRank</div>
                 </div>
-                
+
                 <div className="text-center">
-                  <div className="w-16 h-16 bg-orange-500/20 rounded-full flex items-center justify-center mx-auto mb-3">
-                    <RefreshCw className="w-7 h-7 text-orange-500" aria-hidden="true" />
+                  <div className="w-16 h-16 bg-muted rounded-full flex items-center justify-center mx-auto mb-3">
+                    <RefreshCw className="w-7 h-7 text-muted-foreground" aria-hidden="true" />
                   </div>
-                  <div className="text-2xl font-bold text-orange-500 mb-1">1</div>
+                  <div className="text-2xl font-bold text-foreground mb-1">1</div>
                   <div className="text-sm text-muted-foreground">Agile/Scrum</div>
                 </div>
               </div>

@@ -99,10 +99,9 @@ export function PlaygroundSection() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gradient">
+          <h2 className="text-2xl md:text-headline-lg mb-4 text-foreground">
             AI Playground
           </h2>
-          <div className="w-24 h-1 bg-primary mx-auto rounded-full" />
           <p className="text-muted-foreground mt-6 max-w-2xl mx-auto">
             A transparent view of local prototypes and planned concepts. A live link appears only when a hosted demo is available.
           </p>
@@ -128,7 +127,7 @@ export function PlaygroundSection() {
                     <div className="text-center mb-4">
                       <div className="w-16 h-16 bg-primary/20 rounded-full flex items-center justify-center mx-auto mb-4 relative">
                         <FeatureGlyph name={feature.icon as FeatureIconName} className="w-8 h-8 text-primary" />
-                        <div className="absolute -top-1 -right-1 w-4 h-4 bg-sky-500 rounded-full">
+                        <div className="absolute -top-1 -right-1 w-4 h-4 bg-slate-400 rounded-full">
                           <div className="w-2 h-2 bg-white rounded-full absolute top-1 left-1"></div>
                         </div>
                       </div>
@@ -138,7 +137,7 @@ export function PlaygroundSection() {
                       <p className="text-sm text-muted-foreground mb-4">
                         {feature.description}
                       </p>
-                      <Badge variant="secondary" className="glass bg-sky-500/20 text-sky-600 dark:text-sky-400 border-sky-500/30 mb-4">
+                      <Badge variant="secondary" className="glass bg-slate-400/20 text-slate-600 dark:text-slate-300 border-slate-400/30 mb-4">
                         <Sparkles className="w-3 h-3 mr-1" />
                         Local Prototype
                       </Badge>
@@ -175,7 +174,7 @@ export function PlaygroundSection() {
                     <div className="text-center mb-4">
                       <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4 relative">
                         <FeatureGlyph name={demo.icon as FeatureIconName} className="w-8 h-8 text-primary/60" />
-                        <div className="absolute -top-1 -right-1 w-4 h-4 bg-orange-500 rounded-full animate-pulse">
+                        <div className="absolute -top-1 -right-1 w-4 h-4 bg-amber-500 rounded-full animate-pulse">
                           <Clock className="w-2 h-2 text-white absolute top-1 left-1" />
                         </div>
                       </div>
@@ -185,7 +184,7 @@ export function PlaygroundSection() {
                       <p className="text-sm text-muted-foreground mb-4 opacity-70">
                         {demo.description}
                       </p>
-                      <Badge variant="secondary" className="glass bg-orange-500/20 text-orange-600 dark:text-orange-400 border-orange-500/30 mb-4">
+                      <Badge variant="secondary" className="glass bg-amber-500/20 text-amber-600 dark:text-amber-400 border-amber-500/30 mb-4">
                         <Clock className="w-3 h-3 mr-1" />
                         Coming Soon
                       </Badge>
@@ -230,12 +229,12 @@ export function PlaygroundSection() {
                         </h3>
                         <div className="flex gap-2 mt-2">
                           {currentFeature?.status === 'prototype' ? (
-                            <Badge variant="secondary" className="glass bg-sky-500/20 text-sky-600 dark:text-sky-400 border-sky-500/30">
+                            <Badge variant="secondary" className="glass bg-slate-400/20 text-slate-600 dark:text-slate-300 border-slate-400/30">
                               <Sparkles className="w-3 h-3 mr-1" />
                               Local Prototype
                             </Badge>
                           ) : (
-                            <Badge variant="secondary" className="glass bg-orange-500/20 text-orange-600 dark:text-orange-400 border-orange-500/30">
+                            <Badge variant="secondary" className="glass bg-amber-500/20 text-amber-600 dark:text-amber-400 border-amber-500/30">
                               <Clock className="w-3 h-3 mr-1" />
                               Coming Soon
                             </Badge>
@@ -273,14 +272,14 @@ export function PlaygroundSection() {
                     </div>
 
                     {currentFeature?.status === 'prototype' ? (
-                      <div className="bg-sky-500/10 p-4 rounded-lg border border-sky-500/20">
-                        <p className="text-sm text-sky-700 dark:text-sky-300">
+                      <div className="bg-slate-400/10 p-4 rounded-lg border border-slate-400/20">
+                        <p className="text-sm text-slate-700 dark:text-slate-300">
                           <strong>Local prototype:</strong> The implementation direction is documented here; no continuously hosted backend is claimed.
                         </p>
                       </div>
                     ) : (
-                      <div className="bg-orange-500/10 p-4 rounded-lg border border-orange-500/20">
-                        <p className="text-sm text-orange-700 dark:text-orange-300">
+                      <div className="bg-amber-500/10 p-4 rounded-lg border border-amber-500/20">
+                        <p className="text-sm text-amber-700 dark:text-amber-300">
                           <strong>Planned concept:</strong> This is not yet a public demo. Its status will be updated when a usable version is available.
                         </p>
                       </div>
@@ -310,27 +309,27 @@ export function PlaygroundSection() {
                 </div>
 
                 <div className="grid md:grid-cols-3 gap-6">
-                  <div className="text-center p-4 rounded-lg bg-green-500/10 border border-green-500/20">
-                    <div className="w-12 h-12 bg-green-500/20 rounded-full flex items-center justify-center mx-auto mb-3">
-                      <FlaskConical className="w-6 h-6 text-green-600 dark:text-green-400" aria-hidden="true" />
+                  <div className="text-center p-4 rounded-lg bg-slate-400/10 border border-slate-400/20">
+                    <div className="w-12 h-12 bg-slate-400/20 rounded-full flex items-center justify-center mx-auto mb-3">
+                      <FlaskConical className="w-6 h-6 text-slate-600 dark:text-slate-300" aria-hidden="true" />
                     </div>
-                    <div className="font-semibold text-green-600 dark:text-green-400 mb-1">Local Prototypes</div>
+                    <div className="font-semibold text-slate-600 dark:text-slate-300 mb-1">Local Prototypes</div>
                     <div className="text-sm text-muted-foreground">Implementation direction without uptime claims</div>
                   </div>
                   
-                  <div className="text-center p-4 rounded-lg bg-orange-500/10 border border-orange-500/20">
-                    <div className="w-12 h-12 bg-orange-500/20 rounded-full flex items-center justify-center mx-auto mb-3">
-                      <Clock className="w-6 h-6 text-orange-600 dark:text-orange-400" aria-hidden="true" />
+                  <div className="text-center p-4 rounded-lg bg-amber-500/10 border border-amber-500/20">
+                    <div className="w-12 h-12 bg-amber-500/20 rounded-full flex items-center justify-center mx-auto mb-3">
+                      <Clock className="w-6 h-6 text-amber-600 dark:text-amber-400" aria-hidden="true" />
                     </div>
-                    <div className="font-semibold text-orange-600 dark:text-orange-400 mb-1">Planned Concepts</div>
+                    <div className="font-semibold text-amber-600 dark:text-amber-400 mb-1">Planned Concepts</div>
                     <div className="text-sm text-muted-foreground">Ideas that are not presented as public demos</div>
                   </div>
                   
-                  <div className="text-center p-4 rounded-lg bg-primary/10">
-                    <div className="w-12 h-12 bg-primary/20 rounded-full flex items-center justify-center mx-auto mb-3">
-                      <BadgeCheck className="w-6 h-6 text-primary" aria-hidden="true" />
+                  <div className="text-center p-4 rounded-lg bg-emerald-500/10 border border-emerald-500/20">
+                    <div className="w-12 h-12 bg-emerald-500/20 rounded-full flex items-center justify-center mx-auto mb-3">
+                      <BadgeCheck className="w-6 h-6 text-emerald-600 dark:text-emerald-400" aria-hidden="true" />
                     </div>
-                    <div className="font-semibold text-primary mb-1">Evidence-Linked Work</div>
+                    <div className="font-semibold text-emerald-600 dark:text-emerald-400 mb-1">Evidence-Linked Work</div>
                     <div className="text-sm text-muted-foreground">Public project and contribution claims link to source evidence</div>
                   </div>
                 </div>

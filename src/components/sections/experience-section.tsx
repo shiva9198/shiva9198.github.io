@@ -19,8 +19,7 @@ export function ExperienceSection() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gradient">Experience</h2>
-          <div className="w-24 h-1 bg-primary mx-auto rounded-full" />
+          <h2 className="text-2xl md:text-headline-lg mb-4 text-foreground">Experience</h2>
           <p className="text-muted-foreground mt-6 max-w-2xl mx-auto">
             Full-time product engineering, selected freelance work, and applied-AI experience.
           </p>
@@ -39,7 +38,7 @@ export function ExperienceSection() {
                 <CardContent className="p-8">
                   <div className="flex flex-col gap-5 lg:flex-row lg:items-start lg:justify-between">
                     <div className="flex items-start gap-4">
-                      <div className="w-14 h-14 bg-primary/20 rounded-xl flex items-center justify-center shrink-0">
+                      <div className="w-14 h-14 bg-primary/10 rounded-md flex items-center justify-center shrink-0">
                         <Building className="w-7 h-7 text-primary" />
                       </div>
                       <div>

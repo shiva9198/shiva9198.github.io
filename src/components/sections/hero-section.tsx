@@ -16,21 +16,14 @@ export function HeroSection() {
   };
 
   return (
-    <section className="relative flex min-h-screen items-center overflow-hidden bg-background">
-      {/* Quiet radial field instead of 50 floating particles */}
+    <section className="relative flex min-h-screen items-center overflow-hidden">
+      {/* Quiet radial field instead of 50 floating particles - the dot-matrix
+          canvas texture itself comes from body; this just adds a focal glow */}
       <div
         className="pointer-events-none absolute inset-0"
         style={{
           background:
-            'radial-gradient(60% 50% at 50% 0%, rgba(147, 129, 255, 0.14), transparent 70%)',
-        }}
-      />
-      <div
-        className="pointer-events-none absolute inset-0 opacity-[0.05] dark:opacity-[0.07]"
-        style={{
-          backgroundImage:
-            'linear-gradient(rgb(var(--foreground)) 1px, transparent 1px), linear-gradient(90deg, rgb(var(--foreground)) 1px, transparent 1px)',
-          backgroundSize: '64px 64px',
+            'radial-gradient(60% 50% at 50% 0%, rgba(56, 189, 248, 0.12), transparent 70%)',
         }}
       />
 
@@ -40,7 +33,7 @@ export function HeroSection() {
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="mb-6 inline-flex items-center gap-2 rounded-full border border-border/60 bg-card/50 px-4 py-1.5 text-sm text-muted-foreground backdrop-blur-sm"
+            className="code-sm mb-6 inline-flex items-center gap-2 rounded-full border border-border bg-card px-4 py-2 text-muted-foreground"
           >
             <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" />
             {personal.employment} · {personal.availability}
@@ -50,7 +43,7 @@ export function HeroSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.05 }}
-            className="text-5xl font-semibold leading-[1.05] tracking-tight text-foreground sm:text-6xl md:text-7xl"
+            className="text-5xl font-bold leading-[1.05] tracking-tight text-foreground sm:text-6xl md:text-display"
           >
             {personal.name}
           </motion.h1>
@@ -59,7 +52,7 @@ export function HeroSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.12 }}
-            className="mt-5 max-w-2xl text-xl font-normal text-primary sm:text-2xl"
+            className="mt-5 max-w-2xl text-xl font-normal text-sky-700 dark:text-secondary sm:text-2xl"
           >
             {personal.tagline}
           </motion.h2>
@@ -113,7 +106,7 @@ export function HeroSection() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.8, delay: 0.6 }}
-        className="absolute bottom-10 left-1/2 z-10 -translate-x-1/2 text-muted-foreground/60 transition-colors hover:text-primary"
+        className="absolute bottom-10 left-1/2 z-10 -translate-x-1/2 text-muted-foreground/60 transition-colors hover:text-sky-700 dark:hover:text-secondary"
       >
         <ArrowDown className="h-5 w-5" />
       </motion.button>

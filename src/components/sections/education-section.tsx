@@ -19,8 +19,7 @@ export function EducationSection() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gradient">Education</h2>
-          <div className="w-24 h-1 bg-primary mx-auto rounded-full" />
+          <h2 className="text-2xl md:text-headline-lg mb-4 text-foreground">Education</h2>
           <p className="text-muted-foreground mt-6 max-w-2xl mx-auto">
             B.Tech in Computer Science (AI & ML), completed in April 2026.
           </p>

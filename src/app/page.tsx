@@ -27,62 +27,62 @@ export default function HomePage() {
   }
 
   return (
-    <div className="min-h-screen bg-background text-foreground">
+    <div className="min-h-screen text-foreground">
       <Navigation />
       
-      <main className="relative bg-background">
+      <main className="relative">
         {/* Hero Section */}
-        <section id="hero" className="min-h-screen bg-background">
+        <section id="hero" className="min-h-screen">
           <HeroSection />
         </section>
 
         {/* About Section */}
-        <section id="about" className="py-20 bg-background">
+        <section id="about" className="py-20">
           <AboutSection />
         </section>
 
         {/* Skills Section */}
-        <section id="skills" className="py-20 bg-background">
+        <section id="skills" className="py-20">
           <SkillsSection />
         </section>
 
         {/* Current Work Section */}
-        <section id="current-work" className="py-20 bg-background">
+        <section id="current-work" className="py-20">
           <CurrentWorkSection />
         </section>
 
         {/* Education Section */}
-        <section id="education" className="py-20 bg-background">
+        <section id="education" className="py-20">
           <EducationSection />
         </section>
 
         {/* Certificates Section */}
-        <section id="certificates" className="py-20 bg-background">
+        <section id="certificates" className="py-20">
           <CertificatesSection />
         </section>
 
         {/* Experience Section */}
-        <section id="experience" className="py-20 bg-background">
+        <section id="experience" className="py-20">
           <ExperienceSection />
         </section>
 
         {/* Projects Section */}
-        <section id="projects" className="py-20 bg-background">
+        <section id="projects" className="py-20">
           <ProjectsSection />
         </section>
 
         {/* Public Contributions Section */}
-        <section id="contributions" className="py-20 bg-background">
+        <section id="contributions" className="py-20">
           <ContributionsSection />
         </section>
 
         {/* AI Playground Section */}
-        <section id="playground" className="py-20 bg-background">
+        <section id="playground" className="py-20">
           <PlaygroundSection />
         </section>
 
         {/* Contact Section */}
-        <section id="contact" className="py-20 bg-background">
+        <section id="contact" className="py-20">
           <ContactSection />
         </section>
       </main>
