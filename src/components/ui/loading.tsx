@@ -66,7 +66,7 @@ export function LoadingOverlay({
 // Skeleton loading components
 export function CardSkeleton() {
   return (
-    <div className="glass border-0 backdrop-blur-lg p-6 space-y-4 animate-pulse">
+    <div className="glass border-0 p-6 space-y-4 animate-pulse">
       <div className="flex items-center space-x-4">
         <div className="w-12 h-12 bg-muted rounded-full"></div>
         <div className="space-y-2 flex-1">

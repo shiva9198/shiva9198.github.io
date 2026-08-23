@@ -134,7 +134,7 @@ export function VoiceAssistantDemo() {
       </div>
 
       {/* Chat messages */}
-      <Card className="glass border-0 backdrop-blur-lg">
+      <Card className="glass border-0">
         <CardContent className="p-0">
           <div className="h-96 overflow-y-auto p-4 space-y-4">
             {messages.map((message) => (
@@ -172,7 +172,7 @@ export function VoiceAssistantDemo() {
                           href={message.sourceUrl}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="inline-flex items-center text-xs text-blue-400 hover:text-blue-300 transition-colors"
+                          className="inline-flex items-center text-xs text-blue-600 hover:text-blue-500 dark:text-blue-400 dark:hover:text-blue-300 transition-colors"
                         >
                           <ExternalLink className="w-3 h-3 mr-1" />
                           View Source
@@ -217,7 +217,7 @@ export function VoiceAssistantDemo() {
           onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) => setInput(e.target.value)}
           onKeyPress={handleKeyPress}
           placeholder="Ask me to search and summarize any topic..."
-          className="glass border-0 backdrop-blur-lg resize-none"
+          className="glass border-0 resize-none"
           rows={2}
         />
         <Button

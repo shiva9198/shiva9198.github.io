@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@config "../../tailwind.config.ts";
 
 /* Smooth Scrolling */
 html {
@@ -33,7 +34,7 @@ body {
 :root {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
+  --font-sans: var(--font-body);
   --font-mono: var(--font-geist-mono);
 
   /* Brand Purple System */
@@ -42,37 +43,13 @@ body {
   --brand-darker: #6F5CDC;
   --brand-glow: #00E0FF;
   
-  /* Light Theme Colors - Comfortable Lavender (Eye-Friendly) */
-  --light-bg-primary: #F0ECFF;
-  --light-bg-secondary: #E8E1FF;
-  --light-bg-tertiary: #D9CCFF;
-  --light-bg-soft: #F0ECFF;
-  --light-text-primary: #2D1B69;
-  --light-text-secondary: #4C1D95;
-  --light-text-muted: #6B46C1;
-  --light-accent: #8B5CF6;
-  --light-border: #B8A9FF;
-  --light-text-muted: #5a5a7a;
-  
-  /* Dark Theme Colors - Enhanced for Visual Impact */
-  --dark-bg-primary: #0A0A12;
-  --dark-bg-secondary: #151526;
-  --dark-bg-tertiary: #1F1F3A;
-  --dark-bg-accent: #2A1A4A;
-  --dark-text-primary: #FFFFFF;
-  --dark-text-secondary: #E8E8F0;
-  --dark-text-muted: #B8B8D0;
-  --dark-glow-primary: rgba(147, 129, 255, 0.4);
-  --dark-glow-secondary: rgba(0, 224, 255, 0.3);
-  --dark-shadow-glow: 0 0 40px rgba(147, 129, 255, 0.2);
-
-  /* Enhanced Glassmorphism Colors */
-  --glass-bg: hsla(253, 100%, 85%, 0.25);
-  --glass-bg-dark: hsla(240, 100%, 3%, 0.4);
-  --glass-border: hsla(253, 100%, 75%, 0.4);
-  --glass-border-dark: hsla(253, 100%, 75%, 0.2);
-  --glass-shadow-light: 0 8px 32px rgba(139, 92, 246, 0.15);
-  --glass-shadow-dark: 0 8px 32px rgba(147, 129, 255, 0.3);
+  /* Refined Glassmorphism Colors - quiet frost, not neon */
+  --glass-bg: hsla(253, 60%, 96%, 0.6);
+  --glass-bg-dark: hsla(240, 40%, 10%, 0.5);
+  --glass-border: hsla(253, 40%, 70%, 0.25);
+  --glass-border-dark: hsla(253, 60%, 75%, 0.12);
+  --glass-shadow-light: 0 4px 24px rgba(45, 27, 105, 0.06);
+  --glass-shadow-dark: 0 4px 24px rgba(0, 0, 0, 0.3);
 }
 
 :root {
@@ -124,11 +101,16 @@ body {
   * {
     border-color: rgb(var(--border));
   }
-  
+
   body {
     background-color: rgb(var(--background));
     color: rgb(var(--foreground));
-    font-family: var(--font-geist-sans), 'Inter', system-ui, -apple-system, sans-serif;
+    font-family: var(--font-body), 'Inter', system-ui, -apple-system, sans-serif;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: var(--font-display), var(--font-body), system-ui, sans-serif;
+    letter-spacing: -0.02em;
   }
 
   html {
@@ -150,37 +132,36 @@ body {
     border: 1px solid rgba(255, 255, 255, 0.1);
   }
 
-  /* Gradient Text Effects - Theme-aware */
+  /* Heading treatment - Theme-aware. Restrained: near-solid ink with a
+     whisper of brand tint, not a loud rainbow clip-text effect. */
   .text-gradient {
     color: #2D1B69; /* Fallback solid color */
-    background: linear-gradient(135deg, #2D1B69 0%, #6B46C1 50%, #9333EA 100%);
+    background: linear-gradient(100deg, #2D1B69 0%, #2D1B69 55%, #6B46C1 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
 
   .text-gradient-alt {
-    color: #2D1B69; /* Fallback solid color */
-    background: linear-gradient(90deg, #2D1B69 0%, #4C1D95 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    color: #2D1B69;
+    background-clip: unset;
+    -webkit-background-clip: unset;
+    -webkit-text-fill-color: unset;
   }
 
   .dark .text-gradient {
-    color: rgb(var(--primary)); /* Fallback solid color */
-    background: linear-gradient(135deg, rgb(var(--primary)) 0%, #00E0FF 100%);
+    color: rgb(var(--foreground)); /* Fallback solid color */
+    background: linear-gradient(100deg, rgb(var(--foreground)) 0%, rgb(var(--foreground)) 55%, rgb(var(--primary)) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
 
   .dark .text-gradient-alt {
-    color: rgb(var(--primary)); /* Fallback solid color */
-    background: linear-gradient(135deg, rgb(var(--primary)) 0%, rgb(var(--accent)) 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    color: rgb(var(--foreground));
+    background-clip: unset;
+    -webkit-background-clip: unset;
+    -webkit-text-fill-color: unset;
   }
 
   /* Brand color utilities */
@@ -196,89 +177,22 @@ body {
     border-color: var(--brand-primary);
   }
 
-  /* Gradient Backgrounds */
-  .gradient-bg-light {
-    background: linear-gradient(135deg, var(--light-bg-primary) 0%, var(--light-bg-secondary) 50%, var(--light-bg-tertiary) 100%);
-    box-shadow: 0 0 30px rgba(147, 129, 255, 0.1);
-  }
-
-  .gradient-bg-dark {
-    background: linear-gradient(135deg, var(--dark-bg-primary) 0%, var(--dark-bg-secondary) 30%, var(--dark-bg-tertiary) 70%, var(--dark-bg-accent) 100%);
-    box-shadow: var(--dark-shadow-glow);
-  }
-
-  /* Modern Gradient Backgrounds - Enhanced */
-  .bg-gradient-modern {
-    background: linear-gradient(135deg, 
-      rgba(147, 129, 255, 0.15) 0%, 
-      rgba(139, 92, 246, 0.12) 50%, 
-      rgba(147, 129, 255, 0.08) 100%);
-    box-shadow: 0 0 20px rgba(147, 129, 255, 0.1);
-  }
-
-  .dark .bg-gradient-modern {
-    background: linear-gradient(135deg, 
-      rgba(147, 129, 255, 0.12) 0%, 
-      rgba(0, 224, 255, 0.08) 30%,
-      rgba(147, 129, 255, 0.06) 70%,
-      rgba(42, 26, 74, 0.4) 100%);
-    box-shadow: 0 0 60px rgba(147, 129, 255, 0.1);
-  }
 }
 
 /* Custom animations - Optimized for Performance */
-@keyframes float {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-15px); }
-}
-
 @keyframes glow {
-  0%, 100% { 
-    box-shadow: 0 0 15px rgba(147, 129, 255, 0.4);
-    transform: scale(1);
+  0%, 100% {
+    box-shadow: 0 0 0 1px rgba(147, 129, 255, 0.25), 0 4px 20px rgba(147, 129, 255, 0.15);
   }
-  50% { 
-    box-shadow: 0 0 25px rgba(147, 129, 255, 0.7);
-    transform: scale(1.01);
-  }
-}
-
-@keyframes gradient-x {
-  0%, 100% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-}
-
-@keyframes fade-in-up {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
+  50% {
+    box-shadow: 0 0 0 1px rgba(147, 129, 255, 0.4), 0 4px 24px rgba(147, 129, 255, 0.22);
   }
 }
 
 /* Performance-Optimized Animation Classes */
-.animate-float {
-  animation: float 4s ease-in-out infinite;
-  will-change: transform;
-}
-
 .animate-glow {
-  animation: glow 1.5s ease-in-out infinite alternate;
-  will-change: box-shadow, transform;
-}
-
-.animate-gradient-x {
-  animation: gradient-x 2s ease-in-out infinite;
-  background-size: 200% 200%;
-  will-change: background-position;
-}
-
-.animate-fade-in-up {
-  animation: fade-in-up 0.5s ease-out forwards;
-  will-change: opacity, transform;
+  animation: glow 2.2s ease-in-out infinite alternate;
+  will-change: box-shadow;
 }
 
 /* Enhanced Custom scrollbar */
@@ -315,10 +229,10 @@ body {
   box-shadow: 0 0 15px rgba(147, 129, 255, 0.6);
 }
 
-/* Enhanced Modern Glassmorphism Utilities */
+/* Refined glassmorphism utility - a quiet frosted card, not a neon panel */
 .glass {
   background: var(--glass-bg);
-  backdrop-filter: blur(20px);
+  backdrop-filter: blur(10px);
   border: 1px solid var(--glass-border);
   box-shadow: var(--glass-shadow-light);
 }
@@ -329,74 +243,13 @@ body {
   box-shadow: var(--glass-shadow-dark);
 }
 
-/* Enhanced Hover Glow Effects */
-.hover-glow {
-  transition: all 0.15s ease;
-  will-change: box-shadow, transform;
-}
-
-.hover-glow:hover {
-  box-shadow: 0 0 25px rgba(147, 129, 255, 0.4);
-  transform: translateY(-1px);
-}
-
-.dark .hover-glow:hover {
-  box-shadow: 0 0 40px rgba(147, 129, 255, 0.6), 0 0 80px rgba(0, 224, 255, 0.2);
-  transform: translateY(-2px);
-}
-
-/* Performance Optimizations - Hardware Acceleration */
-.gpu-accelerated {
-  transform: translateZ(0);
-  backface-visibility: hidden;
-  perspective: 1000px;
-  will-change: transform;
-}
-
-/* Optimize all motion elements */
-[class*="animate-"], 
-[class*="motion-"], 
+/* Optimize motion elements for compositing */
+[class*="animate-"],
+[class*="motion-"],
 .framer-motion > * {
   will-change: transform, opacity;
   backface-visibility: hidden;
   transform: translateZ(0);
-}
-
-/* Enhanced Card hover optimizations for Dark Theme */
-.card-hover {
-  transition: transform 0.15s ease, box-shadow 0.15s ease;
-  will-change: transform, box-shadow;
-}
-
-.card-hover:hover {
-  transform: translateY(-2px) translateZ(0);
-  box-shadow: 0 8px 25px rgba(147, 129, 255, 0.15);
-}
-
-.dark .card-hover:hover {
-  transform: translateY(-4px) translateZ(0);
-  box-shadow: 0 15px 40px rgba(147, 129, 255, 0.3), 0 0 20px rgba(147, 129, 255, 0.1);
-}
-
-/* Creative Dark Theme Effects */
-@keyframes pulse-glow {
-  0%, 100% { 
-    box-shadow: 0 0 20px rgba(147, 129, 255, 0.3);
-  }
-  50% { 
-    box-shadow: 0 0 40px rgba(147, 129, 255, 0.6), 0 0 60px rgba(0, 224, 255, 0.2);
-  }
-}
-
-@keyframes floating-orb {
-  0%, 100% { 
-    transform: translateY(0px) scale(1);
-    opacity: 0.6;
-  }
-  50% { 
-    transform: translateY(-20px) scale(1.05);
-    opacity: 0.8;
-  }
 }
 
 /* Bento Grid layout for projects (Bento Box) */
@@ -427,60 +280,3 @@ body {
 }
 
 
-@keyframes gradient-shift {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-
-@keyframes spin-slow {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
-
-@keyframes bounce-stagger {
-  0%, 60%, 100% { 
-    transform: translateY(0); 
-  }
-  30% { 
-    transform: translateY(-10px); 
-  }
-}
-
-/* Dark Theme Enhanced Classes */
-.dark .animate-pulse-glow {
-  animation: pulse-glow 3s ease-in-out infinite;
-}
-
-.dark .animate-floating-orb {
-  animation: floating-orb 4s ease-in-out infinite;
-}
-
-.dark .bg-gradient-animated {
-  background: linear-gradient(45deg, 
-    rgba(147, 129, 255, 0.1), 
-    rgba(0, 224, 255, 0.08), 
-    rgba(147, 129, 255, 0.06),
-    rgba(42, 26, 74, 0.1));
-  background-size: 400% 400%;
-  animation: gradient-shift 8s ease infinite;
-}
-
-/* Animation utility classes */
-.animate-spin-slow {
-  animation: spin-slow 3s linear infinite;
-}
-
-.animate-bounce-stagger {
-  animation: bounce-stagger 1.5s ease-in-out infinite;
-}
-
-/* Enhanced Text Effects for Dark Theme */
-.dark .text-enhanced-glow {
-  text-shadow: 0 0 10px rgba(147, 129, 255, 0.5), 0 0 20px rgba(147, 129, 255, 0.3);
-}
-
-.dark .border-glow {
-  border: 1px solid rgba(147, 129, 255, 0.3);
-  box-shadow: 0 0 15px rgba(147, 129, 255, 0.2), inset 0 0 15px rgba(147, 129, 255, 0.1);
-}

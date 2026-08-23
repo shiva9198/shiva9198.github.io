@@ -170,7 +170,7 @@ export function VirtualDiaryDemo() {
       </div>
 
       {/* New Entry Form */}
-      <Card className="glass border-0 backdrop-blur-lg">
+      <Card className="glass border-0">
         <CardContent className="p-6">
           <div className="space-y-4">
             <div className="flex items-center justify-between">
@@ -202,7 +202,7 @@ export function VirtualDiaryDemo() {
               value={currentEntry}
               onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) => setCurrentEntry(e.target.value)}
               placeholder="What's on your mind today? Share your thoughts, experiences, or reflections..."
-              className="glass border-0 backdrop-blur-lg min-h-[120px] resize-none"
+              className="glass border-0 min-h-[120px] resize-none"
             />
 
             <div className="flex items-center justify-between">
@@ -241,7 +241,7 @@ export function VirtualDiaryDemo() {
         </h3>
 
         {entries.length === 0 ? (
-          <Card className="glass border-0 backdrop-blur-lg">
+          <Card className="glass border-0">
             <CardContent className="p-8 text-center">
               <BookOpen className="w-12 h-12 text-muted-foreground mx-auto mb-4" />
               <p className="text-muted-foreground">
@@ -257,7 +257,7 @@ export function VirtualDiaryDemo() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
             >
-              <Card className="glass border-0 backdrop-blur-lg group hover:animate-glow transition-all duration-300">
+              <Card className="glass border-0 group hover:animate-glow transition-all duration-300">
                 <CardContent className="p-6">
                   <div className="flex items-start justify-between mb-4">
                     <div className="flex items-center gap-3">
@@ -321,7 +321,7 @@ export function VirtualDiaryDemo() {
       </div>
 
       {/* Features Info */}
-      <Card className="glass border-0 backdrop-blur-lg">
+      <Card className="glass border-0">
         <CardContent className="p-6">
           <div className="text-center mb-4">
             <h3 className="text-lg font-semibold mb-2 text-gradient-alt">

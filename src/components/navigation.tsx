@@ -112,7 +112,7 @@ export const Navigation = memo(function Navigation() {
         animate={{ y: 0 }}
         transition={{ duration: 0.5 }}
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-          scrolled ? 'glass backdrop-blur-lg' : ''
+          scrolled ? 'glass' : ''
         }`}
       >
         <div className="container mx-auto px-6">
@@ -191,7 +191,7 @@ export const Navigation = memo(function Navigation() {
             animate={{ x: 0 }}
             exit={{ x: '100%' }}
             transition={{ type: "spring", stiffness: 300, damping: 30 }}
-            className="fixed top-0 right-0 bottom-0 w-80 max-w-sm glass backdrop-blur-lg p-6"
+            className="fixed top-0 right-0 bottom-0 w-80 max-w-sm glass p-6"
           >
             <div className="flex items-center justify-between mb-8 mt-16">
               <span className="font-bold text-lg text-gradient">Navigation</span>

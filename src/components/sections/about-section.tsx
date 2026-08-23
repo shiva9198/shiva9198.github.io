@@ -1,8 +1,15 @@
 'use client';
 
+import { motion } from 'framer-motion';
 import { portfolioData } from '@/data/portfolio';
 import { Card, CardContent } from '@/components/ui/card';
-import { Avatar, AvatarFallback } from '@/components/ui/avatar';
+
+const stats = [
+  { value: 'FDE', label: 'BuildWithRV', title: 'Forward Deployed Engineer' },
+  { value: '4', label: 'Featured Public Projects' },
+  { value: '8', label: 'Merged External PRs' },
+  { value: 'Apr 2026', label: 'B.Tech Completed' },
+];
 
 export function AboutSection() {
   const { personal } = portfolioData;
@@ -10,91 +17,75 @@ export function AboutSection() {
   return (
     <section id="about" className="py-20 relative">
       <div className="container mx-auto px-6">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gradient">
-            About
-          </h2>
-          <div className="w-24 h-1 bg-primary mx-auto rounded-full" />
+        <div className="mb-16 max-w-2xl">
+          <h2 className="text-3xl font-semibold text-foreground sm:text-4xl">About</h2>
+          <div className="mt-4 h-px w-16 bg-primary" />
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
-          <div className="order-2 lg:order-1">
-            <Card className="glass border-0 backdrop-blur-lg">
-              <CardContent className="p-8">
-                <div className="space-y-6">
-                  <div>
-                    <h3 className="text-2xl font-bold mb-4 text-gradient-alt">
-                      How I Work
-                    </h3>
-                    <p className="text-muted-foreground leading-relaxed">
-                      {personal.profile}
-                    </p>
-                  </div>
+        <div className="mx-auto grid max-w-6xl gap-6 lg:grid-cols-5">
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className="lg:col-span-3"
+          >
+            <Card className="glass h-full border-0">
+              <CardContent className="flex h-full flex-col gap-8 p-8">
+                <div>
+                  <h3 className="mb-3 text-lg font-semibold text-foreground">How I Work</h3>
+                  <p className="leading-relaxed text-muted-foreground">
+                    {personal.profile}
+                  </p>
+                </div>
 
-                  <div className="grid grid-cols-2 gap-4">
-                    <div className="text-center p-4 rounded-lg bg-primary/10">
-                      <div className="text-lg font-bold text-primary mb-1">Forward Deployed Engineer</div>
-                      <div className="text-sm text-muted-foreground">BuildWithRV</div>
-                    </div>
-                    <div className="text-center p-4 rounded-lg bg-primary/10">
-                      <div className="text-2xl font-bold text-primary mb-1">4</div>
-                      <div className="text-sm text-muted-foreground">Featured Public Projects</div>
-                    </div>
-                    <div className="text-center p-4 rounded-lg bg-primary/10">
-                      <div className="text-2xl font-bold text-primary mb-1">8</div>
-                      <div className="text-sm text-muted-foreground">Merged External PRs</div>
-                    </div>
-                    <div className="text-center p-4 rounded-lg bg-primary/10">
-                      <div className="text-2xl font-bold text-primary mb-1">Apr 2026</div>
-                      <div className="text-sm text-muted-foreground">B.Tech Completed</div>
-                    </div>
-                  </div>
-
-                  <div>
-                    <h4 className="text-lg font-semibold mb-3 text-primary">
-                      Current Focus
-                    </h4>
-                    <ul className="space-y-2 text-muted-foreground">
-                      <li className="flex items-center">
-                        <div className="w-2 h-2 bg-primary rounded-full mr-3" />
-                        Production web, mobile, and backend engineering
-                      </li>
-                      <li className="flex items-center">
-                        <div className="w-2 h-2 bg-primary rounded-full mr-3" />
-                        Applied AI, retrieval, and voice systems
-                      </li>
-                      <li className="flex items-center">
-                        <div className="w-2 h-2 bg-primary rounded-full mr-3" />
-                        Building PlaceMe at placeme.study
-                      </li>
-                      <li className="flex items-center">
-                        <div className="w-2 h-2 bg-primary rounded-full mr-3" />
-                        Selected freelance engagements
-                      </li>
-                    </ul>
-                  </div>
+                <div>
+                  <h4 className="mb-3 text-sm font-semibold uppercase tracking-wide text-primary">
+                    Current Focus
+                  </h4>
+                  <ul className="space-y-2.5 text-muted-foreground">
+                    <li className="flex items-start">
+                      <div className="mr-3 mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-primary" />
+                      Production web, mobile, and backend engineering
+                    </li>
+                    <li className="flex items-start">
+                      <div className="mr-3 mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-primary" />
+                      Applied AI, retrieval, and voice systems
+                    </li>
+                    <li className="flex items-start">
+                      <div className="mr-3 mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-primary" />
+                      Building PlaceMe at placeme.study
+                    </li>
+                    <li className="flex items-start">
+                      <div className="mr-3 mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-primary" />
+                      Selected freelance engagements
+                    </li>
+                  </ul>
                 </div>
               </CardContent>
             </Card>
-          </div>
+          </motion.div>
 
-          <div className="order-1 lg:order-2 text-center">
-            <div className="relative inline-block w-80 h-80">
-              <div className="absolute inset-0 rounded-full border-4 border-dashed border-primary/80 dark:border-white/60" />
-              
-              <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 rounded-full">
-                <Avatar className="w-48 h-48 border-4 border-white shadow-2xl">
-                  <AvatarFallback className="text-5xl font-bold bg-gradient-to-br from-blue-500 via-purple-500 to-cyan-400 text-white">
-                    SS
-                  </AvatarFallback>
-                </Avatar>
-              </div>
-            </div>
-            
-            <div className="mt-8">
-              <h3 className="text-2xl font-bold mb-2">Shiva Santosh Reddy Aenugu</h3>
-              <p className="text-muted-foreground">{personal.tagline}</p>
-            </div>
+          <div className="grid grid-cols-2 gap-4 lg:col-span-2 lg:grid-rows-2">
+            {stats.map((stat, index) => (
+              <motion.div
+                key={stat.label}
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.1 + index * 0.08 }}
+                viewport={{ once: true }}
+              >
+                <Card className="glass h-full border-0">
+                  <CardContent className="flex h-full flex-col justify-center p-6">
+                    <div className="text-2xl font-semibold text-primary">{stat.value}</div>
+                    {stat.title && (
+                      <div className="mt-1 text-sm font-medium text-foreground">{stat.title}</div>
+                    )}
+                    <div className="mt-1 text-sm text-muted-foreground">{stat.label}</div>
+                  </CardContent>
+                </Card>
+              </motion.div>
+            ))}
           </div>
         </div>
       </div>

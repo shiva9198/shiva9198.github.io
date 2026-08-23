@@ -77,7 +77,7 @@ export function SkillsSection() {
               transition={{ duration: 0.6, delay: categoryIndex * 0.1 }}
               viewport={{ once: true }}
             >
-              <Card className="glass border-0 backdrop-blur-lg h-full">
+              <Card className="glass border-0 h-full">
                 <CardContent className="p-6">
                   <div className="flex items-center mb-6">
                     <div className={`w-4 h-4 rounded-full ${category.color} mr-3`} />

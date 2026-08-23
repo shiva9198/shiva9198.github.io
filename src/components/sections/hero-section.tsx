@@ -3,7 +3,7 @@
 import { motion } from 'framer-motion';
 import { portfolioData } from '@/data/portfolio';
 import { Button } from '@/components/ui/button';
-import { ExternalLink, GitPullRequest, Rocket } from 'lucide-react';
+import { ArrowDown, ExternalLink, GitPullRequest, Rocket } from 'lucide-react';
 
 export function HeroSection() {
   const { personal } = portfolioData;
@@ -16,116 +16,107 @@ export function HeroSection() {
   };
 
   return (
-    <section className="min-h-screen flex items-center justify-center relative overflow-hidden bg-background">
-      {/* Animated background */}
-      <div className="absolute inset-0 bg-background" />
-      
-      {/* Floating particles */}
-      <div className="absolute inset-0">
-        {[...Array(50)].map((_, i) => {
-          // Use deterministic positions based on index
-          const left = (i * 7.3) % 100; // Pseudo-random distribution
-          const top = (i * 13.7 + 23) % 100;
-          const duration = 3 + (i % 3);
-          const delay = (i * 0.1) % 2;
-          
-          return (
-            <motion.div
-              key={i}
-              className="absolute w-2 h-2 bg-primary/40 rounded-full"
-              style={{
-                left: `${left}%`,
-                top: `${top}%`,
-              }}
-              animate={{
-                y: [0, -30, 0],
-                opacity: [0.3, 1, 0.3],
-              }}
-              transition={{
-                duration,
-                repeat: Infinity,
-                delay,
-              }}
-            />
-          );
-        })}
-      </div>
+    <section className="relative flex min-h-screen items-center overflow-hidden bg-background">
+      {/* Quiet radial field instead of 50 floating particles */}
+      <div
+        className="pointer-events-none absolute inset-0"
+        style={{
+          background:
+            'radial-gradient(60% 50% at 50% 0%, rgba(147, 129, 255, 0.14), transparent 70%)',
+        }}
+      />
+      <div
+        className="pointer-events-none absolute inset-0 opacity-[0.05] dark:opacity-[0.07]"
+        style={{
+          backgroundImage:
+            'linear-gradient(rgb(var(--foreground)) 1px, transparent 1px), linear-gradient(90deg, rgb(var(--foreground)) 1px, transparent 1px)',
+          backgroundSize: '64px 64px',
+        }}
+      />
 
-      <div className="container mx-auto px-6 relative z-10">
-        <div className="text-center max-w-4xl mx-auto">
+      <div className="container relative z-10 mx-auto px-6 py-32">
+        <div className="mx-auto max-w-4xl">
           <motion.div
-            initial={{ opacity: 0, y: 50 }}
+            initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="mb-8"
+            transition={{ duration: 0.6 }}
+            className="mb-6 inline-flex items-center gap-2 rounded-full border border-border/60 bg-card/50 px-4 py-1.5 text-sm text-muted-foreground backdrop-blur-sm"
           >
-            <h1 className="text-5xl md:text-7xl font-bold mb-6 text-gradient">
-              {personal.name}
-            </h1>
-            <h2 className="text-2xl md:text-3xl mb-8 font-light text-foreground">
-              {personal.tagline}
-            </h2>
+            <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" />
+            {personal.employment} · {personal.availability}
           </motion.div>
 
-          <motion.p
-            initial={{ opacity: 0, y: 30 }}
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-lg md:text-xl mb-12 leading-relaxed max-w-3xl mx-auto text-muted-foreground"
+            transition={{ duration: 0.6, delay: 0.05 }}
+            className="text-5xl font-semibold leading-[1.05] tracking-tight text-foreground sm:text-6xl md:text-7xl"
+          >
+            {personal.name}
+          </motion.h1>
+
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.12 }}
+            className="mt-5 max-w-2xl text-xl font-normal text-primary sm:text-2xl"
+          >
+            {personal.tagline}
+          </motion.h2>
+
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="mt-6 max-w-2xl text-base leading-relaxed text-muted-foreground sm:text-lg"
           >
             {personal.profile}
           </motion.p>
 
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            className="flex flex-col sm:flex-row gap-4 justify-center items-center"
+            transition={{ duration: 0.6, delay: 0.28 }}
+            className="mt-10 flex flex-wrap items-center gap-3"
           >
-            <Button
-              onClick={() => scrollToSection('projects')}
-              size="lg"
-              className="glass hover:animate-glow transition-all duration-300 group"
-            >
-              <Rocket className="mr-2 h-5 w-5 group-hover:animate-bounce" />
+            <Button onClick={() => scrollToSection('projects')} size="lg" className="group">
+              <Rocket className="mr-2 h-4 w-4" />
               View Projects
             </Button>
-            
+
             <Button
               onClick={() => scrollToSection('contributions')}
               variant="outline"
               size="lg"
-              className="glass hover:animate-glow transition-all duration-300 group"
             >
-              <GitPullRequest className="mr-2 h-5 w-5 group-hover:animate-bounce" />
+              <GitPullRequest className="mr-2 h-4 w-4" />
               Public Contributions
             </Button>
-            
+
             <Button
               onClick={() => window.open('https://placeme.study', '_blank', 'noopener,noreferrer')}
-              variant="outline"
+              variant="ghost"
               size="lg"
-              className="glass hover:animate-glow transition-all duration-300 group"
+              className="text-muted-foreground"
             >
-              <ExternalLink className="mr-2 h-5 w-5 group-hover:animate-bounce" />
               Visit PlaceMe
+              <ExternalLink className="ml-2 h-4 w-4" />
             </Button>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 1, delay: 1 }}
-            className="mt-16"
-          >
-            <div className="animate-bounce">
-              <div className="w-6 h-10 border-2 border-primary rounded-full mx-auto relative">
-                <div className="w-1 h-3 bg-primary rounded-full mx-auto mt-2 animate-pulse" />
-              </div>
-            </div>
           </motion.div>
         </div>
       </div>
+
+      <motion.button
+        type="button"
+        aria-label="Scroll to About section"
+        onClick={() => scrollToSection('about')}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.8, delay: 0.6 }}
+        className="absolute bottom-10 left-1/2 z-10 -translate-x-1/2 text-muted-foreground/60 transition-colors hover:text-primary"
+      >
+        <ArrowDown className="h-5 w-5" />
+      </motion.button>
     </section>
   );
 }
