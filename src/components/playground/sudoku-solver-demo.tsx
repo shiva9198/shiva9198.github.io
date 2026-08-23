@@ -320,7 +320,7 @@ export function SudokuSolverDemo() {
 
       {/* Upload Message */}
       {uploadMessage && (
-        <Card className="glass border-0 backdrop-blur-lg">
+        <Card className="glass border-0">
           <CardContent className="p-4">
             <div className="flex items-center gap-2">
               {uploadMessage.includes('Failed') || uploadMessage.includes('error') ? (
@@ -335,7 +335,7 @@ export function SudokuSolverDemo() {
       )}
 
       {/* Sudoku Grid */}
-      <Card className="glass border-0 backdrop-blur-lg">
+      <Card className="glass border-0">
         <CardContent className="p-6">
           <div className="grid grid-cols-9 gap-1 w-fit mx-auto">
             {grid.map((row, rowIndex) =>
@@ -377,7 +377,7 @@ export function SudokuSolverDemo() {
       </Card>
 
       {/* Instructions */}
-      <Card className="glass border-0 backdrop-blur-lg">
+      <Card className="glass border-0">
         <CardContent className="p-4">
           <div className="grid md:grid-cols-3 gap-4 text-sm">
             <div className="flex items-center">

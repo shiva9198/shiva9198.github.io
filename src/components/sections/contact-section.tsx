@@ -117,9 +117,9 @@ export function ContactSection() {
                   transition={{ duration: 0.6, delay: index * 0.1 }}
                   viewport={{ once: true }}
                   whileHover={{ x: 10, transition: { duration: 0.2 } }}
-                  className="flex items-center p-4 glass border-0 backdrop-blur-lg rounded-lg group hover:animate-glow transition-all duration-300 cursor-pointer"
+                  className="flex items-center p-4 glass border-0 rounded-lg group hover:animate-glow transition-all duration-300 cursor-pointer"
                 >
-                  <div className={`w-12 h-12 rounded-full flex items-center justify-center mr-4 group-hover:animate-bounce ${
+                  <div className={`w-12 h-12 rounded-full flex items-center justify-center mr-4 ${
                     method.color.includes('green') ? 'bg-green-500/20' :
                     method.color.includes('blue') && method.color.includes('600') ? 'bg-blue-600/20' :
                     method.color.includes('blue') ? 'bg-blue-500/20' :
@@ -148,7 +148,7 @@ export function ContactSection() {
               transition={{ duration: 0.8, delay: 0.4 }}
               viewport={{ once: true }}
             >
-              <Card className="glass border-0 backdrop-blur-lg">
+              <Card className="glass border-0">
                 <CardContent className="p-6">
                   <div className="flex items-center mb-4">
                     <MapPin className="w-5 h-5 text-primary mr-2" />
@@ -172,7 +172,7 @@ export function ContactSection() {
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            <Card className="glass border-0 backdrop-blur-lg">
+            <Card className="glass border-0">
               <CardContent className="p-8">
                 <h3 className="text-2xl font-bold mb-6 text-gradient-alt">
                   Draft an Email
@@ -189,7 +189,7 @@ export function ContactSection() {
                           value={formData.name}
                           onChange={handleInputChange}
                           placeholder="Your full name"
-                          className="glass border-0 backdrop-blur-lg"
+                          className="glass border-0"
                           required
                         />
                       </div>
@@ -203,7 +203,7 @@ export function ContactSection() {
                           value={formData.email}
                           onChange={handleInputChange}
                           placeholder="your.email@example.com"
-                          className="glass border-0 backdrop-blur-lg"
+                          className="glass border-0"
                           required
                         />
                       </div>
@@ -218,7 +218,7 @@ export function ContactSection() {
                         value={formData.subject}
                         onChange={handleInputChange}
                         placeholder="Project, role, or collaboration"
-                        className="glass border-0 backdrop-blur-lg"
+                        className="glass border-0"
                       />
                     </div>
 
@@ -231,7 +231,7 @@ export function ContactSection() {
                         value={formData.message}
                         onChange={handleInputChange}
                         placeholder="Share the problem, expected outcome, and timeline..."
-                        className="glass border-0 backdrop-blur-lg min-h-[120px] resize-none"
+                        className="glass border-0 min-h-[120px] resize-none"
                         required
                       />
                     </div>
@@ -262,7 +262,7 @@ export function ContactSection() {
           viewport={{ once: true }}
           className="mt-20 text-center"
         >
-          <Card className="glass border-0 backdrop-blur-lg max-w-3xl mx-auto">
+          <Card className="glass border-0 max-w-3xl mx-auto">
             <CardContent className="p-8">
               <h3 className="text-xl font-bold mb-4 text-gradient-alt">
                 Have a Project in Mind?

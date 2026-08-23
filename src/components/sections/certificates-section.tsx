@@ -51,12 +51,12 @@ export function CertificatesSection() {
                   transition: { duration: 0.2 }
                 }}
               >
-              <Card className="glass border-0 backdrop-blur-lg h-full group hover:animate-glow transition-all duration-300 cursor-pointer">
+              <Card className="glass border-0 h-full transition-shadow duration-300 hover:shadow-lg cursor-pointer">
                 <CardContent className="p-6">
                   <div className="flex items-start justify-between mb-4">
                     <div className="flex-1">
                       <div className="flex items-center mb-3">
-                        <div className="w-12 h-12 bg-primary/20 rounded-full flex items-center justify-center mr-4 group-hover:animate-bounce">
+                        <div className="w-12 h-12 bg-primary/20 rounded-full flex items-center justify-center mr-4">
                           <CertificateIcon className="w-6 h-6 text-primary" aria-hidden="true" />
                         </div>
                         <div>
@@ -87,21 +87,8 @@ export function CertificatesSection() {
                     </div>
                   </div>
 
-                  {/* Certificate preview/indicator */}
-                  <div className="relative">
-                    <div className="h-2 bg-gradient-to-r from-primary via-primary/50 to-primary rounded-full overflow-hidden">
-                      <motion.div
-                        className="h-full bg-gradient-to-r from-white/30 to-transparent"
-                        animate={{
-                          x: ['-100%', '100%'],
-                        }}
-                        transition={{
-                          duration: 2,
-                          repeat: Infinity,
-                          ease: "linear",
-                        }}
-                      />
-                    </div>
+                  <div className="h-1 rounded-full bg-primary/20">
+                    <div className="h-full w-full rounded-full bg-primary/60" />
                   </div>
                 </CardContent>
               </Card>
@@ -118,7 +105,7 @@ export function CertificatesSection() {
           viewport={{ once: true }}
           className="mt-16"
         >
-          <Card className="glass border-0 backdrop-blur-lg max-w-3xl mx-auto">
+          <Card className="glass border-0 max-w-3xl mx-auto">
             <CardContent className="p-8">
               <div className="text-center mb-8">
                 <h3 className="text-2xl font-bold mb-4 text-gradient-alt">

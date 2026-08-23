@@ -35,7 +35,7 @@ export function ExperienceSection() {
               transition={{ duration: 0.6, delay: index * 0.1 }}
               viewport={{ once: true }}
             >
-              <Card className="glass border-0 backdrop-blur-lg">
+              <Card className="glass border-0">
                 <CardContent className="p-8">
                   <div className="flex flex-col gap-5 lg:flex-row lg:items-start lg:justify-between">
                     <div className="flex items-start gap-4">

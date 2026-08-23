@@ -68,7 +68,7 @@ export function ProjectsSection() {
               }}
               className={`h-full ${project.featured ? 'bento-item-large' : ''}`}
             >
-              <Card className="glass border-0 backdrop-blur-lg h-full group hover:animate-glow transition-all duration-300">
+              <Card className="glass border-0 h-full group hover:animate-glow transition-all duration-300">
                 <CardContent className="p-6 flex flex-col h-full">
                   {/* Project header */}
                   <div className="flex items-start justify-between mb-4">
@@ -138,7 +138,7 @@ export function ProjectsSection() {
                       className="glass hover:animate-glow transition-all duration-300 flex-1 group"
                       onClick={() => window.open(project.githubUrl, '_blank')}
                     >
-                      <Github className="w-4 h-4 mr-2 group-hover:animate-bounce" />
+                      <Github className="w-4 h-4 mr-2" />
                       View Code
                     </Button>
                     
@@ -148,7 +148,7 @@ export function ProjectsSection() {
                         className="glass hover:animate-glow transition-all duration-300 flex-1 group"
                         onClick={() => window.open(project.liveUrl!, '_blank')}
                       >
-                        <ExternalLink className="w-4 h-4 mr-2 group-hover:animate-bounce" />
+                        <ExternalLink className="w-4 h-4 mr-2" />
                         Live Demo
                       </Button>
                     ) : project.playgroundDemo && (
@@ -157,27 +157,12 @@ export function ProjectsSection() {
                         className="glass hover:animate-glow transition-all duration-300 flex-1 group"
                         onClick={() => scrollToPlayground(project.playgroundDemo!)}
                       >
-                        <Play className="w-4 h-4 mr-2 group-hover:animate-bounce" />
+                        <Play className="w-4 h-4 mr-2" />
                         View Prototype
                       </Button>
                     )}
                   </div>
 
-                  {/* Project indicator line */}
-                  <div className="mt-4 h-1 bg-gradient-to-r from-primary via-primary/50 to-primary rounded-full overflow-hidden">
-                    <motion.div
-                      className="h-full bg-gradient-to-r from-white/30 to-transparent"
-                      animate={{
-                        x: ['-100%', '100%'],
-                      }}
-                      transition={{
-                        duration: 3,
-                        repeat: Infinity,
-                        ease: "linear",
-                        delay: index * 0.5,
-                      }}
-                    />
-                  </div>
                 </CardContent>
               </Card>
             </motion.div>

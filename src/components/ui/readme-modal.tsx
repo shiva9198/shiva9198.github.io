@@ -115,7 +115,7 @@ export function ReadmeModal({ readmeUrl, projectTitle, trigger }: ReadmeModalPro
           </Button>
         )}
       </DialogTrigger>
-      <DialogContent className="max-w-4xl max-h-[80vh] overflow-hidden flex flex-col glass backdrop-blur-lg">
+      <DialogContent className="max-w-4xl max-h-[80vh] overflow-hidden flex flex-col glass">
         <DialogHeader>
           <DialogTitle className="text-gradient-alt">
             {projectTitle} - README

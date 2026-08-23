@@ -55,7 +55,7 @@ export class ErrorBoundary extends Component<Props, State> {
       }
 
       return (
-        <Card className="glass border-0 backdrop-blur-lg">
+        <Card className="glass border-0">
           <CardContent className="p-8 text-center">
             <AlertTriangle className="w-12 h-12 text-orange-500 mx-auto mb-4" />
             <h3 className="text-lg font-semibold mb-2">Something went wrong</h3>

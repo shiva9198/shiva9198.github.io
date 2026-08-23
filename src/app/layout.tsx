@@ -1,11 +1,18 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Inter, Lexend } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from '@/components/theme-provider';
 import { ErrorBoundary } from '@/components/error-boundary';
 
 const inter = Inter({
   subsets: ["latin"],
+  variable: "--font-body",
+});
+
+const lexend = Lexend({
+  subsets: ["latin"],
+  variable: "--font-display",
+  weight: ["500", "600", "700"],
 });
 
 export const metadata: Metadata = {
@@ -58,8 +65,8 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body 
-        className={`${inter.className} antialiased min-h-screen bg-background text-foreground`}
+      <body
+        className={`${inter.variable} ${lexend.variable} ${inter.className} antialiased min-h-screen bg-background text-foreground`}
         suppressHydrationWarning
       >
         <ErrorBoundary>

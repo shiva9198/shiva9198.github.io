@@ -13,10 +13,14 @@ export function Footer() {
   };
 
   return (
-    <footer className="relative border-t border-border/50">
-      {/* Background */}
-      <div className="absolute inset-0 gradient-bg-light dark:gradient-bg-dark opacity-50" />
-      
+    <footer className="relative border-t border-border/50 bg-background">
+      <div
+        className="pointer-events-none absolute inset-0"
+        style={{
+          background: 'radial-gradient(60% 100% at 50% 0%, rgba(147, 129, 255, 0.08), transparent 70%)',
+        }}
+      />
+
       <div className="relative z-10 container mx-auto px-6 py-12">
         <div className="grid md:grid-cols-3 gap-8 text-center md:text-left">
           {/* Brand */}

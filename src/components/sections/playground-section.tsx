@@ -121,7 +121,7 @@ export function PlaygroundSection() {
                 viewport={{ once: true }}
                 id={`feature-${feature.id}`}
               >
-                <Card className={`glass border-0 backdrop-blur-lg cursor-pointer transition-all duration-300 ${
+                <Card className={`glass border-0 cursor-pointer transition-all duration-300 ${
                   activeDemo === feature.id ? 'ring-2 ring-primary animate-glow' : 'hover:animate-glow'
                 }`}>
                   <CardContent className="p-6">
@@ -138,7 +138,7 @@ export function PlaygroundSection() {
                       <p className="text-sm text-muted-foreground mb-4">
                         {feature.description}
                       </p>
-                      <Badge variant="secondary" className="glass bg-sky-500/20 text-sky-400 border-sky-500/30 mb-4">
+                      <Badge variant="secondary" className="glass bg-sky-500/20 text-sky-600 dark:text-sky-400 border-sky-500/30 mb-4">
                         <Sparkles className="w-3 h-3 mr-1" />
                         Local Prototype
                       </Badge>
@@ -150,7 +150,7 @@ export function PlaygroundSection() {
                       className="glass hover:animate-glow transition-all duration-300 group w-full"
                       onClick={() => handleDemoSelect(feature.id)}
                     >
-                      <Info className="w-4 h-4 mr-2 group-hover:animate-bounce" />
+                      <Info className="w-4 h-4 mr-2" />
                       View Details
                     </Button>
                   </CardContent>
@@ -168,7 +168,7 @@ export function PlaygroundSection() {
                 viewport={{ once: true }}
                 id={`demo-${demo.id}`}
               >
-                <Card className={`glass border-0 backdrop-blur-lg cursor-pointer transition-all duration-300 opacity-80 ${
+                <Card className={`glass border-0 cursor-pointer transition-all duration-300 opacity-80 ${
                   activeDemo === demo.id ? 'ring-2 ring-primary/50 animate-glow' : 'hover:animate-glow'
                 }`}>
                   <CardContent className="p-6">
@@ -185,7 +185,7 @@ export function PlaygroundSection() {
                       <p className="text-sm text-muted-foreground mb-4 opacity-70">
                         {demo.description}
                       </p>
-                      <Badge variant="secondary" className="glass bg-orange-500/20 text-orange-400 border-orange-500/30 mb-4">
+                      <Badge variant="secondary" className="glass bg-orange-500/20 text-orange-600 dark:text-orange-400 border-orange-500/30 mb-4">
                         <Clock className="w-3 h-3 mr-1" />
                         Coming Soon
                       </Badge>
@@ -197,7 +197,7 @@ export function PlaygroundSection() {
                       className="glass hover:animate-glow transition-all duration-300 group w-full opacity-70"
                       onClick={() => handleDemoSelect(demo.id)}
                     >
-                      <Info className="w-4 h-4 mr-2 group-hover:animate-bounce" />
+                      <Info className="w-4 h-4 mr-2" />
                       Preview
                     </Button>
                   </CardContent>
@@ -214,7 +214,7 @@ export function PlaygroundSection() {
               transition={{ duration: 0.8 }}
               className="mb-8"
             >
-              <Card className="glass border-0 backdrop-blur-lg">
+              <Card className="glass border-0">
                 <CardContent className="p-8">
                   <div className="flex items-center justify-between mb-6">
                     <div className="flex items-center">
@@ -230,12 +230,12 @@ export function PlaygroundSection() {
                         </h3>
                         <div className="flex gap-2 mt-2">
                           {currentFeature?.status === 'prototype' ? (
-                            <Badge variant="secondary" className="glass bg-sky-500/20 text-sky-400 border-sky-500/30">
+                            <Badge variant="secondary" className="glass bg-sky-500/20 text-sky-600 dark:text-sky-400 border-sky-500/30">
                               <Sparkles className="w-3 h-3 mr-1" />
                               Local Prototype
                             </Badge>
                           ) : (
-                            <Badge variant="secondary" className="glass bg-orange-500/20 text-orange-400 border-orange-500/30">
+                            <Badge variant="secondary" className="glass bg-orange-500/20 text-orange-600 dark:text-orange-400 border-orange-500/30">
                               <Clock className="w-3 h-3 mr-1" />
                               Coming Soon
                             </Badge>
@@ -274,13 +274,13 @@ export function PlaygroundSection() {
 
                     {currentFeature?.status === 'prototype' ? (
                       <div className="bg-sky-500/10 p-4 rounded-lg border border-sky-500/20">
-                        <p className="text-sm text-sky-300">
+                        <p className="text-sm text-sky-700 dark:text-sky-300">
                           <strong>Local prototype:</strong> The implementation direction is documented here; no continuously hosted backend is claimed.
                         </p>
                       </div>
                     ) : (
                       <div className="bg-orange-500/10 p-4 rounded-lg border border-orange-500/20">
-                        <p className="text-sm text-orange-300">
+                        <p className="text-sm text-orange-700 dark:text-orange-300">
                           <strong>Planned concept:</strong> This is not yet a public demo. Its status will be updated when a usable version is available.
                         </p>
                       </div>
@@ -298,7 +298,7 @@ export function PlaygroundSection() {
             transition={{ duration: 0.8, delay: 0.4 }}
             viewport={{ once: true }}
           >
-            <Card className="glass border-0 backdrop-blur-lg">
+            <Card className="glass border-0">
               <CardContent className="p-8">
                 <div className="text-center mb-8">
                   <h3 className="text-2xl font-bold mb-4 text-gradient-alt">
@@ -312,17 +312,17 @@ export function PlaygroundSection() {
                 <div className="grid md:grid-cols-3 gap-6">
                   <div className="text-center p-4 rounded-lg bg-green-500/10 border border-green-500/20">
                     <div className="w-12 h-12 bg-green-500/20 rounded-full flex items-center justify-center mx-auto mb-3">
-                      <FlaskConical className="w-6 h-6 text-green-400" aria-hidden="true" />
+                      <FlaskConical className="w-6 h-6 text-green-600 dark:text-green-400" aria-hidden="true" />
                     </div>
-                    <div className="font-semibold text-green-400 mb-1">Local Prototypes</div>
+                    <div className="font-semibold text-green-600 dark:text-green-400 mb-1">Local Prototypes</div>
                     <div className="text-sm text-muted-foreground">Implementation direction without uptime claims</div>
                   </div>
                   
                   <div className="text-center p-4 rounded-lg bg-orange-500/10 border border-orange-500/20">
                     <div className="w-12 h-12 bg-orange-500/20 rounded-full flex items-center justify-center mx-auto mb-3">
-                      <Clock className="w-6 h-6 text-orange-400" aria-hidden="true" />
+                      <Clock className="w-6 h-6 text-orange-600 dark:text-orange-400" aria-hidden="true" />
                     </div>
-                    <div className="font-semibold text-orange-400 mb-1">Planned Concepts</div>
+                    <div className="font-semibold text-orange-600 dark:text-orange-400 mb-1">Planned Concepts</div>
                     <div className="text-sm text-muted-foreground">Ideas that are not presented as public demos</div>
                   </div>
                   
