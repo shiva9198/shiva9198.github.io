@@ -2,13 +2,13 @@ export const portfolioData = {
   personal: {
     name: "Shiva Santosh Reddy Aenugu",
     shortName: "Shiva",
-    tagline: "FDE at BuildWithRV · Building PlaceMe · AI & Full-Stack Engineer",
+    tagline: "Forward Deployed Engineer at BuildWithRV · Building PlaceMe · AI & Full-Stack Engineer",
     employment: "Full-time since July 2026",
     availability: "Available for select freelance work",
     email: "shiva24.santosh@gmail.com",
     linkedin: "https://www.linkedin.com/in/shiva-santosh-reddy-aenugu/",
     github: "https://github.com/shiva9198",
-    profile: "I work full-time as an FDE at BuildWithRV and am currently building PlaceMe, an AI-powered group discussion preparation platform. I focus on reliable web, mobile, backend, and applied-AI systems—from product interfaces and APIs to retrieval and realtime workflows."
+    profile: "I work full-time as a Forward Deployed Engineer at BuildWithRV and am currently building PlaceMe, an AI-powered group discussion preparation platform. I focus on reliable web, mobile, backend, and applied-AI systems—from product interfaces and APIs to retrieval and realtime workflows."
   },
 
   skills: [
@@ -88,11 +88,11 @@ export const portfolioData = {
   experience: [
     {
       company: "BuildWithRV",
-      position: "FDE",
+      position: "Forward Deployed Engineer",
       period: "July 2026 - Present",
       type: "Full-time",
       description: [
-        "Build and ship production software in a full-time FDE role.",
+        "Build and ship production software in a full-time Forward Deployed Engineer role.",
         "Work across web, mobile, backend, and applied-AI product development."
       ],
       technologies: ["Product Engineering", "Full-Stack Development", "Applied AI"]
@@ -218,7 +218,7 @@ export const portfolioData = {
     focus: [
       {
         title: "Full-time product engineering",
-        description: "Building and shipping production software as an FDE at BuildWithRV.",
+        description: "Building and shipping production software as a Forward Deployed Engineer at BuildWithRV.",
         status: "Current",
         tech: ["Web", "Mobile", "Backend", "Applied AI"],
         url: null
@@ -245,7 +245,7 @@ export const portfolioData = {
     ],
     goals: [
       "Build PlaceMe into a reliable group discussion preparation platform",
-      "Ship dependable production software in the full-time FDE role",
+      "Ship dependable production software in the full-time Forward Deployed Engineer role",
       "Deliver a small number of high-quality freelance engagements",
       "Continue making verifiable public contributions"
     ]

@@ -25,7 +25,7 @@ export function Footer() {
               SS
             </h3>
             <p className="text-muted-foreground text-sm leading-relaxed">
-              FDE at BuildWithRV, building PlaceMe and reliable web, mobile,
+              Forward Deployed Engineer at BuildWithRV, building PlaceMe and reliable web, mobile,
               backend, and applied-AI products.
             </p>
           </div>

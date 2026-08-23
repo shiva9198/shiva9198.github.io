@@ -1,6 +1,6 @@
 # Shiva Santosh Reddy Aenugu — Engineering Portfolio
 
-Personal portfolio for Shiva Santosh Reddy Aenugu, an FDE at BuildWithRV working across production web, mobile, backend, and applied-AI systems.
+Personal portfolio for Shiva Santosh Reddy Aenugu, a Forward Deployed Engineer at BuildWithRV working across production web, mobile, backend, and applied-AI systems.
 
 Live site: [shiva9198.github.io](https://shiva9198.github.io)
 

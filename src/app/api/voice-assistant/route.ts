@@ -28,7 +28,7 @@ export async function POST(request: NextRequest) {
       
       'skills': `My current stack includes React, React Native, Expo, Next.js, TypeScript, Python, FastAPI, Node.js, PostgreSQL, Supabase, Redis, Appwrite, Firebase, Docker, RAG, GraphRAG, LangChain, LangGraph, FAISS, Neo4j, and Whisper.`,
 
-      'employment': `I work full-time as an FDE at BuildWithRV, starting in July 2026, and I am currently building PlaceMe. I am also available for selected freelance work and completed my B.Tech in Computer Science with an AI and ML specialization in April 2026.`
+      'employment': `I work full-time as a Forward Deployed Engineer at BuildWithRV, starting in July 2026, and I am currently building PlaceMe. I am also available for selected freelance work and completed my B.Tech in Computer Science with an AI and ML specialization in April 2026.`
     };
 
     // Keep the static demo honest about unavailable external fetching.

@@ -7,7 +7,7 @@ This document is the public-safe content source for the GitHub profile and portf
 
 ## Confirmed profile facts
 
-- FDE at BuildWithRV, full-time from 1 July 2026
+- Forward Deployed Engineer at BuildWithRV, full-time from 1 July 2026
 - Building [PlaceMe](https://placeme.study), an AI-powered group discussion preparation platform
 - Available for selected freelance work
 - AI/ML Intern at Regality AI from May to July 2025
