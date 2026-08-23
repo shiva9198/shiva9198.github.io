@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, Lexend } from "next/font/google";
+import { Inter, Hanken_Grotesk, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from '@/components/theme-provider';
 import { ErrorBoundary } from '@/components/error-boundary';
@@ -9,10 +9,16 @@ const inter = Inter({
   variable: "--font-body",
 });
 
-const lexend = Lexend({
+const hankenGrotesk = Hanken_Grotesk({
   subsets: ["latin"],
   variable: "--font-display",
   weight: ["500", "600", "700"],
+});
+
+const jetBrainsMono = JetBrains_Mono({
+  subsets: ["latin"],
+  variable: "--font-mono-code",
+  weight: ["500", "700"],
 });
 
 export const metadata: Metadata = {
@@ -66,7 +72,7 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={`${inter.variable} ${lexend.variable} ${inter.className} antialiased min-h-screen bg-background text-foreground`}
+        className={`${inter.variable} ${hankenGrotesk.variable} ${jetBrainsMono.variable} ${inter.className} antialiased min-h-screen bg-background text-foreground`}
         suppressHydrationWarning
       >
         <ErrorBoundary>

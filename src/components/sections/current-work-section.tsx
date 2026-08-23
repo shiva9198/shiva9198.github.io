@@ -11,7 +11,7 @@ export function CurrentWorkSection() {
   const { currentWork } = portfolioData;
 
   return (
-    <section id="current-work" className="py-20 bg-background">
+    <section id="current-work" className="py-20">
       <div className="container mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -20,7 +20,7 @@ export function CurrentWorkSection() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gradient">Current Focus</h2>
+          <h2 className="text-2xl md:text-headline-lg mb-4 text-foreground">Current Focus</h2>
           <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
             What I&apos;m building, contributing to, and learning—limited to public, verifiable information.
           </p>

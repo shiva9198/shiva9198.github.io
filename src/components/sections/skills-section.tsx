@@ -59,10 +59,9 @@ export function SkillsSection() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gradient">
+          <h2 className="text-2xl md:text-headline-lg mb-4 text-foreground">
             Technology Stack
           </h2>
-          <div className="w-24 h-1 bg-primary mx-auto rounded-full" />
           <p className="text-muted-foreground mt-6 max-w-3xl mx-auto">
             Technologies evidenced by recent work, public projects, and authored contributions—not self-scored proficiency percentages.
           </p>
@@ -80,8 +79,8 @@ export function SkillsSection() {
               <Card className="glass border-0 h-full">
                 <CardContent className="p-6">
                   <div className="flex items-center mb-6">
-                    <div className={`w-4 h-4 rounded-full ${category.color} mr-3`} />
-                    <h3 className="text-xl font-bold text-gradient-alt">{category.title}</h3>
+                    <div className="w-2 h-2 rounded-full bg-secondary mr-3" />
+                    <h3 className="text-xl font-semibold text-foreground">{category.title}</h3>
                   </div>
 
                   <div className="grid sm:grid-cols-2 gap-3">
@@ -89,12 +88,12 @@ export function SkillsSection() {
                       const SkillIcon = skillIcons[skill.icon as keyof typeof skillIcons] ?? Code2;
 
                       return (
-                        <div key={skill.name} className="rounded-xl border border-border/50 bg-primary/5 p-4">
+                        <div key={skill.name} className="rounded-md border border-border bg-muted/50 p-4">
                           <div className="flex items-center gap-3 mb-2">
                             <SkillIcon className="w-5 h-5 text-primary" aria-hidden="true" />
                             <span className="font-medium">{skill.name}</span>
                           </div>
-                          <Badge variant="outline" className="text-xs">{skill.evidence}</Badge>
+                          <Badge variant="outline" className="code-sm rounded-full">{skill.evidence}</Badge>
                         </div>
                       );
                     })}

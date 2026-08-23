@@ -13,7 +13,7 @@ export function Footer() {
   };
 
   return (
-    <footer className="relative border-t border-border/50 bg-background">
+    <footer className="relative border-t border-border/50">
       <div
         className="pointer-events-none absolute inset-0"
         style={{
